@@ -15,6 +15,7 @@ class Business(db.Model):
     state = db.Column(db.String)
     country = db.Column(db.String)
     language = db.Column(db.String)
+    currency = db.Column(db.String)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
 

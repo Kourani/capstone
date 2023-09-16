@@ -11,7 +11,7 @@ class ProductComment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     item_quality = db.Column(db.Integer)
-    comment = db.Column(db.Integer)
+    comment = db.Column(db.String)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
 
