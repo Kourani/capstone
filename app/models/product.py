@@ -2,8 +2,6 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
-# from sqlalchemy.dialects.mysql import DECIMAL
-
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -12,16 +10,23 @@ class Product(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+
+    business_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod('businesses.id')))
+    owner_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod('users.id')))
     name = db.Column(db.String)
     category = db.Column(db.String)
-    # price = db.Column(DECIMAL(precision=10, scale=2))
+    price = db.Column(db.Float)
 
-    # users = db.relationship('User', back_populates='products')
+    businesses = db.relationship('Business', back_populates='products') #business table fill out products
 
     def to_dict(self):
         return {
             'id' : self.id,
             'name' : self.name,
             'category' : self.category,
-            'price' : self.price
+            'price' : self.price,
+            'ownerId': self.owner_id,
+            'businessId' : self.business_id
         }

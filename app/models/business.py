@@ -10,6 +10,10 @@ class Business(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+
+    owner_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod('users.id')), nullable=False)
+
     address = db.Column(db.String)
     city = db.Column(db.String)
     state = db.Column(db.String)
@@ -18,15 +22,19 @@ class Business(db.Model):
     currency = db.Column(db.String)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
-    # users = db.relationship('User', back_populates='businesses')
+    users = db.relationship('User', back_populates='businesses') #user table fill out business
+    products = db.relationship('Product', back_populates='businesses') #product table fill out business
+
 
     def to_dict(self):
         return {
-            'id': self.id,
-            'address': self.address,
-            'city': self.city,
-            'state' : self.state,
-            'country' : self.country,
-            'language' : self.language,
-            'createdAt' : self.created_at
+            'id':self.id,
+            'ownerId':self.owner_id,
+            'address':self.address,
+            'city':self.city,
+            'state':self.state,
+            'country':self.country,
+            'language':self.language,
+            'currency':self.currency,
+            'createdAt':self.created_at
         }

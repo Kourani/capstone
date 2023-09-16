@@ -10,11 +10,13 @@ class ProductComment(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod('users.id')), nullable=False)
     item_quality = db.Column(db.Integer)
     comment = db.Column(db.String)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
-    # users = db.relationship('User', back_populates='productComments')
+    users = db.relationship('User', back_populates='productComments') #user table fill out productComments
 
     def to_dict(self):
         return {

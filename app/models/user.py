@@ -11,6 +11,7 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    profile_icon=db.Column(db.String)
     first_name = db.Column(db.String)
     last_name = db.Column(db.String)
     favorites = db.Column(db.String)
@@ -25,9 +26,8 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default = datetime.now())
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    # products = db.relationship('Product', back_populates='users', cascade='all, delete-orphan')
-    # businesses = db.relationship('Business', back_populates='users', cascade='all, delete-orphan')
-    # productComments = db.relationship('ProductComment', back_populates='users', cascade='all, delete-orphan')
+    businesses = db.relationship('Business', back_populates='users', cascade='all, delete-orphan')
+    productComments = db.relationship('ProductComment', back_populates='users', cascade='all, delete-orphan')
 
     @property
     def password(self):
@@ -43,6 +43,17 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
+            'profileIcon':self.profile_icon,
+            'firstName':self.first_name,
+            'lastName': self.last_name,
+            'favorites' : self.favorites,
+            'about' : self.about,
+            'birthday' : self.birthday,
+            'address' : self.address,
+            'city' : self.city,
+            'state' : self.state,
+            'coountry' : self.country,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'createdAt':self.created_at
         }
