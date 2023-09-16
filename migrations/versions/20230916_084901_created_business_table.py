@@ -32,6 +32,7 @@ def upgrade():
     sa.Column('language', sa.String(), nullable=True),
     sa.Column('currency', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['owner_id'], ['owner.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
 
