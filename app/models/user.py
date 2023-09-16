@@ -25,6 +25,9 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default = datetime.now())
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    # products = db.relationship('Product', back_populates='users', cascade='all, delete-orphan')
+    # businesses = db.relationship('Business', back_populates='users', cascade='all, delete-orphan')
+    # productComments = db.relationship('ProductComment', back_populates='users', cascade='all, delete-orphan')
 
     @property
     def password(self):

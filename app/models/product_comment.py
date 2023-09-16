@@ -14,6 +14,7 @@ class ProductComment(db.Model):
     comment = db.Column(db.String)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
+    # users = db.relationship('User', back_populates='productComments')
 
     def to_dict(self):
         return {

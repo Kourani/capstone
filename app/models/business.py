@@ -18,6 +18,7 @@ class Business(db.Model):
     currency = db.Column(db.String)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
+    # users = db.relationship('User', back_populates='businesses')
 
     def to_dict(self):
         return {
