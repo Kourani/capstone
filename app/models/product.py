@@ -2,6 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+from sqlalchemy import Column, DECIMAL
 
 
 class Product(db.Model):
@@ -13,7 +14,7 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     category = db.Column(db.String)
-    price = db.Column(db.Decimal)
+    price = db.Column(DECIMAL(precision=10, scale=2))
 
 
     def to_dict(self):
