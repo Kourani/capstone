@@ -6,13 +6,13 @@ from sqlalchemy.sql import text
 def seed_products():
 
     product0 = Product(
-        name='teddy bear', category='plush', price=29.99
+        business_id=1, name='teddy bear', category='plush', price=29.99
     )
     product1= Product(
-        name='Scar', category='toys', price=50.12
+        business_id=2, name='Scar', category='toys', price=50.12
     )
     product2=Product(
-        name='Squish', category='stress relif', price=5
+        business_id=3, name='Squish', category='stress relif', price=5
     )
 
     db.session.add(product0)

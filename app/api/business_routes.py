@@ -14,7 +14,7 @@ def businesses():
     return {'businesses': [business.to_dict() for business in businesses]}
 
 
-@businesses_routes.route('/<int:id>')
+@business_routes.route('/<int:id>')
 def business(id):
     """
     Query for a business by id and returns that business in a dictionary
