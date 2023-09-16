@@ -9,17 +9,17 @@ class Business(db.Model):
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
 
     owner_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('users.id')), nullable=False)
 
-    address = db.Column(db.String)
-    city = db.Column(db.String)
-    state = db.Column(db.String)
-    country = db.Column(db.String)
-    language = db.Column(db.String)
-    currency = db.Column(db.String)
+    address = db.Column(db.String, nullable=False)
+    city = db.Column(db.String, nullable=False)
+    state = db.Column(db.String, nullable=False)
+    country = db.Column(db.String, nullable=False)
+    language = db.Column(db.String, nullable=False)
+    currency = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
     users = db.relationship('User', back_populates='businesses') #user table fill out business

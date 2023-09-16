@@ -18,7 +18,7 @@ class Order(db.Model):
     business_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('businesses.id')), nullable=False)
 
-    status = db.Column(db.String)
+    status = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
 
     def to_dict(self):

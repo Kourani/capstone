@@ -9,15 +9,15 @@ class Product(db.Model):
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
 
     business_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('businesses.id')))
     owner_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('users.id')))
-    name = db.Column(db.String)
+    name = db.Column(db.String, nullable=False)
     category = db.Column(db.String)
-    price = db.Column(db.Float)
+    price = db.Column(db.Float, nullable=False)
 
     businesses = db.relationship('Business', back_populates='products') #business table fill out products
 
