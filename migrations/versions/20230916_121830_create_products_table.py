@@ -30,7 +30,7 @@ def upgrade():
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('category', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['business_id'], ['businesses.id'], ),
-    sa.ForeignKeyConstraint(['owner_id'], ['owner.id'], ),
+    sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
 
