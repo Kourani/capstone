@@ -3,11 +3,11 @@ from sqlalchemy.sql import text
 
 def seed_businesses():
     business0 = Business(
-        address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
+        owner_id = 1, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
     business1 = Business(
-        address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
+        owner_id = 2, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
     business2 = Business(
-        address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
+        owner_id = 3, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
 
     db.session.add(business0)
     db.session.add(business1)
