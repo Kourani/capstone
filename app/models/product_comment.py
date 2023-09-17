@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class ProductComment(db.Model):
-    __tablename__ = 'productComments'
+    __tablename__ = 'productcomments'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
