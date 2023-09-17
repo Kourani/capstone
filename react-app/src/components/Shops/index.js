@@ -19,7 +19,7 @@ export default function Shops(){
 
     console.log(shopState,'WELCOME!')
 
-    console.log(shopState?.businesses, 'todo!!!!!!!!!!!!!!!!!!!!')
+    console.log(shopState?.shops, 'todo!!!!!!!!!!!!!!!!!!!!')
 
 
     return (

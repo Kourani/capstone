@@ -1,24 +1,24 @@
-from app.models import db, Business, User, environment, SCHEMA
+from app.models import db, Shop, User, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_businesses():
-    business0 = Business(
+def seed_shops():
+    shop0 = Shop(
         owner_id = 1, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
-    business1 = Business(
+    shop1 = Shop(
         owner_id = 2, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
-    business2 = Business(
+    shop2 = Shop(
         owner_id = 3, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
 
-    db.session.add(business0)
-    db.session.add(business1)
-    db.session.add(business2)
+    db.session.add(shop0)
+    db.session.add(shop1)
+    db.session.add(shop2)
     db.session.commit()
 
 
-def undo_businesses():
+def undo_shops():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.businesses RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.shops RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM businesses"))
+        db.session.execute(text("DELETE FROM shops"))
 
     db.session.commit()

@@ -15,8 +15,8 @@ class Order(db.Model):
         add_prefix_for_prod('users.id')), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('products.id')), nullable=False)
-    business_id = db.Column(db.Integer, db.ForeignKey(
-        add_prefix_for_prod('businesses.id')), nullable=False)
+    shop_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod('shops.id')), nullable=False)
 
     status = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
@@ -26,6 +26,6 @@ class Order(db.Model):
             'id':self.id,
             'customerId':self.customer_id,
             'productId':self.product_id,
-            'businessId':self.business_id,
+            'shopId':self.shop_id,
             'createdAt':self.created_at
         }

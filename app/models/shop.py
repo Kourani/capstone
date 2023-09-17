@@ -3,8 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 
-class Business(db.Model):
-    __tablename__ = 'businesses'
+class Shop(db.Model):
+    __tablename__ = 'shops'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
@@ -22,8 +22,8 @@ class Business(db.Model):
     currency = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
-    users = db.relationship('User', back_populates='businesses') #user table fill out business
-    products = db.relationship('Product', back_populates='businesses') #product table fill out business
+    users = db.relationship('User', back_populates='shops') #user table fill out business
+    products = db.relationship('Product', back_populates='shops') #product table fill out business
 
 
     def to_dict(self):
