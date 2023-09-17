@@ -3,8 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 
-class ProductComment(db.Model):
-    __tablename__ = 'productcomments'
+class CommentA(db.Model):
+    __tablename__ = 'commentas'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
