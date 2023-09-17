@@ -4,7 +4,7 @@ from app.models.db import db, environment, SCHEMA
 from .users import seed_users, undo_users
 from .businesses import seed_businesses
 from .orders import seed_orders
-from .productComents import seed_productcomments
+from .productcoments import seed_productcomments
 from .products import seed_products
 
 
