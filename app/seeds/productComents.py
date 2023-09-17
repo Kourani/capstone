@@ -1,7 +1,7 @@
 from app.models import db, User, ProductComment, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_productComments():
+def seed_productcomments():
     productComment0 = ProductComment(
         comment='love this, it tastes like home', item_quality=3)
     productComment1 = ProductComment(
@@ -15,7 +15,7 @@ def seed_productComments():
     db.session.commit()
 
 
-def undo_productComments():
+def undo_productcomments():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.productComments RESTART IDENTITY CASCADE;")
     else:
