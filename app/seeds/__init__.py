@@ -2,10 +2,10 @@ from flask.cli import AppGroup
 from app.models.db import db, environment, SCHEMA
 
 from .users import seed_users, undo_users
-from .businesses import seed_businesses
-from .orders import seed_orders
-from .commentas import seed_commentas
-from .products import seed_products
+from .businesses import seed_businesses, undo_businesses
+from .orders import seed_orders, undo_orders
+from .commentas import seed_commentas, undo_commentas
+from .products import seed_products, undo_products
 
 
 # Creates a seed group to hold our commands
