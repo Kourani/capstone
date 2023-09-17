@@ -1,9 +1,10 @@
-from app.models import db, User, CommentA, environment, SCHEMA
+
+from app.models import db, User, Order, CommentA, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_commentas():
     Comment0 = CommentA(
-        comment='love this, it tastes like home', item_quality=3)
+        comment='love this, it tastes like homeeeeeeeeeeeeeeeeeeeeeeee', item_quality=3)
     Comment1 = CommentA(
         comment='love this, it tastes like home', item_quality=3)
     Comment2 = CommentA(
