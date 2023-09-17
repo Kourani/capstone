@@ -17,8 +17,8 @@ def seed_productcomments():
 
 def undo_productcomments():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.productComments RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.productcomments RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM productComments"))
+        db.session.execute(text("DELETE FROM productcomments"))
 
     db.session.commit()
