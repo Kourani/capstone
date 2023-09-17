@@ -1,26 +1,23 @@
-
 from flask import Blueprint, jsonify
-from app.models import CommentA
+from flask_login import login_required
+from app.models import User, Order, CommentA
 
+commentA_routes = Blueprint('productcomments', __name__)
 
-commentA_routes = Blueprint('productComments', __name__)
 
 @commentA_routes.route('/')
-def productComments():
+def comments():
     """
-    Query for all product comments and returns them in a list of productComment dictionaries
-
+    Query for all product comments and returns them in a list of product comments dictionaries
     """
+    comments = CommentA.query.all()
+    return {'comments': [comment.to_dict() for comment in comments]}
 
-    productComments = CommentA.query.all()
-    return {'productComments': [productComment.to_dict() for productComment in productComments]}
 
-@CommentA_routes.route('/<int:id>')
-def productComment(id):
-
+@commentA_routes.route('/<int:id>')
+def comment(id):
     """
-    Query for a productComment by id and returns that product comment in a dictionary
+    Query for a comment by id and returns that comment in a dictionary
     """
-
-    productComment = CommentA.query.get(id)
-    return productComment.to_dict()
+    comment = CommentA.query.get(id)
+    return comment.to_dict()

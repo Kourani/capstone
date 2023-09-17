@@ -3,6 +3,6 @@ from .db import environment, SCHEMA
 
 from .user import User
 from .business import Business
-from .product_comment import ProductComment
+from .comment_a import CommentA
 from .product import Product
 from .order import Order
