@@ -3,8 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 
-class CommentA(db.Model):
-    __tablename__ = 'commentas'
+class Comment(db.Model):
+    __tablename__ = 'comments'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
@@ -16,7 +16,7 @@ class CommentA(db.Model):
     comment = db.Column(db.String)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
-    users = db.relationship('User', back_populates='productComments') #user table fill out productComments
+    users = db.relationship('User', back_populates= 'comments') 
 
     def to_dict(self):
         return {

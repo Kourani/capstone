@@ -4,7 +4,7 @@ from app.models.db import db, environment, SCHEMA
 from .users import seed_users, undo_users
 from .shops import seed_shops, undo_shops
 from .orders import seed_orders, undo_orders
-from .commentas import seed_commentas, undo_commentas
+from .comments import seed_comments, undo_comments
 from .products import seed_products, undo_products
 
 
@@ -22,12 +22,12 @@ def seed():
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
         undo_users()
-        undo_commentas()
+        undo_comments()
         undo_shops()
         undo_products()
         undo_orders()
     seed_users()
-    seed_commentas()
+    seed_comments()
     seed_shops()
     seed_products()
     seed_orders()
@@ -38,7 +38,7 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
-    undo_commentas()
+    undo_comments()
     undo_shops()
     undo_products()
     undo_orders()

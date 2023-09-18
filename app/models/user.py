@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     shops = db.relationship('Shop', back_populates='users', cascade='all, delete-orphan')
-    productComments = db.relationship('CommentA', back_populates='users', cascade='all, delete-orphan')
+    comments = db.relationship('Comment', back_populates='users', cascade='all, delete-orphan')
 
     @property
     def password(self):

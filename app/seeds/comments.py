@@ -1,13 +1,13 @@
 
-from app.models import db, User, Order, CommentA, environment, SCHEMA
+from app.models import db, User, Order, Comment, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_commentas():
-    Comment0 = CommentA(
+def seed_comments():
+    Comment0 = Comment(
         comment='love this, it tastes like homeeeeeeeeeeeeeeeeeeeeeeee', item_quality=3)
-    Comment1 = CommentA(
+    Comment1 = Comment(
         comment='love this, it tastes like home', item_quality=3)
-    Comment2 = CommentA(
+    Comment2 = Comment(
         comment='love this, it tastes like home', item_quality=3)
 
     db.session.add(Comment0)
@@ -16,10 +16,10 @@ def seed_commentas():
     db.session.commit()
 
 
-def undo_commentas():
+def undo_comments():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.commentas RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM commentas"))
+        db.session.execute(text("DELETE FROM comments"))
 
     db.session.commit()
