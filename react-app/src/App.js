@@ -30,7 +30,7 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route path="/products">
+          <Route path="/">
             <Products/>
           </Route>
 

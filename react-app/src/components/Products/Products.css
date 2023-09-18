@@ -1,0 +1,25 @@
+
+
+.allProducts{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: white;
+    color:black;
+    padding: 20px;
+
+}
+
+.productPrice{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
