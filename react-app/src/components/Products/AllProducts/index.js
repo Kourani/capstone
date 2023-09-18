@@ -1,14 +1,9 @@
 
-import "./Products.css";
+import "./AllProducts.css";
+import * as productActions from "../../../store/product"
 
 import React, { useEffect } from "react"
-
-import * as productActions from "../../store/product"
-
-import { useDispatch } from "react-redux"
-
-import { useSelector } from "react-redux"
-
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom'
 
 
@@ -37,7 +32,7 @@ export default function Products(){
     function allProducts(){
         return productState?.products?.map(element=>{
             return (
-                <button className="product" >
+                <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
                     <div className="productName"> {element?.name} </div>
                     <div className="productPrice"> {element?.price} </div>
                     <div className="productCategory"> {element?.category} </div>

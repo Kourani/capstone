@@ -6,7 +6,8 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 
-import Products from "./components/Products";
+import AllProducts from "./components/Products/AllProducts";
+import ProductDetails from "./components/Products/ProductDetails";
 import Shops from "./components/Shops"
 
 function App() {
@@ -33,7 +34,8 @@ function App() {
 
 
           <Route path="/products/:productId">
-            
+            <ProductDetails/>
+
           </Route>
 
           <Route path="/shops">
@@ -41,7 +43,7 @@ function App() {
           </Route>
 
           <Route exact path="/">
-            <Products/>
+            <AllProducts/>
           </Route>
 
         </Switch>
