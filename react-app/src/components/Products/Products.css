@@ -1,5 +1,4 @@
 
-
 .allProducts{
     display: flex;
     flex-direction: row;
@@ -15,7 +14,7 @@
     background-color: white;
     color:black;
     padding: 20px;
-
+    cursor:pointer;
 }
 
 .productPrice{

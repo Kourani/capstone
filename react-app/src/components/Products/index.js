@@ -9,10 +9,13 @@ import { useDispatch } from "react-redux"
 
 import { useSelector } from "react-redux"
 
+import { useHistory } from 'react-router-dom'
+
 
 export default function Products(){
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
@@ -23,10 +26,18 @@ export default function Products(){
     console.log(productState,'hello')
     console.log(productState?.products,'hello!!!!!!!!!!!!!!!!!!!!!!!!')
 
+    function productDetails(id){
+        history.push(`/products/${id}`)
+        return
+    }
+
+    // onClick={productDetails(element.id)}
+
+    //explain it to me please
     function allProducts(){
         return productState?.products?.map(element=>{
             return (
-                <button className="product">
+                <button className="product" >
                     <div className="productName"> {element?.name} </div>
                     <div className="productPrice"> {element?.price} </div>
                     <div className="productCategory"> {element?.category} </div>

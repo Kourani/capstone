@@ -30,12 +30,18 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route path="/">
-            <Products/>
+
+
+          <Route path="/products/:productId">
+            
           </Route>
 
           <Route path="/shops">
             <Shops/>
+          </Route>
+
+          <Route exact path="/">
+            <Products/>
           </Route>
 
         </Switch>

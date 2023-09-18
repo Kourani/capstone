@@ -15,18 +15,22 @@ class Product(db.Model):
         add_prefix_for_prod('shops.id')))
     owner_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('users.id')))
+
     name = db.Column(db.String, nullable=False)
     category = db.Column(db.String)
     price = db.Column(db.Float, nullable=False)
+    description = db.Column(db.String)
 
     shops = db.relationship('Shop', back_populates='products') #shop table fill out products
 
     def to_dict(self):
         return {
             'id' : self.id,
+            'ownerId': self.owner_id,
+            'shopId' : self.shop_id,
             'name' : self.name,
             'category' : self.category,
+            'description' : self.description,
             'price' : self.price,
-            'ownerId': self.owner_id,
-            'shopId' : self.shop_id
+
         }
