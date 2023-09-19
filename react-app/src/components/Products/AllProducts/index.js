@@ -18,13 +18,11 @@ export default function Products(){
 
     const productState = useSelector(state=>state.product)
 
-    console.log(productState,'hello')
-    console.log(productState?.products,'hello!!!!!!!!!!!!!!!!!!!!!!!!')
 
-    function productDetails(id){
-        history.push(`/products/${id}`)
-        return
-    }
+    // function productDetails(id){
+    //     history.push(`/products/${id}`)
+    //     return
+    // }
 
     // onClick={productDetails(element.id)}
 

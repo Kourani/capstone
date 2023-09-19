@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import * as shopActions from "../../store/shop"
+import * as shopActions from "../../../store/shop"
 
 
 export default function Shops(){

@@ -8,7 +8,9 @@ import Navigation from "./components/Navigation";
 
 import AllProducts from "./components/Products/AllProducts";
 import ProductDetails from "./components/Products/ProductDetails";
-import Shops from "./components/Shops"
+import AllShops from "./components/Shops/AllShops"
+import ManageShops from "./components/Shops/ManageShops"
+import EditShop from "./components/Shops/EditShop";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,12 +37,20 @@ function App() {
 
           <Route path="/products/:productId">
             <ProductDetails/>
+          </Route>
 
+          <Route path="shops/:shopId/manage">
+            <EditShop/>
+          </Route>
+
+          <Route path="shops/manage">
+            <ManageShops/>
           </Route>
 
           <Route path="/shops">
-            <Shops/>
+            <AllShops/>
           </Route>
+
 
           <Route exact path="/">
             <AllProducts/>
