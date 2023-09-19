@@ -18,7 +18,7 @@ class Shop(db.Model):
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
     country = db.Column(db.String, nullable=False)
-    language = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
     currency = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
@@ -34,7 +34,7 @@ class Shop(db.Model):
             'city':self.city,
             'state':self.state,
             'country':self.country,
-            'language':self.language,
+            'name':self.name,
             'currency':self.currency,
             'createdAt':self.created_at
         }

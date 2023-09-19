@@ -10,8 +10,10 @@ import AllProducts from "./components/Products/AllProducts";
 import ProductDetails from "./components/Products/ProductDetails";
 import AllShops from "./components/Shops/AllShops"
 
+
 import OwnedShops from "./components/Shops/OwnedShops"
-import EditShop from "./components/Shops/EditShop";
+import EditShop from "./components/Shops/EditShop"
+import CreateShop from "./components/Shops/CreateShop"
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +44,10 @@ function App() {
 
           <Route path="/shops/:shopId/manage">
             <EditShop/>
+          </Route>
+
+          <Route path="/shops/create">
+            <CreateShop/>
           </Route>
 
           <Route path="/shops/manage">

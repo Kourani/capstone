@@ -3,11 +3,11 @@ from sqlalchemy.sql import text
 
 def seed_shops():
     shop0 = Shop(
-        owner_id = 1, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
+        owner_id = 1, address='6743 Nepal', city='Nepal', state='India', country='India', name='bengali', currency='euro')
     shop1 = Shop(
-        owner_id = 2, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
+        owner_id = 2, address='6743 Nepal', city='Nepal', state='India', country='India', name='bengali', currency='euro')
     shop2 = Shop(
-        owner_id = 3, address='6743 Nepal', city='Nepal', state='India', country='India', language='bengali', currency='euro')
+        owner_id = 3, address='6743 Nepal', city='Nepal', state='India', country='India', name='bengali', currency='euro')
 
     db.session.add(shop0)
     db.session.add(shop1)

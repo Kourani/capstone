@@ -29,7 +29,7 @@ def upgrade():
     sa.Column('city', sa.String(), nullable=False),
     sa.Column('state', sa.String(), nullable=False),
     sa.Column('country', sa.String(), nullable=False),
-    sa.Column('language', sa.String(), nullable=False),
+    sa.Column('name', sa.String(), nullable=False),
     sa.Column('currency', sa.String(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),

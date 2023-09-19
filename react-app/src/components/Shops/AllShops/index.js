@@ -16,15 +16,21 @@ export default function Shops(){
 
     const shopState = useSelector(state=>state?.shop)
 
-
-    console.log(shopState,'WELCOME!')
-
-    console.log(shopState?.shops, 'todo!!!!!!!!!!!!!!!!!!!!')
+    function shops(){
+        return shopState?.shops.map(element=>{
+            return (
+                <button>
+                <div>{element.address} </div>
+                </button>
+            )
+        })
+    }
 
 
     return (
         <>
         <h1>SHOPS</h1>
+        <div>{shops()}</div>
         </>
     )
 }
