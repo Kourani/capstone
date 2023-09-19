@@ -3,11 +3,13 @@
 import React, { useEffect } from "react";
 import * as shopActions from "../../../store/shop"
 import { useDispatch, useSelector } from "react-redux";
+import {useHistory} from "react-router-dom"
 
 
 function OwnedShops(){
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     useEffect(() =>{
         dispatch(shopActions.getShops())
@@ -21,16 +23,19 @@ function OwnedShops(){
 
 
     function ownedShops(){
-        shopState?.shops?.forEach(element =>{
+        return shopState?.shops?.map(element =>{
             if(userState?.user?.id === element?.ownerId){
-                console.log('inside the ifffffffffffffffffffffff')
                 return (
-                    <div>{element.name}</div>
+                    <>
+                    <button onClick={()=>{history.push(`/shops/${element.id}/manage`)}}>
+                    <div>{element.address}</div>
+                    <div> {element.currency}</div>
+                    </button>
+                    </>
                 )
             }
         })
 
-        return
 
     }
 

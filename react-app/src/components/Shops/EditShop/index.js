@@ -13,13 +13,15 @@ function EditShop(){
 
     const dispatch = useDispatch();
     const {shopId} = useParams()
-    const shopState = useSelector(state=>state.shops)
+    const shopState = useSelector(state=>state?.shop)
 
-    const [address, setAddress] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [country, setCountry] = useState("")
-    const [currency, setCurrency] = useState("")
+    console.log(shopState,'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+
+    const [address, setAddress] = useState(`${shopState?.shops[shopId]?.address}`);
+    const [city, setCity] = useState(`${shopState?.shops[shopId]?.city}`);
+    const [state, setState] = useState(`${shopState?.shops[shopId]?.state}`);
+    const [country, setCountry] = useState(`${shopState?.shops[shopId]?.country}`)
+    const [currency, setCurrency] = useState(`${shopState?.shops[shopId]?.currency}`)
     const [errors, setErrors] = useState([]);
 
       const payload = {
@@ -52,16 +54,37 @@ function EditShop(){
                 required
               />
             </label>
-            
+
             <label>
               City
               <input
-                type="password"
+                type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 required
               />
             </label>
+
+            <label>
+              State
+              <input
+                type="text"
+                value={city}
+                onChange={(e) => setState(e.target.value)}
+                required
+              />
+            </label>
+
+            <label>
+              Country
+              <input
+                type="text"
+                value={city}
+                onChange={(e) => setCountry(e.target.value)}
+                required
+              />
+            </label>
+
 
             <button type="submit">Submit </button>
           </form>
