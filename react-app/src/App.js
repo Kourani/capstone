@@ -9,7 +9,8 @@ import Navigation from "./components/Navigation";
 import AllProducts from "./components/Products/AllProducts";
 import ProductDetails from "./components/Products/ProductDetails";
 import AllShops from "./components/Shops/AllShops"
-import ManageShops from "./components/Shops/ManageShops"
+
+import OwnedShops from "./components/Shops/OwnedShops"
 import EditShop from "./components/Shops/EditShop";
 
 function App() {
@@ -39,12 +40,12 @@ function App() {
             <ProductDetails/>
           </Route>
 
-          <Route path="shops/:shopId/manage">
+          <Route path="/shops/:shopId/manage">
             <EditShop/>
           </Route>
 
-          <Route path="shops/manage">
-            <ManageShops/>
+          <Route path="/shops/manage">
+            <OwnedShops/>
           </Route>
 
           <Route path="/shops">
