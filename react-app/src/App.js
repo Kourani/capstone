@@ -8,12 +8,13 @@ import Navigation from "./components/Navigation";
 
 import AllProducts from "./components/Products/AllProducts";
 import ProductDetails from "./components/Products/ProductDetails";
+import CreateProduct from "./components/Products/CreateProduct"
+
 import AllShops from "./components/Shops/AllShops"
-
-
 import OwnedShops from "./components/Shops/OwnedShops"
 import EditShop from "./components/Shops/EditShop"
 import CreateShop from "./components/Shops/CreateShop"
+
 
 function App() {
   const dispatch = useDispatch();
@@ -42,11 +43,20 @@ function App() {
             <ProductDetails/>
           </Route>
 
+          <Route path="/shops/:shopId/products/manage">
+          </Route>
+
+
+
           <Route path="/shops/:shopId/manage">
             <EditShop/>
           </Route>
 
-          <Route path="/shops/create">
+          <Route path="shops/:shopId/products/new">
+            <CreateProduct/>
+          </Route>
+
+          <Route path="/shops/new">
             <CreateShop/>
           </Route>
 

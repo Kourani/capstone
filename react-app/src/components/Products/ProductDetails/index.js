@@ -1,14 +1,21 @@
 
 
 import "./ProductDetails.css"
+import * as productActions from "../../../store/product"
 
-import React from "react"
-import { useSelector } from "react-redux"
+import React,  { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 
 function ProductDetails(){
 
     const {productId} = useParams()
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        dispatch(productActions.getProducts())
+    },[dispatch])
+
     const productState = useSelector(state=>state?.product)
 
 
