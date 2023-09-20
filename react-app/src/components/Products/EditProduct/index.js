@@ -5,10 +5,15 @@ import {useDispatch} from "react-redux"
 
 import * as productActions from "../../../store/product"
 
+import { useModal } from "../../../context/Modal"
+
+
+
 
 function EditProduct(){
 
     const dispatch = useDispatch()
+    const {closeModal} = useModal()
 
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
@@ -25,6 +30,9 @@ function EditProduct(){
 
         if(data){
             setErrors(data)
+        }
+        else{
+            closeModal()
         }
     }
 

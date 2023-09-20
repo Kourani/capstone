@@ -8,8 +8,10 @@ import Navigation from "./components/Navigation";
 
 import AllProducts from "./components/Products/AllProducts";
 import ProductDetails from "./components/Products/ProductDetails";
-import CreateProduct from "./components/Products/CreateProduct"
+import CreateProduct from "./components/Products/CreateProduct";
+import EditProduct from "./components/Products/EditProduct"
 
+import ShopProducts from "./components/Products/ShopProducts";
 import AllShops from "./components/Shops/AllShops"
 import OwnedShops from "./components/Shops/OwnedShops"
 import EditShop from "./components/Shops/EditShop"
@@ -37,6 +39,20 @@ function App() {
             <SignupFormPage />
           </Route>
 
+          <Route path="/shops/:shopId/products/:productsId/edit">
+            <EditProduct/>
+          </Route>
+
+          <Route path="/shops/:shopId/products/new">
+            <CreateProduct/>
+          </Route>
+
+
+
+          <Route path="/shops/:shopId/products">
+            <ShopProducts/>
+          </Route>
+
 
 
           <Route path="/products/:productId">
@@ -44,17 +60,14 @@ function App() {
           </Route>
 
           <Route path="/shops/:shopId/products/manage">
+            <ShopProducts/>
           </Route>
-
-
 
           <Route path="/shops/:shopId/manage">
             <EditShop/>
           </Route>
 
-          <Route path="shops/:shopId/products/new">
-            <CreateProduct/>
-          </Route>
+
 
           <Route path="/shops/new">
             <CreateShop/>
@@ -67,7 +80,6 @@ function App() {
           <Route path="/shops">
             <AllShops/>
           </Route>
-
 
           <Route exact path="/">
             <AllProducts/>

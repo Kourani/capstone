@@ -14,18 +14,15 @@ function ProductDetails(){
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
-    },[dispatch])
+    }, [dispatch])
 
     const productState = useSelector(state=>state?.product)
 
 
 
-    let shopId
-    console.log(shopId,'before the function')
+
     function productDetails(){
         const foundProduct = productState?.products?.find(element=>element.id === parseInt(productId))
-        shopId = foundProduct.shopId
-        console.log(shopId, 'inside the function')
         return(
             <>
             <div>{foundProduct?.price}</div>
@@ -33,11 +30,6 @@ function ProductDetails(){
             </>
         )
     }
-
-    productDetails()
-    console.log(shopId,'after the function')
-
-
 
     return(
         <>

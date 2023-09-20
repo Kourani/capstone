@@ -19,14 +19,7 @@ export default function Products(){
     const productState = useSelector(state=>state.product)
 
 
-    // function productDetails(id){
-    //     history.push(`/products/${id}`)
-    //     return
-    // }
 
-    // onClick={productDetails(element.id)}
-
-    //explain it to me please
     function allProducts(){
         return productState?.products?.map(element=>{
             return (
@@ -41,7 +34,8 @@ export default function Products(){
 
     return (
         <>
-        <button onClick={()=>history.push('shops/create')}>Create Shop</button>
+        <button onClick={()=>history.push('shops/new')}>Create Shop</button>
+        <button onClick={()=>history.push('products/new')}>Create Product</button>
         <p> Fresh finds fit for cozy season </p>
         <p> Popular gifts right now </p>
 

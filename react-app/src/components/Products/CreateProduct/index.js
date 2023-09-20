@@ -1,14 +1,21 @@
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import {useDispatch} from "react-redux"
 
+import { useParams, useHistory} from "react-router-dom"
+
 import * as productActions from "../../../store/product"
+
 
 
 function CreateProduct(){
 
     const dispatch = useDispatch()
+    const history = useHistory()
+    const {shopId} = useParams()
+
+    console.log(shopId,'createProduct shopId')
 
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
@@ -18,10 +25,18 @@ function CreateProduct(){
 
 
 
+    const payload = {
+        name:name,
+        price:price,
+        description:description
+    }
+
+    console.log(payload, 'create product payload')
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const data = await dispatch(productActions)
+        const data = await dispatch(productActions.newProduct(payload, shopId))
 
         if(data){
             setErrors(data)
@@ -65,6 +80,7 @@ function CreateProduct(){
                     />
             </label>
 
+            <button type='submit'>Submit</button>
 
         </form>
         </>
