@@ -1,17 +1,15 @@
 
-
 import React, { useState } from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 
-
 import * as shopActions from "../../../store/shop"
-
 
 
 function CreateShop(){
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
@@ -30,11 +28,14 @@ function CreateShop(){
       }
 
       const handleSubmit = async (e) => {
+
         e.preventDefault();
-        const data = await dispatch(shopActions.getShops(payload));
+        const data = await dispatch(shopActions.newShop(payload));
         if (data) {
           setErrors(data);
         }
+
+        history.push('/shops/manage')
       };
 
       return (
@@ -82,7 +83,7 @@ function CreateShop(){
               />
             </label>
 
-            {/* <label>
+            <label>
               Accepted Currency
               <input
                 type="text"
@@ -100,7 +101,7 @@ function CreateShop(){
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-            </label> */}
+            </label>
 
             <button type="submit">Create</button>
           </form>

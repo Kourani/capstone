@@ -2,8 +2,9 @@
 
 //------------------------------------CONSTANTS--------------------------
 const GET_ALL = "shops/GET_ALL";
-const DELETE_SHOP = "shops/DELETE_PRODUCT";
-const ADD_SHOP = "shops/ADD_PRODUCT"
+const ADD_SHOP = "shops/ADD_SHOP"
+const DELETE_SHOP = "shops/DELETE_SHOP";
+
 
 
 //-----------------------------------ACTIONS---------------------------------------
@@ -12,13 +13,15 @@ const getAll = (all) => ({
     payload:all
 })
 
+const addOne =(shop) =>({
+    type: ADD_SHOP,
+	shop
+})
+
 const deleteOne = () => ({
 	type: DELETE_SHOP,
 });
 
-const addOne =() =>({
-    type: ADD_SHOP,
-})
 
 
 //-----------------------------------------THUNKS------------------------------------
@@ -35,6 +38,25 @@ export const getShops = () => async (dispatch) => {
 		return await response.json()
 	}
 };
+
+export const newShop = (payload) => async (dispatch) => {
+
+	const response = await fetch(`/api/shops`, {
+		method:"POST",
+		headers:{
+			"Content-Type":"application/json"
+		},
+		body:JSON.stringify(payload)
+	})
+	if(response.ok){
+		const releasedShop= await response.json()
+		console.log(releasedShop, 'releasedShop')
+		dispatch(addOne(releasedShop))
+	}
+	else{
+		return await response.json()
+	}
+}
 
 //-------------------------------------------REDUCER------------------------------------------
 function shopsReducer(state = {}, action) {

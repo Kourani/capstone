@@ -47,13 +47,9 @@ function App() {
             <CreateProduct/>
           </Route>
 
-
-
           <Route path="/shops/:shopId/products">
             <ShopProducts/>
           </Route>
-
-
 
           <Route path="/products/:productId">
             <ProductDetails/>
@@ -66,9 +62,7 @@ function App() {
           <Route path="/shops/:shopId/manage">
             <EditShop/>
           </Route>
-
-
-
+          
           <Route path="/shops/new">
             <CreateShop/>
           </Route>

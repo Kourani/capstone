@@ -44,7 +44,9 @@ def new_shop():
             address=form.data['address'],
             city=form.data['city'],
             state=form.data['state'],
-            country=form.data['country']
+            country=form.data['country'],
+            name=form.data['name'],
+            currency=form.data['currency']
         )
         db.session.add(shop)
         db.session.commit()

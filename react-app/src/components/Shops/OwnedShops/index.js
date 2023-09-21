@@ -43,6 +43,7 @@ function OwnedShops(){
 
     return(
         <>
+        <div>HERE!</div>
         <div>{ownedShops()}</div>
         </>
     )
