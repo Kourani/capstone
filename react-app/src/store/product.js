@@ -48,6 +48,7 @@ export const newProduct = (payload, shopId) => async(dispatch) => {
 		method:'POST',
 		headers:{
 			"Content-Type" : "application/json",
+			// "Content-Type" : "multipart/form-data"
 		},
 		body:JSON.stringify(payload)
 	})

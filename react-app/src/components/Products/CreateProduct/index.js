@@ -41,6 +41,8 @@ function CreateProduct(){
         if(data){
             setErrors(data)
         }
+
+        history.push(`/shops/${shopId}/products`)
     }
 
 

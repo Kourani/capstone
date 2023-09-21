@@ -35,7 +35,7 @@ export default function Products(){
     return (
         <>
         <button onClick={()=>history.push('shops/new')}>Create Shop</button>
-        <button onClick={()=>history.push('products/new')}>Create Product</button>
+        
         <p> Fresh finds fit for cozy season </p>
         <p> Popular gifts right now </p>
 

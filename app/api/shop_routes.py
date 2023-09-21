@@ -1,6 +1,10 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User, Shop
+from app.models import User, Shop, Product, db
+from app.forms import ProductForm, ShopForm
+from .auth_routes import validation_errors_to_error_messages
+
+
 
 shop_routes = Blueprint('shops', __name__)
 
@@ -22,6 +26,32 @@ def shop(id):
     shop = Shop.query.get(id)
     return shop.to_dict()
 
+@shop_routes.route('/', methods=['POST'])
+def new_shop():
+    """
+    create a new shop
+
+    """
+
+    form = ShopForm()
+
+    # Get the csrf_token from the request cookie and put it into the
+    # form manually to validate_on_submit can be used
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        shop = Shop(
+            address=form.data['address'],
+            city=form.data['city'],
+            state=form.data['state'],
+            country=form.data['country']
+        )
+        db.session.add(shop)
+        db.session.commit()
+        return shop.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
 @shop_routes.route('/<int:id>/products', methods=['POST'])
 def new_product(id):
     """
@@ -29,8 +59,10 @@ def new_product(id):
 
     """
 
-    form = productForm()
+    form = ProductForm()
 
+    # Get the csrf_token from the request cookie and put it into the
+    # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
 
     shop = Shop.query.get(id)

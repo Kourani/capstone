@@ -17,10 +17,10 @@ export default function Shops(){
     const shopState = useSelector(state=>state?.shop)
 
     function shops(){
-        return shopState?.shops.map(element=>{
+        return shopState?.shops?.map(element=>{
             return (
                 <button>
-                <div>{element.address} </div>
+                <div>{element?.address} </div>
                 </button>
             )
         })

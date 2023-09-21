@@ -23,11 +23,10 @@ function CreateShop(){
     const [errors, setErrors] = useState([]);
 
       const payload = {
-        address:address,
-        city:city,
-        state:state,
-        country:country,
-        currency:currency,
+        address,
+        city,
+        state,
+        country,
       }
 
       const handleSubmit = async (e) => {
@@ -67,7 +66,7 @@ function CreateShop(){
               State
               <input
                 type="text"
-                value={city}
+                value={state}
                 onChange={(e) => setState(e.target.value)}
                 required
               />
@@ -77,13 +76,13 @@ function CreateShop(){
               Country
               <input
                 type="text"
-                value={city}
+                value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 required
               />
             </label>
 
-            <label>
+            {/* <label>
               Accepted Currency
               <input
                 type="text"
@@ -101,7 +100,7 @@ function CreateShop(){
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-            </label>
+            </label> */}
 
             <button type="submit">Create</button>
           </form>

@@ -2,8 +2,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField
 from wtforms.validators import DataRequired, ValidationError
-from app.models import Product
-
+from app.models import Shop
 
 class ShopForm(FlaskForm):
     address = StringField('address', validators=[DataRequired()])
