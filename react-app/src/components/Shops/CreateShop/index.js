@@ -25,6 +25,8 @@ function CreateShop(){
         city,
         state,
         country,
+        name,
+        currency,
       }
 
       const handleSubmit = async (e) => {

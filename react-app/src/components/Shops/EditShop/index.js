@@ -1,27 +1,33 @@
 
-
-import React, { useState } from "react";
-import { useParams } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { useParams, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
-
 
 import * as shopActions from "../../../store/shop"
 
 
-
 function EditShop(){
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+    const history = useHistory()
     const {shopId} = useParams()
-    const shopState = useSelector(state=>state?.shop)
 
-    console.log(shopState,'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+    console.log(shopId,'!!!!!!!!!!!!!!!!!!!!!')
 
-    const [address, setAddress] = useState(`${shopState?.shops[shopId]?.address}`);
-    const [city, setCity] = useState(`${shopState?.shops[shopId]?.city}`);
-    const [state, setState] = useState(`${shopState?.shops[shopId]?.state}`);
-    const [country, setCountry] = useState(`${shopState?.shops[shopId]?.country}`)
-    const [currency, setCurrency] = useState(`${shopState?.shops[shopId]?.currency}`)
+    useEffect(()=>{
+      dispatch(shopActions.getShops())
+    },[dispatch])
+
+    const shopState = useSelector(state=>state.shop)
+    console.log(shopState)
+
+    const [address, setAddress] = useState(shopState?.shops[shopId]?.address);
+    const [city, setCity] = useState(shopState?.shops[shopId]?.city);
+    const [state, setState] = useState(shopState?.shops[shopId]?.state);
+    const [country, setCountry] = useState(shopState?.shops[shopId]?.country)
+    const [currency, setCurrency] = useState(shopState?.shops[shopId]?.currency)
+    const [name, setName] = useState(shopState?.shops[shopId]?.name)
+
     const [errors, setErrors] = useState([]);
 
       const payload = {
@@ -29,15 +35,19 @@ function EditShop(){
         city,
         state,
         country,
+        name,
         currency,
       }
 
       const handleSubmit = async (e) => {
+
         e.preventDefault();
-        const data = await dispatch(shopActions.getShops(payload));
+        const data = await dispatch(shopActions.editShop(payload, shopId));
         if (data) {
           setErrors(data);
         }
+
+        history.push('/shops/manage')
       };
 
       return (
@@ -69,7 +79,7 @@ function EditShop(){
               State
               <input
                 type="text"
-                value={city}
+                value={state}
                 onChange={(e) => setState(e.target.value)}
                 required
               />
@@ -79,14 +89,33 @@ function EditShop(){
               Country
               <input
                 type="text"
-                value={city}
+                value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 required
               />
             </label>
 
+            <label>
+              Accepted Currency
+              <input
+                type="text"
+                value={currency}
+                onChange={(e) => setCurrency(e.target.value)}
+                required
+              />
+            </label>
 
-            <button type="submit">Submit </button>
+            <label>
+              Shop Name
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </label>
+
+            <button type="submit">Update</button>
           </form>
         </>
       );

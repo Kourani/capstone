@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
-from app.models import User, Product
-from app.forms import ProductForm, ShopForm
+from flask_login import login_required, current_user
+from app.models import User, Product, Comment
+from app.forms import ProductForm, ShopForm, comment_form
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -25,3 +25,27 @@ def product(id):
 
     product = Product.query.get(id)
     return product.to_dict()
+
+    @product_routes.route('/<int:id>/comments')
+    @login_required
+
+    def comment(id):
+        """
+
+        Create a comment for a product based on product id
+
+        """
+
+        form = ComentForm()
+
+        product = Product.query.get(id)
+
+        if not product:
+            return {'error' : 'Product not found'}
+
+        if form.validate_on_submit():
+            comment = Comment(
+                user_id=current_user.id,
+                comment = form.data['comment'],
+                item_quality=form.data['item_quality']
+            )

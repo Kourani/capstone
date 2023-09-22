@@ -2,7 +2,8 @@
 
 //------------------------------------CONSTANTS--------------------------
 const GET_ALL = "shops/GET_ALL";
-const ADD_SHOP = "shops/ADD_SHOP"
+const ADD_SHOP = "shops/ADD_SHOP";
+const EDIT_SHOP = "shops/EDIT_SHOP";
 const DELETE_SHOP = "shops/DELETE_SHOP";
 
 
@@ -18,9 +19,15 @@ const addOne =(shop) =>({
 	shop
 })
 
+const editOne = (shop) =>({
+	type : EDIT_SHOP,
+	shop
+})
+
 const deleteOne = () => ({
 	type: DELETE_SHOP,
 });
+
 
 
 
@@ -41,7 +48,7 @@ export const getShops = () => async (dispatch) => {
 
 export const newShop = (payload) => async (dispatch) => {
 
-	const response = await fetch(`/api/shops`, {
+	const response = await fetch(`/api/shops/`, {
 		method:"POST",
 		headers:{
 			"Content-Type":"application/json"
@@ -52,6 +59,25 @@ export const newShop = (payload) => async (dispatch) => {
 		const releasedShop= await response.json()
 		console.log(releasedShop, 'releasedShop')
 		dispatch(addOne(releasedShop))
+	}
+	else{
+		return await response.json()
+	}
+}
+
+export const editShop = (payload, shopId) => async (dispatch) => {
+
+	const response = await fetch(`/api/shops/${shopId}/edit`, {
+		method:"PUT",
+		headers:{
+			"Content-Type":"application/json"
+		},
+		body:JSON.stringify(payload)
+	})
+	if(response.ok){
+		const updatedShop= await response.json()
+		console.log(updatedShop, 'updatedShop')
+		dispatch(editOne(updatedShop))
 	}
 	else{
 		return await response.json()
@@ -69,6 +95,11 @@ function shopsReducer(state = {}, action) {
 
         case ADD_SHOP:
             return{
+				...state
+			}
+
+		case EDIT_SHOP:
+			return {
 				...state
 			}
 
