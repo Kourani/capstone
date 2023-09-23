@@ -86,10 +86,11 @@ export const editProduct = (payload, productId) => async(dispatch) => {
 function productsReducer(state = {}, action) {
 	switch (action.type) {
 		case GET_ALL:
-			return {
-                ...state,
-                ...action.payload
-            }
+			let newState = {...state}
+			action.payload.products.forEach(element=>{
+				newState[element.id]=element
+			})
+			return newState
 
         case ADD_PRODUCT:
             return{

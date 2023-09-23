@@ -23,7 +23,8 @@ function OwnedShops(){
 
 
     function ownedShops(){
-        return shopState?.shops?.map(element =>{
+        const elementsArray = Object.values(shopState)
+        return elementsArray.map(element =>{
             if(userState?.user?.id === element?.ownerId){
                 return (
                     <>

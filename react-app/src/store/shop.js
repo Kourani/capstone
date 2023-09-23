@@ -39,6 +39,7 @@ export const getShops = () => async (dispatch) => {
 
 	if (response.ok) {
 		const allShops = await response.json()
+		console.log(allShops);
 		dispatch(getAll(allShops));
 	}
 	else {
@@ -88,10 +89,11 @@ export const editShop = (payload, shopId) => async (dispatch) => {
 function shopsReducer(state = {}, action) {
 	switch (action.type) {
 		case GET_ALL:
-			return {
-                ...state,
-                ...action.payload
-            }
+			let newState = {...state}
+			action.payload.shops.forEach(element => {
+				newState[element.id]=element
+			});
+			return newState
 
         case ADD_SHOP:
             return{

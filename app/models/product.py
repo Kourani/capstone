@@ -20,8 +20,10 @@ class Product(db.Model):
     category = db.Column(db.String)
     price = db.Column(db.Float, nullable=False)
     description = db.Column(db.String)
+    image = db.Column(db.String)
 
     shops = db.relationship('Shop', back_populates='products') #shop table fill out products
+    comments = db.relationship('Comment', back_populates='products')
 
     def to_dict(self):
         return {
@@ -32,5 +34,6 @@ class Product(db.Model):
             'category' : self.category,
             'description' : self.description,
             'price' : self.price,
+            'image' : self.image
 
         }

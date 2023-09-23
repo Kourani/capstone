@@ -5,7 +5,6 @@ from wtforms.validators import DataRequired, ValidationError
 from app.models import Comment
 
 
-class ProductForm(FlaskForm):
+class CommentForm(FlaskForm):
     comment = StringField('comment', validators=[DataRequired()])
     item_quality = IntegerField('item_quality', validators=[DataRequired()])
-

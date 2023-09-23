@@ -21,6 +21,7 @@ import CreateShop from "./components/Shops/CreateShop"
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -39,7 +40,7 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route path="/shops/:shopId/products/:productsId/edit">
+          <Route path="/shops/:shopId/products/:productId/edit">
             <EditProduct/>
           </Route>
 

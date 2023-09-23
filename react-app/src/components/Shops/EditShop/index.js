@@ -20,13 +20,14 @@ function EditShop(){
 
     const shopState = useSelector(state=>state.shop)
     console.log(shopState)
+    console.log(shopState[shopId],'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
-    const [address, setAddress] = useState(shopState?.shops[parseInt(shopId)]?.address);
-    const [city, setCity] = useState(shopState?.shops[parseInt(shopId)]?.city);
-    const [state, setState] = useState(shopState?.shops[parseInt(shopId)]?.state);
-    const [country, setCountry] = useState(shopState?.shops[parseInt(shopId)]?.country)
-    const [currency, setCurrency] = useState(shopState?.shops[parseInt(shopId)]?.currency)
-    const [name, setName] = useState(shopState?.shops[parseInt(shopId)]?.name)
+    const [address, setAddress] = useState(shopState[shopId]?.address);
+    const [city, setCity] = useState(shopState[shopId]?.city);
+    const [state, setState] = useState(shopState[shopId]?.state);
+    const [country, setCountry] = useState(shopState[shopId]?.country)
+    const [currency, setCurrency] = useState(shopState[shopId]?.currency)
+    const [name, setName] = useState(shopState[shopId]?.name)
 
     const [errors, setErrors] = useState([]);
 

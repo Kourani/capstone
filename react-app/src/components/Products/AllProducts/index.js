@@ -17,16 +17,23 @@ export default function Products(){
     },[dispatch])
 
     const productState = useSelector(state=>state.product)
+    const productElements = Object.values(productState)
 
 
 
     function allProducts(){
-        return productState?.products?.map(element=>{
+        return productElements.map(element=>{
             return (
                 <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
-                    <div className="productName"> {element?.name} </div>
-                    <div className="productPrice"> {element?.price} </div>
-                    <div className="productCategory"> {element?.category} </div>
+                    <div>
+                        <img className="productImage"
+                            src={element?.image ? element?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
+                            alt="Image"
+                        />
+                        <div className="productName"> {element?.name} </div>
+                        <div className="productPrice"> ${element?.price} </div>
+                        <div className="productCategory"> {element?.category} </div>
+                    </div>
                 </button>
             )
         })
@@ -35,7 +42,7 @@ export default function Products(){
     return (
         <>
         <button onClick={()=>history.push('shops/new')}>Create Shop</button>
-        
+
         <p> Fresh finds fit for cozy season </p>
         <p> Popular gifts right now </p>
 

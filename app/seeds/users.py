@@ -5,11 +5,11 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        profile_icon='aaa', first_name = 'Demo' , last_name = 'Lition' , favorites = 'cat shop' , about = 'I love anything vintage' , birthday = '01/01/01' , address = '555 Disney Lane' , city = 'Dearborn' , state = 'Texas' , country = 'United States' , username='Demo', email='demo@aa.io', password='password')
+        profile_icon='https://images.pexels.com/photos/1460836/pexels-photo-1460836.jpeg', first_name = 'Demo' , last_name = 'Lition' , favorites = 'cat shop' , about = 'I love anything vintage' , birthday = '01/01/01' , address = '555 Disney Lane' , city = 'Dearborn' , state = 'Texas' , country = 'United States' , username='Demo', email='demo@aa.io', password='password')
     maria = User(
-        profile_icon='aaa', first_name ='Maria', last_name = 'Matter' , favorites = 'plush toys' , about = 'anything soft and fluffy I want it' , birthday = '02/02/02' , address = '123 House Mane' , city = 'Allen Park' , state = 'California' , country = 'United States' , username='maria', email='maria@aa.io', password='password')
+        profile_icon='https://images.pexels.com/photos/1460836/pexels-photo-1460836.jpeg', first_name ='Maria', last_name = 'Matter' , favorites = 'plush toys' , about = 'anything soft and fluffy I want it' , birthday = '02/02/02' , address = '123 House Mane' , city = 'Allen Park' , state = 'California' , country = 'United States' , username='maria', email='maria@aa.io', password='password')
     alex = User(
-        profile_icon='aaa', first_name = 'Alex' , last_name = 'Laruso' , favorites = 'Swords' , about = 'Martial Arts' , birthday = '12/12/12' , address = '123 Home Town' , city = 'San Jose' , state = 'California' , country = 'United States' , username='alex', email='alex@aa.io', password='password')
+        profile_icon='https://images.pexels.com/photos/1460836/pexels-photo-1460836.jpeg', first_name = 'Alex' , last_name = 'Laruso' , favorites = 'Swords' , about = 'Martial Arts' , birthday = '12/12/12' , address = '123 Home Town' , city = 'San Jose' , state = 'California' , country = 'United States' , username='alex', email='alex@aa.io', password='password')
 
     db.session.add(demo)
     db.session.add(maria)
