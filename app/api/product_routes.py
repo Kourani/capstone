@@ -26,6 +26,28 @@ def product(id):
     product = Product.query.get(id)
     return product.to_dict()
 
+
+    @product_routes.route('/<int:id>/edit', methods=['PUT'])
+    @login_required
+    def update_product(id):
+        """
+        Update an existing product
+
+        """
+
+        form = ProductForm
+        product = Product.query.get(id)
+        form['csrf_token'].data = request.cookies['csrf_token']
+
+        if product:
+            product.name = form.data['name']
+
+            db.session.commit()
+            return product.to_dict()
+
+    return {'errors' : validation_errors_to_error_messages(errors)}, 401
+
+
     @product_routes.route('/<int:id>/comments')
     @login_required
 

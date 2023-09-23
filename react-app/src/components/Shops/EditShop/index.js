@@ -21,22 +21,22 @@ function EditShop(){
     const shopState = useSelector(state=>state.shop)
     console.log(shopState)
 
-    const [address, setAddress] = useState(shopState?.shops[shopId]?.address);
-    const [city, setCity] = useState(shopState?.shops[shopId]?.city);
-    const [state, setState] = useState(shopState?.shops[shopId]?.state);
-    const [country, setCountry] = useState(shopState?.shops[shopId]?.country)
-    const [currency, setCurrency] = useState(shopState?.shops[shopId]?.currency)
-    const [name, setName] = useState(shopState?.shops[shopId]?.name)
+    const [address, setAddress] = useState(shopState?.shops[parseInt(shopId)]?.address);
+    const [city, setCity] = useState(shopState?.shops[parseInt(shopId)]?.city);
+    const [state, setState] = useState(shopState?.shops[parseInt(shopId)]?.state);
+    const [country, setCountry] = useState(shopState?.shops[parseInt(shopId)]?.country)
+    const [currency, setCurrency] = useState(shopState?.shops[parseInt(shopId)]?.currency)
+    const [name, setName] = useState(shopState?.shops[parseInt(shopId)]?.name)
 
     const [errors, setErrors] = useState([]);
 
       const payload = {
-        address,
-        city,
-        state,
-        country,
-        name,
-        currency,
+        address:address,
+        city:city,
+        state:state,
+        country:country,
+        name:name,
+        currency:currency,
       }
 
       const handleSubmit = async (e) => {

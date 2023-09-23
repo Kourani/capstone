@@ -62,7 +62,7 @@ function App() {
           <Route path="/shops/:shopId/manage">
             <EditShop/>
           </Route>
-          
+
           <Route path="/shops/new">
             <CreateShop/>
           </Route>
