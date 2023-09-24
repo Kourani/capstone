@@ -8,6 +8,8 @@ import {useHistory} from "react-router-dom"
 import OpenModalButton from "../../OpenModalButton";
 import { useModal } from "../../../context/Modal";
 import EditShop from "../EditShop"
+import DeleteShop from "../DeleteShop"
+import "./OwnedShops.css"
 
 
 function OwnedShops(){
@@ -36,12 +38,21 @@ function OwnedShops(){
     console.log(shopState, 'statettttttt')
 
 
-    function toOpen(){
+    function editShop(shopId){
         return(
         <OpenModalButton
         buttonText="Edit Shop"
         onItemClick={closeMenu}
-        modalComponent={<EditShop/>}
+        modalComponent={<EditShop shopId={shopId}/>}
+        />)
+    }
+
+    function deleteShop(shopId){
+        return(
+        <OpenModalButton
+        buttonText="Delete Shop"
+        onItemClick={closeMenu}
+        modalComponent={<DeleteShop shopId={shopId}/>}
         />)
     }
 
@@ -51,12 +62,23 @@ function OwnedShops(){
             if(userState?.user?.id === element?.ownerId){
                 return (
                     <>
-                    <button onClick={()=>{history.push(`/shops/${element.id}/products/manage`)}}>
-                    <div>{element.address}</div>
-                    <div> {element.currency}</div>
-                    </button>
-                    {toOpen()}
-                    <button> Delete Shop </button>
+                    <div className="shopsOwned">
+                        <button className='buttonOneOwned' onClick={()=>{history.push(`/shops/${element.id}/products/manage`)}}>
+                            <div className="buttonContentOwned">
+                                <div>Name: {element.name}</div>
+                                <div>Address: {element.address}</div>
+                                <div>City: {element.city}</div>
+                                <div>State: {element.state}</div>
+                                <div>Country: {element.country}</div>
+                                <div>Accepted Currency: {element.currency}</div>
+                            </div>
+                        </button>
+
+                        <div className="buttonsOwned">
+                            {editShop(element.id)}
+                            {deleteShop(element.id)}
+                        </div>
+                    </div>
                     </>
                 )
             }

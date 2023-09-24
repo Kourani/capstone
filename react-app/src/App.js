@@ -12,7 +12,7 @@ import CreateProduct from "./components/Products/CreateProduct";
 import EditProduct from "./components/Products/EditProduct"
 
 import ShopProducts from "./components/Products/ShopProducts";
-import AllShops from "./components/Shops/AllShops"
+import OneShops from "./components/Shops/OneShops"
 import OwnedShops from "./components/Shops/OwnedShops"
 import EditShop from "./components/Shops/EditShop"
 import CreateShop from "./components/Shops/CreateShop"
@@ -72,8 +72,8 @@ function App() {
             <OwnedShops/>
           </Route>
 
-          <Route path="/shops">
-            <AllShops/>
+          <Route path="/shops/:shopId">
+            <OneShops/>
           </Route>
 
           <Route exact path="/">

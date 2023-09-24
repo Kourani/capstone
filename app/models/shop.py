@@ -20,6 +20,7 @@ class Shop(db.Model):
     country = db.Column(db.String, nullable=False)
     name = db.Column(db.String, nullable=False)
     currency = db.Column(db.String, nullable=False)
+    image = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
     users = db.relationship('User', back_populates='shops') #user table fill out business
@@ -36,5 +37,6 @@ class Shop(db.Model):
             'country':self.country,
             'name':self.name,
             'currency':self.currency,
+            'image':self.image,
             'createdAt':self.created_at
         }

@@ -12,12 +12,13 @@ function Navigation({ isLoaded }){
 
 
 	return (
-		<ul>
+		<ul className='NavBar'>
+
 			<li>
-				<NavLink exact to="/">Interact</NavLink>
+				<NavLink className='Home' exact to="/">Interact</NavLink>
 				<NavLink exact to="/cart"> cart </NavLink>
 			</li>
-			
+
 			{isLoaded && (
 				<li>
 					<ProfileButton user={sessionUser} />

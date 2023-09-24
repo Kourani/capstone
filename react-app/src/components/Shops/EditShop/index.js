@@ -1,34 +1,29 @@
 
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 
+import { useModal } from "../../../context/Modal";
 import * as shopActions from "../../../store/shop"
 
 
-function EditShop(){
+
+function EditShop(shopId){
 
     const dispatch = useDispatch()
-    const history = useHistory()
-    const {shopId} = useParams()
-
-    console.log(shopId,'!!!!!!!!!!!!!!!!!!!!!')
+    const {closeModal} = useModal()
+    const [clicked, setClicked] = useState('False')
 
     useEffect(()=>{
       dispatch(shopActions.getShops())
-    },[dispatch])
+    },[dispatch,clicked])
 
     const shopState = useSelector(state=>state.shop)
-    console.log(shopState)
-    console.log(shopState[shopId],'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-
-    const [address, setAddress] = useState(shopState[shopId]?.address);
-    const [city, setCity] = useState(shopState[shopId]?.city);
-    const [state, setState] = useState(shopState[shopId]?.state);
-    const [country, setCountry] = useState(shopState[shopId]?.country)
-    const [currency, setCurrency] = useState(shopState[shopId]?.currency)
-    const [name, setName] = useState(shopState[shopId]?.name)
-
+    const [address, setAddress] = useState(shopState[shopId.shopId]?.address);
+    const [city, setCity] = useState(shopState[shopId.shopId]?.city);
+    const [state, setState] = useState(shopState[shopId.shopId]?.state);
+    const [country, setCountry] = useState(shopState[shopId.shopId]?.country)
+    const [currency, setCurrency] = useState(shopState[shopId.shopId]?.currency)
+    const [name, setName] = useState(shopState[shopId.shopId]?.name)
     const [errors, setErrors] = useState([]);
 
       const payload = {
@@ -40,15 +35,16 @@ function EditShop(){
         currency:currency,
       }
 
-      const handleSubmit = async (e) => {
 
+      const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = await dispatch(shopActions.editShop(payload, shopId));
+        const data = await dispatch(shopActions.editShop(payload, shopId.shopId));
         if (data) {
           setErrors(data);
         }
 
-        history.push('/shops/manage')
+        setClicked('True')
+        closeModal()
       };
 
       return (

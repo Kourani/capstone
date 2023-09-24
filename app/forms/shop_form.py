@@ -11,3 +11,4 @@ class ShopForm(FlaskForm):
     country = StringField('country', validators=[DataRequired()])
     name = StringField('name')
     currency = StringField('currency')
+    image = StringField('image')
