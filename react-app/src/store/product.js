@@ -2,9 +2,9 @@
 
 //------------------------------------CONSTANTS--------------------------
 const GET_ALL = "products/GET_ALL";
-const DELETE_PRODUCT = "products/DELETE_PRODUCT";
 const ADD_PRODUCT = "products/ADD_PRODUCT";
 const EDIT_PRODUCT = "products/EDIT_PRODUCT";
+const DELETE_PRODUCT = "products/DELETE_PRODUCT";
 //-----------------------------------ACTIONS---------------------------------------
 const getAll = (all) => ({
     type:GET_ALL,
@@ -21,8 +21,9 @@ const editOne = (product) =>({
 	payload:product
 })
 
-const deleteOne = () => ({
+const deleteOne = (product) => ({
 	type: DELETE_PRODUCT,
+	product
 });
 
 
@@ -79,6 +80,25 @@ export const editProduct = (payload, productId) => async(dispatch) => {
 	}
 	else{
 		return await response.json()
+	}
+}
+
+export const deleteProduct = (productId) => async (dispatch) => {
+	const response = await fetch(`/api/products/${productId}`, {
+		methods:'DELETE',
+		headers:{
+			'Content-Type': "application/json"
+		}
+	})
+
+	if(response.ok){
+		const removedProduct = await response.json()
+		console.log(removedProduct, 'removedProduct')
+		dispatch(deleteOne(removedProduct))
+	}
+
+	else{
+		return await response.json
 	}
 }
 

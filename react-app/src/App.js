@@ -40,10 +40,6 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route path="/shops/:shopId/products/:productId/edit">
-            <EditProduct/>
-          </Route>
-
           <Route path="/shops/:shopId/products/new">
             <CreateProduct/>
           </Route>
@@ -52,28 +48,24 @@ function App() {
             <ShopProducts/>
           </Route>
 
-          <Route path="/products/:productId">
-            <ProductDetails/>
-          </Route>
-
           <Route path="/shops/:shopId/products/manage">
             <ShopProducts/>
-          </Route>
-
-          <Route path="/shops/:shopId/manage">
-            <EditShop/>
-          </Route>
-
-          <Route path="/shops/new">
-            <CreateShop/>
           </Route>
 
           <Route path="/shops/manage">
             <OwnedShops/>
           </Route>
 
+          <Route path="/shops/new">
+            <CreateShop/>
+          </Route>
+
           <Route path="/shops/:shopId">
             <OneShops/>
+          </Route>
+
+          <Route path="/products/:productId">
+            <ProductDetails/>
           </Route>
 
           <Route exact path="/">

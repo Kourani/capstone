@@ -91,13 +91,31 @@ def update_shop(id):
 
     return {'errors': validation_errors_to_error_messages(errors)}, 401
 
+
+@shop_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_shop(id):
+
+    form =ShopForm
+
+    shop = Shop.query.get(id)
+
+    if not shop:
+        return {'error':'Shop not found'}
+
+    if shop:
+        db.session.delete(shop)
+        db.session.commit()
+
+
+    return {'errors':validation_errors_to_error_messages(errors)}, 401
+
 #get all shops
 @shop_routes.route('/')
 def shops():
 
     shops = Shop.query.all()
     return {'shops': [shop.to_dict() for shop in shops]}
-
 
 #get shop by id
 @shop_routes.route('/<int:id>')

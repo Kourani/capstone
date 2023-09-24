@@ -24,8 +24,9 @@ const editOne = (shop) =>({
 	shop
 })
 
-const deleteOne = () => ({
+const deleteOne = (shop) => ({
 	type: DELETE_SHOP,
+	shop
 });
 
 
@@ -81,6 +82,23 @@ export const editShop = (payload, shopId) => async (dispatch) => {
 		dispatch(editOne(updatedShop))
 	}
 	else{
+		return await response.json()
+	}
+}
+
+export const deleteShop = (shopId) => async (dispatch) =>{
+	const response = await fetch(`/api/shops/${shopId}`, {
+		method:"DELETE",
+		headers:{
+			"Content-Type":"application/json"
+		}
+	})
+	if(response.ok){
+		const removedShop = await response.json()
+		console.log(removedShop,'removedShop')
+		dispatch(deleteOne(removedShop))
+	}
+	else {
 		return await response.json()
 	}
 }

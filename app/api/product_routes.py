@@ -8,6 +8,7 @@ from .auth_routes import validation_errors_to_error_messages
 product_routes = Blueprint('products', __name__)
 
 
+#Get all Products
 @product_routes.route('/')
 def products():
     """
@@ -16,7 +17,7 @@ def products():
     products = Product.query.all()
     return {'products': [product.to_dict() for product in products]}
 
-
+#Get one product by Id
 @product_routes.route('/<int:id>')
 def product(id):
     """
@@ -71,3 +72,20 @@ def product(id):
                 comment = form.data['comment'],
                 item_quality=form.data['item_quality']
             )
+
+
+@product_routes.route('/<int:id>')
+@login_required
+def delete_product(id):
+    form = ProductForm
+
+    product = Product.query.get(id)
+
+    if not product:
+        return {'error':'Product not found'}
+
+    if product:
+        db.session.delete(product)
+        db.session.commit()
+
+    return {'errors':validation_errors_to_error_messages(errors)}, 401
