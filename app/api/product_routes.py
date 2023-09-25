@@ -73,8 +73,28 @@ def product(id):
                 item_quality=form.data['item_quality']
             )
 
+@product_routes.route('/<int:id>/edit', methods=['PUT'])
+@login_required
+def update_product(id):
+    form = ProductForm()
+    product = Product.query.get(id)
 
-@product_routes.route('/<int:id>')
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if product:
+        product.name = form.data['name']
+        product.price = form.data['price']
+        product.description = form.data['description']
+        product.category = form.data['category']
+
+        db.session.commit()
+
+        return product.to_dict()
+
+    return {'errors': validation_errors_to_error_messages(errors)}, 401
+
+#delete product
+@product_routes.route('/<int:id>/delete')
 @login_required
 def delete_product(id):
     form = ProductForm

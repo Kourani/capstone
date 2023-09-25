@@ -15,9 +15,9 @@ export default function DeleteShop(shopId){
     const {clicked, setClicked} = useState('False')
 
 
-    useEffect(()=>{
-        dispatch(shopActions.getShops())
-    },[dispatch, clicked])
+    // useEffect(()=>{
+    //     dispatch(shopActions.getShops())
+    // },[dispatch, clicked])
 
     function toDelete(){
         dispatch(shopActions.deleteShop(shopId.shopId))

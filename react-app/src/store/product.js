@@ -66,7 +66,8 @@ export const newProduct = (payload, shopId) => async(dispatch) => {
 }
 
 export const editProduct = (payload, productId) => async(dispatch) => {
-	const response = await fetch(`/api/shops/${productId}/products`, {
+	console.log(productId)
+	const response = await fetch(`/api/products/${productId}/edit`, {
 		method:'PUT',
 		headers:{
 			"Content-Type" : "application/json",
@@ -76,6 +77,7 @@ export const editProduct = (payload, productId) => async(dispatch) => {
 
 	if(response.ok){
 		const updatedProduct = await response.json()
+		console.log(updatedProduct,'AAAAAAAAAAA')
 		dispatch(editOne(updatedProduct))
 	}
 	else{
@@ -84,7 +86,7 @@ export const editProduct = (payload, productId) => async(dispatch) => {
 }
 
 export const deleteProduct = (productId) => async (dispatch) => {
-	const response = await fetch(`/api/products/${productId}`, {
+	const response = await fetch(`/api/products/${productId}/delete`, {
 		methods:'DELETE',
 		headers:{
 			'Content-Type': "application/json"
@@ -125,8 +127,10 @@ function productsReducer(state = {}, action) {
 			}
 
 		case DELETE_PRODUCT:
+			let newSt={...state}
+			delete newSt[action.product.id]
 			return {
-				...state
+				...newSt
 			}
 
 		default:

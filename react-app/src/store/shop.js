@@ -87,7 +87,7 @@ export const editShop = (payload, shopId) => async (dispatch) => {
 }
 
 export const deleteShop = (shopId) => async (dispatch) =>{
-	const response = await fetch(`/api/shops/${shopId}`, {
+	const response = await fetch(`/api/shops/${shopId}/delete`, {
 		method:"DELETE",
 		headers:{
 			"Content-Type":"application/json"
@@ -124,9 +124,9 @@ function shopsReducer(state = {}, action) {
 			}
 
 		case DELETE_SHOP:
-			return {
-				...state
-			}
+			let newSt = {...state}
+			delete newSt.action.shop
+			return newSt
 
 		default:
 			return state;

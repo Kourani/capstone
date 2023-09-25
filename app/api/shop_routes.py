@@ -91,8 +91,8 @@ def update_shop(id):
 
     return {'errors': validation_errors_to_error_messages(errors)}, 401
 
-
-@shop_routes.route('/<int:id>', methods=['DELETE'])
+#delete shop
+@shop_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_shop(id):
 

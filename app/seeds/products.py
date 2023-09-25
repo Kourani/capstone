@@ -6,22 +6,22 @@ from sqlalchemy.sql import text
 def seed_products():
 
     product0 = Product(
-        shop_id=1, name='teddy bear', description='hand crafted', category='plush', price=29.99
+        shop_id=1, name='teddy bear', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product1= Product(
-        shop_id=2, name='Scar', description='super soft and fluffy', category='toys', price=50.12
+        shop_id=2, name='Scar', description='super soft and fluffy', category='toys', price=50.12, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product2=Product(
-        shop_id=3, name='Squish', description='awesome material', category='stress relif', price=5
+        shop_id=3, name='Squish', description='awesome material', category='stress relif', price=5, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product3 = Product(
-        shop_id=1, name='teddy bear1', description='hand crafted', category='plush', price=29.99
+        shop_id=1, name='teddy bear1', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product4 = Product(
-        shop_id=1, name='teddy bear2', description='hand crafted', category='plush', price=29.99
+        shop_id=1, name='teddy bear2', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product5 = Product(
-        shop_id=1, name='teddy bear3', description='hand crafted', category='plush', price=29.99
+        shop_id=1, name='teddy bear3', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
 
     db.session.add(product0)

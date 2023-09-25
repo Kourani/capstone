@@ -16,7 +16,7 @@ function Navigation({ isLoaded }){
 	return (
 		<div className='NavBar'>
 			<NavLink className='Home' exact to="/">Interact</NavLink>
-			<NavLink className='Cart' exact to="/cart"> {additionalFunctions.shoppingCart()} </NavLink>
+			<NavLink className='Cart' exact to="/cart"> {additionalFunctions.shoppingCart()}</NavLink>
 			{isLoaded && (
 				<>
 					<ProfileButton user={sessionUser} />

@@ -9,28 +9,23 @@ import { useModal } from "../../../context/Modal"
 
 
 
-function EditProduct(){
+function EditProduct(productId){
 
     const dispatch = useDispatch()
     const {closeModal} = useModal()
-    const {shopId, productId} = useParams()
-
-    console.log(shopId,'AAAAAAAAAAAAAAAAAAAAAAAAAAA')
-    console.log(productId,'!!!!!!!!!!!!!')
+    const [clicked, setClicked] = useState('False')
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
-    },[dispatch])
+    },[dispatch, clicked])
 
     const productState= useSelector(state=>state.product)
 
-    console.log(productState)
-
-    const [name, setName] = useState(productState[productId]?.name)
-    const [price, setPrice] = useState(productState[productId]?.price)
-    const [description, setDescription] = useState(productState[productId]?.description)
-    const [category, setCategory] = useState(productState[productId]?.category)
-    const [image, setImage] = useState(productState[productId]?.image)
+    const [name, setName] = useState(productState[productId.productId]?.name)
+    const [price, setPrice] = useState(productState[productId.productId]?.price)
+    const [description, setDescription] = useState(productState[productId.productId]?.description)
+    const [category, setCategory] = useState(productState[productId.productId]?.category)
+    const [image, setImage] = useState(productState[productId.productId]?.image)
     const [errors, setErrors] = useState("")
 
 
@@ -44,12 +39,13 @@ function EditProduct(){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        const data = await dispatch(productActions.editProduct(payload,productId))
-
+        const data = await dispatch(productActions.editProduct(payload,productId.productId))
         if(data){
             setErrors(data)
         }
+
+        setClicked('True')
+        closeModal()
     }
 
 
@@ -109,7 +105,7 @@ function EditProduct(){
                     />
             </label>
 
-
+            <button>Update</button>
         </form>
         </>
 

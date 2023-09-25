@@ -14,6 +14,7 @@ import ShopProducts from "./components/Products/ShopProducts";
 import OneShops from "./components/Shops/OneShops"
 import OwnedShops from "./components/Shops/OwnedShops"
 import CreateShop from "./components/Shops/CreateShop"
+import Cart from "./components/Cart"
 
 
 function App() {
@@ -42,11 +43,11 @@ function App() {
             <CreateProduct/>
           </Route>
 
-          <Route path="/shops/:shopId/products">
+          <Route path="/shops/:shopId/products/manage">
             <ShopProducts/>
           </Route>
-
-          <Route path="/shops/:shopId/products/manage">
+          
+          <Route path="/shops/:shopId/products">
             <ShopProducts/>
           </Route>
 
@@ -64,6 +65,10 @@ function App() {
 
           <Route path="/products/:productId">
             <ProductDetails/>
+          </Route>
+
+          <Route path="/cart">
+            <Cart/>
           </Route>
 
           <Route exact path="/">

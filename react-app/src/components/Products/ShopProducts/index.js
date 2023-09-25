@@ -1,4 +1,5 @@
 
+import "./ShopProducts.css"
 
 import React, {useEffect, useState, useRef} from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +10,7 @@ import { useModal } from "../../../context/Modal";
 import * as productActions from "../../../store/product";
 import DeleteProduct from "../DeleteProduct";
 import EditProduct from "../EditProduct"
+
 
 function ShopProducts(){
 
@@ -55,12 +57,13 @@ function ShopProducts(){
             if(element.shopId === parseInt(shopId)){
                 return(
                     <div className="ownedProducts">
-                    <div> {element.name} </div>
-                    <div> {element.description} </div>
-                    <div> {element.category} </div>
-                    <div> {element.price} </div>
-                    {editProduct(element.id)}
-                    {deleteProduct(element.id)}
+                        <img className='imageShopProducts' src={element.image} alt="Image"/>
+                        <div> {element.name} </div>
+                        <div> {element.description} </div>
+                        <div> {element.category} </div>
+                        <div> {element.price} </div>
+                        {editProduct(element.id)}
+                        {deleteProduct(element.id)}
                     </div>
                 )
             }

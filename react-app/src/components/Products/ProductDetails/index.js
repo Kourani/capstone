@@ -90,13 +90,37 @@ function ProductDetails(){
         })
     }
 
+    //checks if user is logged in and returns edit/delete buttons
+    function commentButtons(){
+
+        if(userState.user.id !== null){
+            return (
+                <>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </>
+            )
+        }
+    }
+
+    //returns the comments, date posted, user icon, edit/delete buttons for each product
     function productComments(){
         return commentElements?.map(element=>{
+
+            function owned(){
+                if (userState.user.id === element.userId){
+                    return commentButtons()
+                }
+            }
+
+
             if(element.productId === parseInt(productId)){
                 let date = new Date(element.createdAt)
                 let year = date.getFullYear()
                 let month = date.getMonth()+1
                 let day = date.getDate()
+
+
 
                 return(
 
@@ -108,6 +132,7 @@ function ProductDetails(){
                                 alt='Image'
                             />
                             <div>{userState[element.userId]?.firstName} {userState[element.userId]?.lastName} {monthNames[month]} {day}, {year}</div>
+                            {owned()}
                         </div>
                     </div>
                 )
@@ -116,6 +141,7 @@ function ProductDetails(){
 
     }
 
+    //returns the number of comments for each product
     function commentCount(){
         let count = 0
         commentElements?.forEach(element=>{
