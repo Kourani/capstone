@@ -2,29 +2,27 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import * as additionalFunctions from '../../context/additional'
 import './Navigation.css';
 
-import { shoppingCart } from '../../context/help';
+
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
 
+	console.log(additionalFunctions.shoppingCart(),'aaaaaaaaaaaaaaaaaaaaaaaaaa')
 
 	return (
-		<ul className='NavBar'>
-
-			<li>
-				<NavLink className='Home' exact to="/">Interact</NavLink>
-				<NavLink exact to="/cart"> cart </NavLink>
-			</li>
-
+		<div className='NavBar'>
+			<NavLink className='Home' exact to="/">Interact</NavLink>
+			<NavLink className='Cart' exact to="/cart"> {additionalFunctions.shoppingCart()} </NavLink>
 			{isLoaded && (
-				<li>
+				<>
 					<ProfileButton user={sessionUser} />
-				</li>
+				</>
 			)}
-		</ul>
+		</div>
 	);
 }
 

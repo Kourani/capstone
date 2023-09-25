@@ -9,12 +9,10 @@ import Navigation from "./components/Navigation";
 import AllProducts from "./components/Products/AllProducts";
 import ProductDetails from "./components/Products/ProductDetails";
 import CreateProduct from "./components/Products/CreateProduct";
-import EditProduct from "./components/Products/EditProduct"
 
 import ShopProducts from "./components/Products/ShopProducts";
 import OneShops from "./components/Shops/OneShops"
 import OwnedShops from "./components/Shops/OwnedShops"
-import EditShop from "./components/Shops/EditShop"
 import CreateShop from "./components/Shops/CreateShop"
 
 
