@@ -39,10 +39,12 @@ function EditProduct(productId){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const data = await dispatch(productActions.editProduct(payload,productId.productId))
+        const data = await dispatch(productActions.editProduct(payload, productId.productId))
         if(data){
             setErrors(data)
         }
+
+        console.log(errors,'HELLO!!!!!!!!')
 
         setClicked('True')
         closeModal()

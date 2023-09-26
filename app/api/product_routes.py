@@ -28,51 +28,7 @@ def product(id):
     return product.to_dict()
 
 
-    @product_routes.route('/<int:id>/edit', methods=['PUT'])
-    @login_required
-    def update_product(id):
-        """
-        Update an existing product
-
-        """
-
-        form = ProductForm
-        product = Product.query.get(id)
-        form['csrf_token'].data = request.cookies['csrf_token']
-
-        if product:
-            product.name = form.data['name']
-
-            db.session.commit()
-            return product.to_dict()
-
-    return {'errors' : validation_errors_to_error_messages(errors)}, 401
-
-
-    @product_routes.route('/<int:id>/comments')
-    @login_required
-
-    def comment(id):
-        """
-
-        Create a comment for a product based on product id
-
-        """
-
-        form = ComentForm()
-
-        product = Product.query.get(id)
-
-        if not product:
-            return {'error' : 'Product not found'}
-
-        if form.validate_on_submit():
-            comment = Comment(
-                user_id=current_user.id,
-                comment = form.data['comment'],
-                item_quality=form.data['item_quality']
-            )
-
+#Edit product
 @product_routes.route('/<int:id>/edit', methods=['PUT'])
 @login_required
 def update_product(id):
@@ -92,6 +48,26 @@ def update_product(id):
         return product.to_dict()
 
     return {'errors': validation_errors_to_error_messages(errors)}, 401
+
+
+
+#Create a comment for a product based on a products id
+@product_routes.route('/<int:id>/comments', methods=['POST'])
+@login_required
+def comment(id):
+    form = ComentForm()
+
+    product = Product.query.get(id)
+
+    if not product:
+        return {'error' : 'Product not found'}
+
+    if form.validate_on_submit():
+        comment = Comment(
+            user_id=current_user.id,
+            comment = form.data['comment'],
+            item_quality=form.data['item_quality']
+        )
 
 #delete product
 @product_routes.route('/<int:id>/delete')

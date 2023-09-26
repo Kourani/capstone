@@ -1,4 +1,6 @@
 
+import "./CreateProduct.css"
+
 import React, { useEffect, useState } from "react"
 
 import {useDispatch} from "react-redux"
@@ -42,8 +44,8 @@ function CreateProduct(){
 
         const data = await dispatch(productActions.newProduct(payload, shopId))
 
-        if(data){
-            setErrors(data)
+        if(data.errors){
+            setErrors(data.errors)
         }
 
 
@@ -51,15 +53,15 @@ function CreateProduct(){
         history.push(`/shops/${shopId}/products`)
     }
 
-    console.log(errors,'aaaaaaaaaaPLEASE')
+    console.log(errors, 'ERRORS')
 
     return(
         <>
-        <h1> Create Product </h1>
+        <h1 className="createProductTitle"> Create Product </h1>
 
-        <form onSubmit={handleSubmit}>
+        <form className="createProductForm" onSubmit={handleSubmit}>
 
-            <label>
+            <label className="createProductName">
                 Name
                 <input
                     type='text'
@@ -70,7 +72,7 @@ function CreateProduct(){
                     />
             </label>
 
-            <label>
+            <label className="createProductName">
                 Price
                 <input
                     type='text'
@@ -81,7 +83,7 @@ function CreateProduct(){
                     />
             </label>
 
-            <label>
+            <label className="createProductName">
                 Description
                 <input
                     type='text'
@@ -92,7 +94,7 @@ function CreateProduct(){
                     />
             </label>
 
-            <label>
+            <label className="createProductName" >
                 Category
                 <input
                     type='text'
@@ -102,7 +104,7 @@ function CreateProduct(){
                     />
             </label>
 
-            <label>
+            <label className="createProductName" >
                 Image
                 <input
                     type='text'
@@ -114,7 +116,6 @@ function CreateProduct(){
             </label>
 
             <button type='submit'>Submit</button>
-
         </form>
         </>
 

@@ -16,6 +16,7 @@ function ShopProducts(){
 
     const dispatch = useDispatch()
     const {shopId} = useParams()
+
     const {closeModal} = useModal()
 
     const [showMenu, setShowMenu] = useState(false);
@@ -53,17 +54,17 @@ function ShopProducts(){
     }
 
     function findProducts(){
-        return productElements.map(element=>{
-            if(element.shopId === parseInt(shopId)){
+        return productElements?.map(element=>{
+            if(element?.shopId === parseInt(shopId)){
                 return(
                     <div className="ownedProducts">
-                        <img className='imageShopProducts' src={element.image} alt="Image"/>
-                        <div> {element.name} </div>
-                        <div> {element.description} </div>
-                        <div> {element.category} </div>
-                        <div> {element.price} </div>
-                        {editProduct(element.id)}
-                        {deleteProduct(element.id)}
+                        <img className='imageShopProducts' src={element?.image} alt="Image"/>
+                        <div> {element?.name} </div>
+                        <div> {element?.description} </div>
+                        <div> {element?.category} </div>
+                        <div> {element?.price} </div>
+                        {editProduct(element?.id)}
+                        {deleteProduct(element?.id)}
                     </div>
                 )
             }

@@ -17,8 +17,9 @@ function CreateShop(){
     const [country, setCountry] = useState("")
     const [currency, setCurrency] = useState("")
     const [name, setName] = useState("")
+    const [image, setImage] = useState("")
 
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState({});
 
       const payload = {
         address,
@@ -27,23 +28,37 @@ function CreateShop(){
         country,
         name,
         currency,
+        image
       }
 
       const handleSubmit = async (e) => {
 
         e.preventDefault();
         const data = await dispatch(shopActions.newShop(payload));
-        if (data) {
-          setErrors(data);
+        if (data.errors) {
+          setErrors(data.errors);
         }
+
 
         history.push('/shops/manage')
       };
+
+      console.log(errors, 'Errors!!!!!!!!!')
 
       return (
         <>
           <h1>Create Shop</h1>
           <form onSubmit={handleSubmit}>
+
+          <label>
+              Shop Name
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </label>
 
             <label>
               Address
@@ -96,14 +111,16 @@ function CreateShop(){
             </label>
 
             <label>
-              Shop Name
+              Shop Image
               <input
                 type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
                 required
               />
             </label>
+
+
 
             <button type="submit">Create</button>
           </form>

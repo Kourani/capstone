@@ -1,0 +1,19 @@
+
+
+.createProductForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.createProductTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.createProductName{
+    padding-bottom: 10px;
+}

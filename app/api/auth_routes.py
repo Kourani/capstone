@@ -11,11 +11,11 @@ def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
     """
-    errorMessages = []
+    errorMessages = {} # was []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field} : {error}')
-    return errorMessages
+            errorMessages[field]=error
+    return errorMessages #was originally an append But I dont want an array I want an object
 
 
 @auth_routes.route('/')
