@@ -22,7 +22,7 @@ export default function Products(){
 
 
     function allProducts(){
-        return productElements.map(element=>{
+        return productElements?.map(element=>{
             return (
                 <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
                     <div>
@@ -41,8 +41,6 @@ export default function Products(){
 
     return (
         <>
-        <button onClick={()=>history.push('shops/new')}>Create Shop</button>
-
         <p> Fresh finds fit for cozy season </p>
         <p> Popular gifts right now </p>
 

@@ -1,0 +1,16 @@
+
+.footer{
+
+
+    background-image: url("https://images.pexels.com/photos/18229795/pexels-photo-18229795/free-photo-of-red-leaves-on-a-tree.jpeg");
+    background-size: cover;
+    padding:10px;
+}
+
+.footerContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white
+
+}

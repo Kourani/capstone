@@ -8,12 +8,13 @@ import * as userActions from '../../../store/session'
 
 import React,  { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 
 function ProductDetails(){
 
     const {productId} = useParams()
     const dispatch = useDispatch()
+    const history = useHistory()
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
@@ -74,14 +75,14 @@ function ProductDetails(){
 
     function otherProducts(){
         return productElements?.map(element=>{
-            if(element.shopId===productState[productId]?.shopId && productState[productId]?.id !== element.id){
+            if(element?.shopId===productState[productId]?.shopId && productState[productId]?.id !== element?.id){
                 return(
-                    <button>
+                    <button onClick={()=>{history.push(`/shops/${element.shopId}`)}}>
                          <img className="moreFromThisShopImages"
-                                src={element.image ? element.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
+                                src={element?.image ? element?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
                                 alt="Image"
                         />
-                        <div>{element.name}</div>
+                        <div>{element?.name}</div>
                         <div>{element?.description}</div>
                         <div>${element?.price}</div>
                     </button>
@@ -93,7 +94,7 @@ function ProductDetails(){
     //checks if user is logged in and returns edit/delete buttons
     function commentButtons(){
 
-        if(userState.user.id !== null){
+        if(userState?.user?.id !== null){
             return (
                 <>
                     <button>Edit</button>
@@ -108,7 +109,7 @@ function ProductDetails(){
         return commentElements?.map(element=>{
 
             function owned(){
-                if (userState.user.id === element.userId){
+                if (userState?.user?.id === element?.userId){
                     return commentButtons()
                 }
             }

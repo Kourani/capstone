@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import * as shopActions from "../../../store/shop"
+import * as productActions from "../../../store/product"
 import "./OneShop.css"
 
 
@@ -14,23 +15,25 @@ export default function OneShop(){
     const {shopId} = useParams()
 
     useEffect(()=>{
-        dispatch(shopActions.getShops())
+        dispatch(productActions.getProducts())
     },[dispatch])
 
-    const shopState = useSelector(state=>state?.shop)
-
+    const productState = useSelector(state=>state?.product)
+    const productElements = Object.values(productState)
 
     function shop(){
+        return productElements?.map(element=>{
+                if (element.shopId === parseInt(shopId)){
 
-        return(
-            <>
-            <img className="imageAll"
-                src={shopState[shopId]?.image}
-                alt='Image'
-            />
-            <div>{shopState[shopId]?.address}</div>
-            </>
-        )
+                    return(
+                        <>
+                            <img src={element?.image} alt="Image" />
+                            <div>{element?.name}</div>
+                            <div>{element?.price}</div>
+                        </>
+                    )
+                }
+        })
     }
 
 

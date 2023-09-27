@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer"
 
 import AllProducts from "./components/Products/AllProducts";
 import ProductDetails from "./components/Products/ProductDetails";
@@ -28,6 +29,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+
       {isLoaded && (
         <Switch>
 
@@ -43,15 +45,19 @@ function App() {
             <CreateProduct/>
           </Route>
 
-          <Route path="/shops/:shopId/products/manage">
-            <ShopProducts/>
-          </Route>
-          
-          <Route path="/shops/:shopId/products">
+          <Route path="/shops/:shopId/products/edit">
             <ShopProducts/>
           </Route>
 
-          <Route path="/shops/manage">
+          <Route path="/shops/:shopId/products">
+            <ShopProducts/>
+          </Route>
+          
+          <Route path="/shops/:shopId">
+            <OneShops/>
+          </Route>
+
+          <Route path="/shops/edit">
             <OwnedShops/>
           </Route>
 
@@ -59,9 +65,7 @@ function App() {
             <CreateShop/>
           </Route>
 
-          <Route path="/shops/:shopId">
-            <OneShops/>
-          </Route>
+
 
           <Route path="/products/:productId">
             <ProductDetails/>
@@ -76,7 +80,9 @@ function App() {
           </Route>
 
         </Switch>
+
       )}
+      <Footer isLoaded={isLoaded} />
     </>
   );
 }
