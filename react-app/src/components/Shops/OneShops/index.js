@@ -27,7 +27,7 @@ export default function OneShop(){
 
                     return(
                         <>
-                            <img src={element?.image} alt="Image" />
+                            <img className="productImageOneShop" src={element?.image} alt="Image" />
                             <div>{element?.name}</div>
                             <div>{element?.price}</div>
                         </>
