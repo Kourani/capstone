@@ -35,3 +35,43 @@
     height: 60px;
     border-radius:50%;
 }
+
+.shopDetailsOtherProducts{
+    padding-bottom: 10px;
+}
+
+.headersProductDetails{
+    background-image: url("https://images.pexels.com/photos/18229795/pexels-photo-18229795/free-photo-of-red-leaves-on-a-tree.jpeg");
+    background-size: cover;
+    font-size: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.productDetailsFunction{
+    padding-right: 50px;
+    padding-top: 10px;
+}
+
+.addToCartProductDetails{
+    background-color: black;
+    color:white;
+    border: 2px solid whitesmoke;
+    border-radius: 100px;
+}
+
+.buyItNowProductDetails{
+    background-color: white;
+    color:black;
+    border: 2px solid black;
+    border-radius: 100px;
+
+}
+
+.productDetailsButtons{
+    display: flex;
+    flex-direction: column;
+}

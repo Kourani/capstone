@@ -4,3 +4,16 @@
     width: 200px;
     height: 150px;
 }
+
+.imageOneShop{
+    width: 100%;
+    object-fit: cover;
+    height:100px;
+
+}
+
+.shopInformation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

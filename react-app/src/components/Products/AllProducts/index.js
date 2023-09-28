@@ -1,6 +1,7 @@
 
 import "./AllProducts.css";
 import * as productActions from "../../../store/product"
+import * as shopActions from "../../../store/shop"
 
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -14,10 +15,13 @@ export default function Products(){
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
+        dispatch(shopActions.getShops())
     },[dispatch])
 
     const productState = useSelector(state=>state.product)
+    const shopState = useSelector(state=>state.shop)
     const productElements = Object.values(productState)
+    const shopElements = Object.values(shopState)
 
 
 
@@ -32,17 +36,61 @@ export default function Products(){
                         />
                         <div className="productName"> {element?.name} </div>
                         <div className="productPrice"> ${element?.price} </div>
-                        <div className="productCategory"> {element?.category} </div>
                     </div>
                 </button>
             )
         })
     }
 
+    function shops(){
+        let count = 0
+        return shopElements?.map(element=>{
+            if(element?.country === 'United States')
+            {
+                count++
+                if(count<4){
+                    return(
+                        <button>
+                            <img className="allLanding" src={element?.image} alt="Image"/>
+                            <p>{element?.name}</p>
+                        </button>
+                    )
+
+                }
+
+            }
+        })
+    }
+
     return (
         <>
-        <p> Fresh finds fit for cozy season </p>
-        <p> Popular gifts right now </p>
+        <p className='headersProductDetails' > Fresh finds fit for cozy season </p>
+        <div className="roundImagesDiv">
+            <button className="roundImagesButton">
+                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+            </button>
+
+            <button className="roundImagesButton">
+                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+            </button>
+
+            <button className="roundImagesButton">
+                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+            </button>
+
+            <button className="roundImagesButton">
+                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+            </button>
+
+            <button className="roundImagesButton">
+                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+            </button>
+
+            <button className="roundImagesButton">
+                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+            </button>
+        </div>
+        <p className='headersProductDetails'> Popular gifts right now </p>
 
             <div className="allProducts"> {allProducts()} </div>
 
@@ -50,7 +98,12 @@ export default function Products(){
         <p> Shop the look </p>
         <p> Select a shop to feature </p>
         <p> Shop our selections </p>
-        <p> Discover shops in the US </p>
+
+        <div className='landingShops'>
+            <button className='headersProductDetails' > Discover shops in the US </button>
+            {shops()}
+        </div>
+
         <p> Fresh from the blog </p>
         </>
     )

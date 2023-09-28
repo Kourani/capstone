@@ -6,6 +6,7 @@
 .allProducts{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -33,4 +34,33 @@
 .productImage{
     width: 200px;
     height: 150px;
+}
+
+.allLanding{
+    width: 200px;
+    height: 150px;
+}
+
+.roundImages{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.roundImagesButton{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.roundImagesDiv{
+    display: flex;
+
+    justify-content: space-evenly;
+}
+
+.landingShops{
+    display: flex;
+    flex-direction: row;
 }

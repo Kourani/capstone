@@ -5,16 +5,31 @@ import * as productActions from "../../../store/product"
 import * as shopActions from "../../../store/shop"
 import * as commentActions from "../../../store/comment"
 import * as userActions from '../../../store/session'
+import OpenModalButton from '../../OpenModalButton'
+import EditComment from "../../Coments/EditComment"
+import { useModal } from "../../../context/Modal"
 
-import React,  { useEffect } from "react"
+import React,  { useEffect, useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory } from "react-router-dom"
 
 function ProductDetails(){
 
-    const {productId} = useParams()
     const dispatch = useDispatch()
     const history = useHistory()
+    const ulRef = useRef();
+    const {productId} = useParams()
+
+
+    const { closeModal } = useModal();
+    const [showMenu, setShowMenu] = useState(false);
+
+
+    const closeMenu = (e) => {
+        if (!ulRef.current.contains(e.target)) {
+          setShowMenu(false);
+        }
+      };
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
@@ -48,6 +63,7 @@ function ProductDetails(){
         12:'December'
     }
 
+    //returns details of a product
     function productDetails(){
         // const foundProduct = productState?.products?.find(element=>element.id === parseInt(productId))
         return(
@@ -63,7 +79,10 @@ function ProductDetails(){
                     <div>{shopState[productState[productId]?.shopId]?.name}</div>
                     <p>Quantity</p>
                     <p>Color</p>
-                    <button> Add to Cart </button>
+                    <div className="productDetailsButtons">
+                        <button className="buyItNowProductDetails">Buy it Now </button>
+                        <button className="addToCartProductDetails"> Add to Cart </button>
+                    </div>
                     <p>Meet your Seller</p>
                     <div>{userState[shopOwner]?.firstName} {userState[shopOwner]?.lastName}</div>
                     <div>Owner of {shopState[productState[productId]?.shopId]?.name} </div>
@@ -73,6 +92,7 @@ function ProductDetails(){
         )
     }
 
+    //returns other products for a shop
     function otherProducts(){
         return productElements?.map(element=>{
             if(element?.shopId===productState[productId]?.shopId && productState[productId]?.id !== element?.id){
@@ -91,16 +111,16 @@ function ProductDetails(){
         })
     }
 
-    //checks if user is logged in and returns edit/delete buttons
-    function commentButtons(){
+    //checks if the comment belongs to the user returns edit button
+    function commentButtons(userId, commentId){
 
-        if(userState?.user?.id !== null){
-            return (
-                <>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </>
-            )
+        if(userState?.user?.id === userId){
+            return(
+                <OpenModalButton
+                buttonText="Edit"
+                onItemClick={closeMenu}
+                modalComponent={<EditComment commentId={commentId}/>}
+                />)
         }
     }
 
@@ -108,20 +128,11 @@ function ProductDetails(){
     function productComments(){
         return commentElements?.map(element=>{
 
-            function owned(){
-                if (userState?.user?.id === element?.userId){
-                    return commentButtons()
-                }
-            }
-
-
             if(element.productId === parseInt(productId)){
                 let date = new Date(element.createdAt)
                 let year = date.getFullYear()
                 let month = date.getMonth()+1
                 let day = date.getDate()
-
-
 
                 return(
 
@@ -133,7 +144,7 @@ function ProductDetails(){
                                 alt='Image'
                             />
                             <div>{userState[element.userId]?.firstName} {userState[element.userId]?.lastName} {monthNames[month]} {day}, {year}</div>
-                            {owned()}
+                            {commentButtons(element.userId, element.id)}
                         </div>
                     </div>
                 )
@@ -155,13 +166,13 @@ function ProductDetails(){
 
     return(
         <>
-            {productDetails()}
+            <div className="productDetailsFunction">{productDetails()}</div>
 
-            <p>{commentCount()} Comments</p>
+            <p className="headersProductDetails">{commentCount()} Comments</p>
             {productComments()}
 
-            <p>More from this Shop</p>
-            {otherProducts()}
+            <p className="headersProductDetails">More from this Shop</p>
+            <div className="shopDetailsOtherProducts">{otherProducts()} </div>
         </>
     )
 }

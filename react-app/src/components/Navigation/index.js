@@ -10,9 +10,6 @@ import './Navigation.css';
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
-
-	console.log(additionalFunctions.shoppingCart(),'aaaaaaaaaaaaaaaaaaaaaaaaaa')
-
 	return (
 		<div className='NavBar'>
 			<div className='NavCartHome'>

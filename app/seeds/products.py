@@ -6,22 +6,22 @@ from sqlalchemy.sql import text
 def seed_products():
 
     product0 = Product(
-        shop_id=1, name='teddy bear', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Scar', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product1= Product(
-        shop_id=2, name='Scar', description='super soft and fluffy', category='toys', price=50.12, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Simba', description='super soft and fluffy', category='toys', price=50.12, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product2=Product(
-        shop_id=3, name='Squish', description='awesome material', category='stress relif', price=5, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Mufasa', description='awesome material', category='toys', price=5, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product3 = Product(
-        shop_id=1, name='teddy bear1', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Timon', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product4 = Product(
-        shop_id=1, name='teddy bear2', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Pumbaa', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
     product5 = Product(
-        shop_id=1, name='teddy bear3', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Rafiki', description='hand crafted', category='plush', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
     )
 
     db.session.add(product0)

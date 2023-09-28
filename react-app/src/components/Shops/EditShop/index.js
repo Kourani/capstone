@@ -18,7 +18,7 @@ function EditShop(shopId){
     },[dispatch,clicked])
 
     const shopState = useSelector(state=>state.shop)
-    
+
     const [address, setAddress] = useState(shopState[shopId.shopId]?.address);
     const [city, setCity] = useState(shopState[shopId.shopId]?.city);
     const [state, setState] = useState(shopState[shopId.shopId]?.state);
@@ -40,8 +40,8 @@ function EditShop(shopId){
       const handleSubmit = async (e) => {
         e.preventDefault();
         const data = await dispatch(shopActions.editShop(payload, shopId.shopId));
-        if (data) {
-          setErrors(data);
+        if (data.errors) {
+          setErrors(data.errors);
         }
 
         setClicked('True')

@@ -15,9 +15,11 @@ export default function OneShop(){
     const {shopId} = useParams()
 
     useEffect(()=>{
+        dispatch(shopActions.getShops())
         dispatch(productActions.getProducts())
     },[dispatch])
 
+    const shopState = useSelector(state=>state?.shop)
     const productState = useSelector(state=>state?.product)
     const productElements = Object.values(productState)
 
@@ -39,6 +41,11 @@ export default function OneShop(){
 
     return (
         <>
+            <img className = "imageOneShop" src={shopState[shopId]?.image} alt='Image'/>
+            <div className="shopInformation">
+                <div>{shopState[shopId]?.name}</div>
+                <div>{shopState[shopId]?.address}, {shopState[shopId]?.city}</div>
+            </div>
             <div>{shop()}</div>
         </>
     )
