@@ -16,6 +16,7 @@ import OneShops from "./components/Shops/OneShops"
 import OwnedShops from "./components/Shops/OwnedShops"
 import CreateShop from "./components/Shops/CreateShop"
 import Cart from "./components/Cart"
+import CircleProducts from "./components/Products/CircleProducts";
 
 
 function App() {
@@ -41,6 +42,18 @@ function App() {
             <SignupFormPage />
           </Route>
 
+          <Route path="/shops/edit">
+            <OwnedShops/>
+          </Route>
+
+          <Route path="/shops/new">
+            <CreateShop/>
+          </Route>
+
+          <Route path="/cart">
+            <Cart/>
+          </Route>
+
           <Route path="/shops/:shopId/products/new">
             <CreateProduct/>
           </Route>
@@ -52,27 +65,19 @@ function App() {
           <Route path="/shops/:shopId/products">
             <ShopProducts/>
           </Route>
-          
+
           <Route path="/shops/:shopId">
             <OneShops/>
           </Route>
 
-          <Route path="/shops/edit">
-            <OwnedShops/>
+
+
+          <Route path="/products/:category">
+            <CircleProducts/>
           </Route>
-
-          <Route path="/shops/new">
-            <CreateShop/>
-          </Route>
-
-
 
           <Route path="/products/:productId">
             <ProductDetails/>
-          </Route>
-
-          <Route path="/cart">
-            <Cart/>
           </Route>
 
           <Route exact path="/">

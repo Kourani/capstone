@@ -48,9 +48,9 @@ export default function Products(){
             if(element?.country === 'United States')
             {
                 count++
-                if(count<4){
+                if(count<5){
                     return(
-                        <button>
+                        <button onClick={()=>{history.push(`/shops/${element.id}`)}}>
                             <img className="allLanding" src={element?.image} alt="Image"/>
                             <p>{element?.name}</p>
                         </button>
@@ -66,45 +66,45 @@ export default function Products(){
         <>
         <p className='headersProductDetails' > Fresh finds fit for cozy season </p>
         <div className="roundImagesDiv">
-            <button className="roundImagesButton">
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/toys')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <p>Toys</p>
             </button>
 
-            <button className="roundImagesButton">
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/books')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <p>Books</p>
             </button>
 
-            <button className="roundImagesButton">
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/trinkets')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <p>Trinkets</p>
             </button>
 
-            <button className="roundImagesButton">
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/ceramics')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <p>Ceramics</p>
             </button>
 
-            <button className="roundImagesButton">
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/tools')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <p>Tools</p>
             </button>
 
-            <button className="roundImagesButton">
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/jewelry')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <p>Jewelry</p>
             </button>
         </div>
         <p className='headersProductDetails'> Popular gifts right now </p>
 
             <div className="allProducts"> {allProducts()} </div>
 
-        <p> Design Ideas and Inspiration </p>
-        <p> Shop the look </p>
-        <p> Select a shop to feature </p>
-        <p> Shop our selections </p>
-
         <div className='landingShops'>
             <button className='headersProductDetails' > Discover shops in the US </button>
             {shops()}
         </div>
 
-        <p> Fresh from the blog </p>
         </>
     )
 }

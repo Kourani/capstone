@@ -101,6 +101,7 @@ def delete_shop(id):
 @shop_routes.route('/<int:id>/products', methods=['POST'])
 @login_required
 def new_product(id):
+    print('HERE')
 
     form = ProductForm()
 
@@ -111,17 +112,21 @@ def new_product(id):
     shop = Shop.query.get(id)
 
     if not shop:
-        return {'error':'Shop not found'}
+        return {'errors':'Shop not found'}
 
     if form.validate_on_submit():
+        print(form.data,'data!!!')
         product = Product(
             shop_id=id,
             price=form.data['price'],
             name=form.data['name'],
-            description=form.data['description']
+            description=form.data['description'],
+            category=form.data['category'],
+            image = form.data['image']
         )
         db.session.add(product)
         db.session.commit()
         return product.to_dict()
 
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    print(form.data,'shop1')
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 400

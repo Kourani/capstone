@@ -44,6 +44,7 @@ function CreateProduct(){
 
         const data = await dispatch(productActions.newProduct(payload, shopId))
 
+        console.log(data)
         if(data.errors){
             setErrors(data.errors)
         }
@@ -96,12 +97,14 @@ function CreateProduct(){
 
             <label className="createProductName" >
                 Category
-                <input
-                    type='text'
-                    value={category}
-                    onChange={(e)=>setCategory(e.target.value)}
-                    required
-                    />
+                <select
+                onChange={(e)=>setCategory(e.target.value)}
+                value={category}
+                placeholder="Choose a Category">
+                    <option value='toys'>toys</option>
+                    <option value='books'>books</option>
+                    <option value='trinkets'>toys</option>
+                </select>
             </label>
 
             <label className="createProductName" >

@@ -38,6 +38,8 @@
 
 .shopDetailsOtherProducts{
     padding-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .headersProductDetails{
@@ -49,6 +51,7 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
+    border: 5px solid black;
 }
 
 .productDetailsFunction{

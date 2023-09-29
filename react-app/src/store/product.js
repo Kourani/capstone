@@ -61,6 +61,8 @@ export const newProduct = (payload, shopId) => async(dispatch) => {
 		dispatch(addOne(releasedProduct))
 	}
 	else{
+		// const key = await response.json()
+		// console.log(key)
 		return await response.json()
 	}
 }
