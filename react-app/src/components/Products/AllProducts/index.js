@@ -66,32 +66,32 @@ export default function Products(){
         <>
         <p className='headersProductDetails' > Fresh finds fit for cozy season </p>
         <div className="roundImagesDiv">
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/toys')}}>
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/toys')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
                 <p>Toys</p>
             </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/books')}}>
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/books')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
                 <p>Books</p>
             </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/trinkets')}}>
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/trinkets')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
                 <p>Trinkets</p>
             </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/ceramics')}}>
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/ceramics')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
                 <p>Ceramics</p>
             </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/tools')}}>
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/tools')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
                 <p>Tools</p>
             </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/jewelry')}}>
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/jewelry')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
                 <p>Jewelry</p>
             </button>

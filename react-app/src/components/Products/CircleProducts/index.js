@@ -27,13 +27,11 @@ export default function CircleProducts(){
         return productElements?.map(element=>{
             if(element?.category === category){
                 return(
-                    <div className="ownedProducts">
-                        <img className='imageShopProducts' src={element?.image} alt="Image"/>
-                        <div> {element?.name} </div>
-                        <div> {element?.description} </div>
-                        <div> {element?.price} </div>
-                        <div>{element?.category}</div>
-                    </div>
+                    <button className="product">
+                        <img className='productImage' src={element?.image} alt="Image"/>
+                        <div className="productName"> {element?.name} </div>
+                        <div className="productPrice"> ${element?.price} </div>
+                    </button>
                 )
             }
         })

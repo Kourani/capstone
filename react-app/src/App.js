@@ -72,13 +72,17 @@ function App() {
 
 
 
-          <Route path="/products/:category">
+
+
+          <Route path="/products/categories/:category">
             <CircleProducts/>
           </Route>
 
           <Route path="/products/:productId">
             <ProductDetails/>
           </Route>
+
+
 
           <Route exact path="/">
             <AllProducts/>

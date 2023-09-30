@@ -29,9 +29,11 @@ export default function OneShop(){
 
                     return(
                         <>
-                            <img className="productImageOneShop" src={element?.image} alt="Image" />
-                            <div>{element?.name}</div>
-                            <div>{element?.price}</div>
+                            <button className="product">
+                                <img className="productImage" src={element?.image} alt="Image" />
+                                <div className="productName">{element?.name}</div>
+                                <div className="productPrice">{element?.price}</div>
+                            </button>
                         </>
                     )
                 }
@@ -46,7 +48,7 @@ export default function OneShop(){
                 <div>{shopState[shopId]?.name}</div>
                 <div>{shopState[shopId]?.address}, {shopState[shopId]?.city}</div>
             </div>
-            <div>{shop()}</div>
+            <div className="allProducts">{shop()}</div>
         </>
     )
 }
