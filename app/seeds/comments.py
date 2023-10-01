@@ -4,11 +4,11 @@ from sqlalchemy.sql import text
 
 def seed_comments():
     Comment0 = Comment(
-        comment='love this, it tastes like homeeeeeeeeeeeeeeeeeeeeeeee', item_quality=3, user_id=1, product_id=1)
+        comment='love this, it tastes like homeeeeeeeeeeeeeeeeeeeeeeee', user_id=1, product_id=1)
     Comment1 = Comment(
-        comment='love this, it tastes like home', item_quality=3, user_id=1, product_id=1)
+        comment='love this, it tastes like home', user_id=2, product_id=1)
     Comment2 = Comment(
-        comment='love this, it tastes like home', item_quality=3, user_id=1, product_id=1)
+        comment='love this, it tastes like home', user_id=3, product_id=1)
 
     db.session.add(Comment0)
     db.session.add(Comment1)

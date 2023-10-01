@@ -21,12 +21,14 @@ function LoginFormModal() {
     }
   };
 
+  const errorMap = Object.values(errors)
+
   return (
     <>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
-          {errors.map((error, idx) => (
+          {errorMap.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>

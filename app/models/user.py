@@ -14,7 +14,6 @@ class User(db.Model, UserMixin):
     profile_icon=db.Column(db.String)
     first_name = db.Column(db.String)
     last_name = db.Column(db.String)
-    favorites = db.Column(db.String)
     about = db.Column(db.String)
     birthday = db.Column(db.String)
     address = db.Column(db.String)
@@ -28,6 +27,7 @@ class User(db.Model, UserMixin):
 
     shops = db.relationship('Shop', back_populates='users', cascade='all, delete-orphan')
     comments = db.relationship('Comment', back_populates='users', cascade='all, delete-orphan')
+    favorites = db.relationship('Favorite', back_populates='users', cascade='all, delete-orphan')
 
     @property
     def password(self):
@@ -46,7 +46,6 @@ class User(db.Model, UserMixin):
             'profileIcon':self.profile_icon,
             'firstName':self.first_name,
             'lastName': self.last_name,
-            'favorites' : self.favorites,
             'about' : self.about,
             'birthday' : self.birthday,
             'address' : self.address,

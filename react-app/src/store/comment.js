@@ -17,6 +17,16 @@ const addOne = (one) => ({
     payload:one
 })
 
+const editOne =(comment) => ({
+    type:EDIT_COMMENT,
+    comment
+})
+
+const deleteOne = (comment) => ({
+    type:DELETE_COMMENT,
+    comment
+})
+
 //----------------------------------------THUNKS-----------------------------------
 
 export const getComments = () => async (dispatch) => {
@@ -28,6 +38,49 @@ export const getComments = () => async (dispatch) => {
         dispatch(getAll(allComments))
     }
     else {
+        return await response.json()
+    }
+}
+
+export const addComment = (payload, productId) => async (dispatch) => {
+    const response = await fetch(`/api/products/${productId}/comments`, {
+        method:'POST',
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(payload)
+    })
+
+    if(response.ok){
+        const newComment = await response.json()
+        console.log(newComment,'THUNK')
+        dispatch (addOne(newComment))
+    }
+    else {
+        const fava = await response.json()
+        console.log(fava, 'else thunk')
+        return await response.json()
+    }
+}
+
+export const editComment = (payload, commentId) => async (dispatch) => {
+
+    const response = await fetch(`/api/comments/${commentId}/edit`, {
+        method:'PUT',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(payload)
+    })
+
+    if(response.ok){
+        const updatedComment = await response.json()
+        console.log(updatedComment,'updated!!!comments')
+        dispatch(editOne(updatedComment))
+    }
+    else{
+        let fave = await response.json()
+        console.log(fave,'!!')
         return await response.json()
     }
 }
@@ -46,19 +99,20 @@ function commentsReducer(state={}, action){
             return newState
 
         case ADD_COMMENT:
-            return{
-                ...state
-            }
+                let old = {...state}
+                old[action.payload.id]=action.payload
+                return old
+
 
         case EDIT_COMMENT:
-            return {
-                ...state
-            }
+                let edited = {...state}
+                edited[action.comment.id]=action.comment
+                return edited
 
         case DELETE_COMMENT:
-            return {
-                ...state
-            }
+                let gone = {...state}
+                delete gone.action.comment
+                return gone
 
         default:
             return state

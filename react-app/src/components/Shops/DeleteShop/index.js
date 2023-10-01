@@ -12,7 +12,7 @@ export default function DeleteShop(shopId){
 
     const {closeModal} = useModal()
     const dispatch = useDispatch()
-    const {clicked, setClicked} = useState('False')
+    const [clicked, setClicked] = useState('False')
 
 
     // useEffect(()=>{

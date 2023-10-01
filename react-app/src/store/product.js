@@ -117,16 +117,14 @@ function productsReducer(state = {}, action) {
 			return newState
 
         case ADD_PRODUCT:
-            return{
-				...state,
-				// action.payload.id : action.payload
-			}
+            let addition = {...state}
+			addition[action.payload.id]=action.payload
+			return addition
 
 		case EDIT_PRODUCT:
-			return{
-				...state,
-				...action.payload
-			}
+			let edited = {...state}
+			edited[action.payload]=action.payload
+			return edited
 
 		case DELETE_PRODUCT:
 			let newSt={...state}

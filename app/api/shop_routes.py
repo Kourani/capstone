@@ -62,21 +62,22 @@ def update_shop(id):
     # # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if shop:
-        shop.owner_id=current_user.id
-        shop.address=form.data['address']
-        shop.city=form.data['city']
-        shop.state=form.data['state']
-        shop.country=form.data['country']
-        shop.name=form.data['name']
-        shop.currency=form.data['currency']
-        shop.image = form.data['image']
+    if form.validate_on_submit():
+        if shop:
+            shop.owner_id=current_user.id
+            shop.address=form.data['address']
+            shop.city=form.data['city']
+            shop.state=form.data['state']
+            shop.country=form.data['country']
+            shop.name=form.data['name']
+            shop.currency=form.data['currency']
+            shop.image = form.data['image']
 
-        db.session.commit()
+            db.session.commit()
 
-        return shop.to_dict()
+            return shop.to_dict()
 
-    return {'errors': validation_errors_to_error_messages(errors)}, 401
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #delete shop
 @shop_routes.route('/<int:id>/delete', methods=['DELETE'])
@@ -88,14 +89,14 @@ def delete_shop(id):
     shop = Shop.query.get(id)
 
     if not shop:
-        return {'error':'Shop not found'}
+        return {'errors':'Shop not found'}
 
     if shop:
         db.session.delete(shop)
         db.session.commit()
 
 
-    return {'errors':validation_errors_to_error_messages(errors)}, 401
+    return {'message':'Successfully Deleted'} , 200
 
 #create a product for a shop
 @shop_routes.route('/<int:id>/products', methods=['POST'])

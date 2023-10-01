@@ -17,7 +17,7 @@ class Comment(db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('products.id')), nullable=True)
 
-    item_quality = db.Column(db.Integer)
+    # item_quality = db.Column(db.Integer)
     comment = db.Column(db.String)
     created_at = db.Column(db.DateTime, default = datetime.now())
 
@@ -29,7 +29,7 @@ class Comment(db.Model):
             'id':self.id,
             'userId':self.user_id,
             'productId':self.product_id,
-            'itemQuality':self.item_quality,
+            # 'itemQuality':self.item_quality,
             'comment':self.comment,
             'createdAt':self.created_at
         }

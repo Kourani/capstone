@@ -10,13 +10,17 @@ import Footer from "./components/Footer"
 import AllProducts from "./components/Products/AllProducts";
 import ProductDetails from "./components/Products/ProductDetails";
 import CreateProduct from "./components/Products/CreateProduct";
-
 import ShopProducts from "./components/Products/ShopProducts";
+import CircleProducts from "./components/Products/CircleProducts";
+
 import OneShops from "./components/Shops/OneShops"
 import OwnedShops from "./components/Shops/OwnedShops"
 import CreateShop from "./components/Shops/CreateShop"
+
+import AllFavorites from "./components/Favorites/allFavorites";
+
 import Cart from "./components/Cart"
-import CircleProducts from "./components/Products/CircleProducts";
+
 
 
 function App() {
@@ -33,6 +37,10 @@ function App() {
 
       {isLoaded && (
         <Switch>
+
+          <Route path="/favorites">
+              <AllFavorites/>
+          </Route>
 
           <Route path="/login" >
             <LoginFormPage />

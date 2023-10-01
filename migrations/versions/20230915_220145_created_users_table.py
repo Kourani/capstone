@@ -27,7 +27,6 @@ def upgrade():
     sa.Column('profile_icon', sa.String(), nullable=True),
     sa.Column('first_name', sa.String(), nullable=True),
     sa.Column('last_name', sa.String(), nullable=True),
-    sa.Column('favorites', sa.String(), nullable=True),
     sa.Column('about', sa.String(), nullable=True),
     sa.Column('birthday', sa.String(), nullable=True),
     sa.Column('address', sa.String(), nullable=True),

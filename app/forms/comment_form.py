@@ -7,4 +7,4 @@ from app.models import Comment
 
 class CommentForm(FlaskForm):
     comment = StringField('comment', validators=[DataRequired()])
-    item_quality = IntegerField('item_quality', validators=[DataRequired()])
+    # item_quality = IntegerField('item_quality', validators=[DataRequired()])

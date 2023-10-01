@@ -40,7 +40,7 @@ function EditProduct(productId){
     const handleSubmit = async (e) => {
         e.preventDefault()
         const data = await dispatch(productActions.editProduct(payload, productId.productId))
-        if(data){
+        if(data && data.errors){
             setErrors(data)
         }
 

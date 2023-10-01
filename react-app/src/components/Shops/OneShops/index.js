@@ -2,16 +2,18 @@
 
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 import * as shopActions from "../../../store/shop"
 import * as productActions from "../../../store/product"
 import "./OneShop.css"
 
 
+
 export default function OneShop(){
 
     const dispatch = useDispatch()
+    const history = useHistory()
     const {shopId} = useParams()
 
     useEffect(()=>{
@@ -29,10 +31,12 @@ export default function OneShop(){
 
                     return(
                         <>
-                            <button className="product">
-                                <img className="productImage" src={element?.image} alt="Image" />
-                                <div className="productName">{element?.name}</div>
-                                <div className="productPrice">{element?.price}</div>
+                            <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
+                                <div>
+                                    <img className="productImage" src={element?.image} alt="Image" />
+                                    <div className="productName">{element?.name}</div>
+                                    <div className="productPrice">${element?.price}</div>
+                                </div>
                             </button>
                         </>
                     )

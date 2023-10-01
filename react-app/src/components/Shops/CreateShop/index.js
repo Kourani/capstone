@@ -35,7 +35,7 @@ function CreateShop(){
 
         e.preventDefault();
         const data = await dispatch(shopActions.newShop(payload));
-        if (data.errors) {
+        if (data & data.errors) {
           setErrors(data.errors);
         }
 

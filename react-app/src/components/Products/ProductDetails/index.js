@@ -6,7 +6,8 @@ import * as shopActions from "../../../store/shop"
 import * as commentActions from "../../../store/comment"
 import * as userActions from '../../../store/session'
 import OpenModalButton from '../../OpenModalButton'
-import EditComment from "../../Coments/EditComment"
+import EditComment from "../../Comments/EditComment"
+import CreateComment from "../../Comments/CreateComment"
 import { useModal } from "../../../context/Modal"
 
 import React,  { useEffect, useState, useRef } from "react"
@@ -97,14 +98,15 @@ function ProductDetails(){
         return productElements?.map(element=>{
             if(element?.shopId===productState[productId]?.shopId && productState[productId]?.id !== element?.id){
                 return(
-                    <button onClick={()=>{history.push(`/shops/${element.shopId}`)}}>
-                         <img className="moreFromThisShopImages"
-                                src={element?.image ? element?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
-                                alt="Image"
-                        />
-                        <div>{element?.name}</div>
-                        <div>{element?.description}</div>
-                        <div>${element?.price}</div>
+                    <button className="product" onClick={()=>{history.push(`/shops/${element.shopId}`)}}>
+                        <div>
+                            <img className="productImage"
+                                    src={element?.image ? element?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
+                                    alt="Image"
+                            />
+                            <div className="productName">{element?.name}</div>
+                            <div className="productPrice">${element?.price}</div>
+                        </div>
                     </button>
                 )
             }
@@ -121,6 +123,25 @@ function ProductDetails(){
                 onItemClick={closeMenu}
                 modalComponent={<EditComment commentId={commentId}/>}
                 />)
+        }
+    }
+
+    //checks if the user has no comment for the product and returns post button
+    function newComment(){
+
+        const foundUser = commentElements.find((element)=>element?.userId === userState?.user?.id)
+
+        console.log(foundUser,'found')
+
+        if (userState?.user?.id !== null && !foundUser)
+        {
+            return(
+                <OpenModalButton
+                buttonText="Post"
+                onItemClick={closeMenu}
+                modalComponent={<CreateComment productId={productId}/>}
+                />)
+
         }
     }
 
@@ -169,7 +190,10 @@ function ProductDetails(){
             <div className="productDetailsFunction">{productDetails()}</div>
 
             <p className="headersProductDetails">{commentCount()} Comments</p>
-            {productComments()}
+
+            <div> {newComment()}</div>
+
+            <div>{commentCount() >0 ? productComments() : 'We would love to hear your feedback! Be the first to share your thoughts '}</div>
 
             <p className="headersProductDetails">More from this Shop</p>
             <div className="shopDetailsOtherProducts">{otherProducts()} </div>

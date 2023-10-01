@@ -35,6 +35,8 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+
+    history.push('/')
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -49,12 +51,16 @@ function ProfileButton({ user }) {
         {user ? (
           <>
 
-            <div>{user.username}</div>
-            <div>{user.email}</div>
-            <button onClick={()=>{history.push('/shops/new')}}>Create Shop</button>
-            <button onClick={()=>{history.push('/shops/edit')}}>Manage Shops</button>
-            <button onClick={handleLogout}>Log Out</button>
+            <div className="userInformation">
+              <div>Welcome back {user.firstName}</div>
+              <div>{user.email}</div>
+            </div>
 
+            <div className="userButtons">
+            <button className="userNavButton" onClick={()=>{history.push('/shops/new')}}>Launch a new shop </button>
+            <button className="userNavButton" onClick={()=>{history.push('/shops/edit')}}>Manage owned shops</button>
+            <button className="userNavButton" onClick={handleLogout}>Log Out</button>
+            </div>
           </>
         ) : (
           <>

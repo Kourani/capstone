@@ -71,6 +71,7 @@ function OwnedShops(){
                                 <div>State: {element.state}</div>
                                 <div>Country: {element.country}</div>
                                 <div>Accepted Currency: {element.currency}</div>
+                                <div>image:{element.image}</div>
                             </div>
                         </button>
 

@@ -26,8 +26,13 @@ export default function Products(){
 
 
     function allProducts(){
+        let count = 0
         return productElements?.map(element=>{
-            return (
+            count ++
+
+                if(count<6){
+
+                return (
                 <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
                     <div>
                         <img className="productImage"
@@ -39,6 +44,7 @@ export default function Products(){
                     </div>
                 </button>
             )
+            }
         })
     }
 
@@ -50,9 +56,9 @@ export default function Products(){
                 count++
                 if(count<5){
                     return(
-                        <button onClick={()=>{history.push(`/shops/${element.id}`)}}>
-                            <img className="allLanding" src={element?.image} alt="Image"/>
-                            <p>{element?.name}</p>
+                        <button className= "landingShopsButton" onClick={()=>{history.push(`/shops/${element.id}`)}}>
+                            <img className="landingShopsInside" src={element?.image} alt="Image"/>
+                            <p className="landingShopName">{element?.name}</p>
                         </button>
                     )
 
@@ -101,7 +107,7 @@ export default function Products(){
             <div className="allProducts"> {allProducts()} </div>
 
         <div className='landingShops'>
-            <button className='headersProductDetails' > Discover shops in the US </button>
+            <button className='headersProductDetailsLanding' > Discover shops in the US </button>
             {shops()}
         </div>
 

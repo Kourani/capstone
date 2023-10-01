@@ -7,7 +7,7 @@ from app.models import Shop
 
 def shop_image(form, field):
     image = form.data['image']
-    if not image.endswith('jpeg') or image.endswith('jpg'):
+    if not image.endswith('jpeg') and not image.endswith('jpg'):
         raise ValidationError('Image must end with jpeg or jpg')
 
 class ShopForm(FlaskForm):

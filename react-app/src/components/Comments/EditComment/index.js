@@ -11,7 +11,7 @@ import { useModal } from "../../../context/Modal"
 export default function EditComment(commentId){
 
     const dispatch = useDispatch()
-    const closeModal = useModal()
+    const {closeModal} = useModal()
 
 
     useEffect(()=>{
@@ -31,10 +31,10 @@ export default function EditComment(commentId){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const data = await dispatch(commentActions.getComments())
+        const data = await dispatch(commentActions.editComment(payload, commentId.commentId))
 
-        if (data.errors){
-            setErrors(data.errors)
+        if (data && data.errors){
+          setErrors(data.errors)
         }
 
         closeModal()

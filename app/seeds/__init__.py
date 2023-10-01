@@ -6,6 +6,7 @@ from .shops import seed_shops, undo_shops
 from .orders import seed_orders, undo_orders
 from .comments import seed_comments, undo_comments
 from .products import seed_products, undo_products
+from .favorites import seed_favorites, undo_favorites
 
 
 # Creates a seed group to hold our commands
@@ -26,11 +27,13 @@ def seed():
         undo_shops()
         undo_products()
         undo_orders()
+        undo_favorites()
     seed_users()
     seed_comments()
     seed_shops()
     seed_products()
     seed_orders()
+    seed_favorites()
     # Add other seed functions here
 
 
@@ -42,4 +45,5 @@ def undo():
     undo_shops()
     undo_products()
     undo_orders()
+    undo_favorites()
     # Add other undo functions here

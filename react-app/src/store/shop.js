@@ -24,9 +24,9 @@ const editOne = (shop) =>({
 	shop
 })
 
-const deleteOne = (shop) => ({
+const deleteOne = (shopId) => ({
 	type: DELETE_SHOP,
-	shop
+	shopId //can call it any variable
 });
 
 
@@ -96,7 +96,7 @@ export const deleteShop = (shopId) => async (dispatch) =>{
 	if(response.ok){
 		const removedShop = await response.json()
 		console.log(removedShop,'removedShop')
-		dispatch(deleteOne(removedShop))
+		dispatch(deleteOne(shopId))
 	}
 	else {
 		return await response.json()
@@ -114,18 +114,18 @@ function shopsReducer(state = {}, action) {
 			return newState
 
         case ADD_SHOP:
-            return{
-				...state
-			}
+			let addition = {...state}
+			addition[action.shop.id]=action.shop
+			return addition
 
 		case EDIT_SHOP:
-			return {
-				...state
-			}
+			const edited = {...state}
+			edited[action.shop.id]=action.shop
+			return edited
 
-		case DELETE_SHOP:
+		case DELETE_SHOP: //shop deleted from the backend but still exists on the frontEnd without a refresh 
 			let newSt = {...state}
-			delete newSt.action.shop
+			delete newSt[action.shopId]
 			return newSt
 
 		default:

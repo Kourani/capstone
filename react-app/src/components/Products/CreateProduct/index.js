@@ -45,7 +45,7 @@ function CreateProduct(){
         const data = await dispatch(productActions.newProduct(payload, shopId))
 
         console.log(data)
-        if(data.errors){
+        if(data && data.errors){
             setErrors(data.errors)
         }
 
