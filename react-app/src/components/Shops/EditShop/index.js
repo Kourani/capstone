@@ -27,7 +27,7 @@ function EditShop(shopId){
     const [currency, setCurrency] = useState(shopState[shopId.shopId]?.currency)
     const [name, setName] = useState(shopState[shopId.shopId]?.name)
     const [image, setImage] = useState(shopState[shopId.shopId]?.image)
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState({});
 
       const payload = {
         address:address,
@@ -43,15 +43,15 @@ function EditShop(shopId){
       const handleSubmit = async (e) => {
         e.preventDefault();
         const data = await dispatch(shopActions.editShop(payload, shopId.shopId));
-        console.log(data,'dataaaaaaaa!')
-        console.log(data.errors,'inside data')
-        
+
         if (data && data.errors) { //because there is no return in the response.ok
           setErrors(data.errors);
         }
-
+        else{
+          closeModal()
+        }
         setClicked('True')
-        closeModal()
+
       };
 
       return (
@@ -60,7 +60,7 @@ function EditShop(shopId){
           <form onSubmit={handleSubmit}>
 
             <div className="modalsInside">
-              <h1 className="modalHeader">Edit {name}</h1>
+              <h1 className="modalHeader"> Edit {name}</h1>
 
               <label>
                 Shop Name
@@ -131,6 +131,8 @@ function EditShop(shopId){
                   required
                 />
               </label>
+
+              <div className="errors">{errors?.image ? errors?.image : null}</div>
 
               <button type="submit">Update</button>
             </div>

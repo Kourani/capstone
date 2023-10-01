@@ -23,15 +23,18 @@ function LoginFormModal() {
 
   const errorMap = Object.values(errors)
 
+  console.log(errors,'!!!!!!')
+  console.log(errorMap,'errorMap!')
+
   return (
     <>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
+        {/* <ul>
           {errorMap.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul>
+        </ul> */}
         <label>
           Email
           <input
@@ -41,6 +44,9 @@ function LoginFormModal() {
             required
           />
         </label>
+
+        <div className="errors"> {errors.email ? errors.email : null}</div>
+
         <label>
           Password
           <input
@@ -50,6 +56,9 @@ function LoginFormModal() {
             required
           />
         </label>
+
+        <div className="errors">{errors.password ? errors.password : null}</div>
+
         <button type="submit">Log In</button>
       </form>
     </>

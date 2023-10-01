@@ -11,6 +11,8 @@ import { useModal } from "../../../context/Modal"
 
 function EditProduct(productId){
 
+    console.log(productId.productId)
+
     const dispatch = useDispatch()
     const {closeModal} = useModal()
     const [clicked, setClicked] = useState('False')
@@ -26,7 +28,7 @@ function EditProduct(productId){
     const [description, setDescription] = useState(productState[productId.productId]?.description)
     const [category, setCategory] = useState(productState[productId.productId]?.category)
     const [image, setImage] = useState(productState[productId.productId]?.image)
-    const [errors, setErrors] = useState("")
+    const [errors, setErrors] = useState([]);
 
 
     const payload = {
@@ -40,17 +42,20 @@ function EditProduct(productId){
     const handleSubmit = async (e) => {
         e.preventDefault()
         const data = await dispatch(productActions.editProduct(payload, productId.productId))
-        if(data && data.errors){
-            setErrors(data)
+        console.log(data,'data!')
+        if(data){
+            setErrors(data.errors)
+        }
+        else{
+            closeModal()
         }
 
-        console.log(errors,'HELLO!!!!!!!!')
-
         setClicked('True')
-        closeModal()
     }
-
-
+    console.log(errors,'errors')
+    console.log(errors.price,'dot price')
+    console.log(errors[price],'bracket price')
+    
     return(
         <>
         <h1> Edit Product </h1>
@@ -76,6 +81,8 @@ function EditProduct(productId){
                     required
                     />
             </label>
+
+            <div className="errors"> {errors.price ? errors.price : null}</div>
 
             <label>
                 Description
@@ -106,6 +113,8 @@ function EditProduct(productId){
                     required
                     />
             </label>
+
+            <div className="errors"> {errors.image ? errors.image : null}</div>
 
             <button>Update</button>
         </form>

@@ -38,7 +38,7 @@ def update_product(id):
 
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if not product():
+    if not product:
         return {'error' : 'Product not found'}
 
     if form.validate_on_submit():

@@ -45,13 +45,12 @@ function CreateProduct(){
         const data = await dispatch(productActions.newProduct(payload, shopId))
 
         console.log(data)
-        if(data && data.errors){
-            setErrors(data.errors)
+        if(data && data?.errors){
+            setErrors(data?.errors)
         }
-
-
-
-        history.push(`/shops/${shopId}/products`)
+        else{
+            history.push(`/shops/${shopId}/products`)
+        }
     }
 
     console.log(errors, 'ERRORS')
@@ -84,6 +83,8 @@ function CreateProduct(){
                     />
             </label>
 
+            <div className="errors"> {errors.price ? errors.price : null}</div>
+
             <label className="createProductName">
                 Description
                 <input
@@ -101,9 +102,12 @@ function CreateProduct(){
                 onChange={(e)=>setCategory(e.target.value)}
                 value={category}
                 placeholder="Choose a Category">
-                    <option value='toys'>toys</option>
-                    <option value='books'>books</option>
-                    <option value='trinkets'>toys</option>
+                    <option value='toys'>Toys</option>
+                    <option value='books'>Books</option>
+                    <option value='trinkets'>Trinkets</option>
+                    <option value = 'ceramics'>Ceramics</option>
+                    <option value = 'tools'>Tools</option>
+                    <option value = 'jewelry'> Jewelry</option>
                 </select>
             </label>
 
@@ -117,6 +121,10 @@ function CreateProduct(){
                     required
                     />
             </label>
+
+
+            <div className="errors"> {errors.image ? errors.image : null}</div>
+
 
             <button type='submit'>Submit</button>
         </form>

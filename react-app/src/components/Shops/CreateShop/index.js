@@ -35,14 +35,18 @@ function CreateShop(){
 
         e.preventDefault();
         const data = await dispatch(shopActions.newShop(payload));
-        if (data & data.errors) {
-          setErrors(data.errors);
+      
+        if (data && data?.errors) {
+          console.log('inside the ifffffff')
+          setErrors(data?.errors);
+        }
+        else{
+          history.push('/shops/edit')
         }
 
-
-        history.push('/shops/manage')
       };
 
+      console.log(errors.image)
       console.log(errors, 'Errors!!!!!!!!!')
 
       return (
@@ -120,7 +124,7 @@ function CreateShop(){
               />
             </label>
 
-
+            <div className="errors">{errors?.image ? errors?.image : null}</div>
 
             <button type="submit">Create</button>
           </form>

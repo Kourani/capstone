@@ -114,7 +114,7 @@ function ProductDetails(){
         })
     }
 
-    //checks if the comment belongs to the user returns edit button
+    //checks if the comment belongs to the user returns edit and delete button
     function commentButtons(userId, commentId){
 
         if(userState?.user?.id === userId){
@@ -143,8 +143,11 @@ function ProductDetails(){
 
         console.log(foundUser,'found')
 
-        if (userState?.user?.id !== null && !foundUser)
+        console.log(userState?.user, 'POST')
+        console.log(foundUser, 'foundUsersssssssssss')
+        if (userState?.user?.id && foundUser)
         {
+            console.log('inside the ifffffffffff')
             return(
                 <OpenModalButton
                 buttonText="Post"
