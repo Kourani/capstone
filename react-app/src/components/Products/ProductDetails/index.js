@@ -7,6 +7,7 @@ import * as commentActions from "../../../store/comment"
 import * as userActions from '../../../store/session'
 import OpenModalButton from '../../OpenModalButton'
 import EditComment from "../../Comments/EditComment"
+import DeleteComment from "../../Comments/DeleteComment"
 import CreateComment from "../../Comments/CreateComment"
 import { useModal } from "../../../context/Modal"
 
@@ -118,11 +119,20 @@ function ProductDetails(){
 
         if(userState?.user?.id === userId){
             return(
-                <OpenModalButton
-                buttonText="Edit"
-                onItemClick={closeMenu}
-                modalComponent={<EditComment commentId={commentId}/>}
-                />)
+                <>
+                    <OpenModalButton
+                    buttonText="Edit"
+                    onItemClick={closeMenu}
+                    modalComponent={<EditComment commentId={commentId}/>}
+                    />
+
+                    <OpenModalButton
+                    buttonText="Delete"
+                    onItemClick={closeMenu}
+                    modalComponent={<DeleteComment commentId={commentId}/>}
+                    />
+                </>
+            )
         }
     }
 
