@@ -25,7 +25,7 @@ class Shop(db.Model):
 
     users = db.relationship('User', back_populates='shops') #user table fill out business
     products = db.relationship('Product', back_populates='shops') #product table fill out business
-
+    images = db.relationship('Image', back_populates='shops')
 
     def to_dict(self):
         return {

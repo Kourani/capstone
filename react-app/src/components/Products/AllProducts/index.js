@@ -3,7 +3,9 @@ import "./AllProducts.css";
 import * as productActions from "../../../store/product"
 import * as shopActions from "../../../store/shop"
 
-import React, { useEffect } from "react"
+import * as additionalFunctions from "../../../context/additional"
+
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom'
 
@@ -24,6 +26,7 @@ export default function Products(){
     const shopElements = Object.values(shopState)
 
 
+    const [heartClicked, setHeartClicked] = useState("False")
 
     function allProducts(){
         let count = 0
@@ -48,6 +51,19 @@ export default function Products(){
         })
     }
 
+    function heartClick(id){
+        
+        if (heartClicked === 'True'){
+            if(id===id){
+                return  <button onClick={()=>{setHeartClicked('False')}}>{additionalFunctions.heart()}</button>
+            }
+        }
+
+        else if (heartClicked === 'False'){
+           return <button onClick={()=>{setHeartClicked('True')}}>{additionalFunctions.plainHeart()}</button>
+        }
+    }
+
     function shops(){
         let count = 0
         return shopElements?.map(element=>{
@@ -56,10 +72,13 @@ export default function Products(){
                 count++
                 if(count<5){
                     return(
-                        <button className= "landingShopsButton" onClick={()=>{history.push(`/shops/${element.id}`)}}>
-                            <img className="landingShopsInside" src={element?.image} alt="Image"/>
-                            <p className="landingShopName">{element?.name}</p>
-                        </button>
+                        <div>
+                            {heartClick(element.id)}
+                            <button className= "landingShopsButton" onClick={()=>{history.push(`/shops/${element.id}`)}}>
+                                <img className="landingShopsInside" src={element?.image} alt="Image"/>
+                                <p className="landingShopName">{element?.name}</p>
+                            </button>
+                        </div>
                     )
 
                 }

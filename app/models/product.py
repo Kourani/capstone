@@ -24,6 +24,7 @@ class Product(db.Model):
 
     shops = db.relationship('Shop', back_populates='products') #shop table fill out products
     comments = db.relationship('Comment', back_populates='products')
+    images = db.relationship('Image', back_populates='products')
 
     def to_dict(self):
         return {

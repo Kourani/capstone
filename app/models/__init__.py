@@ -7,3 +7,4 @@ from .product import Product
 from .comment import Comment
 from .favorite import Favorite
 from .order import Order
+from .image import Image
