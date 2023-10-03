@@ -7,11 +7,14 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import DemoLogin from "../DemoLogin"
 
+import {useModal} from "../../context/Modal"
+
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+  const {closeModal} = useModal()
 
   const openMenu = () => {
     if (showMenu) return;
@@ -57,9 +60,9 @@ function ProfileButton({ user }) {
             </div>
 
             <div className="userButtons">
-            <button className="userNavButton" onClick={()=>{history.push('/favorites')}}> Favorites </button>
-            <button className="userNavButton" onClick={()=>{history.push('/shops/new')}}>Launch a new shop </button>
-            <button className="userNavButton" onClick={()=>{history.push('/shops/edit')}}>Manage owned shops</button>
+            <button className="userNavButton" onClick={()=>{history.push('/favorites'); closeModal()}}> Favorites </button>
+            <button className="userNavButton" onClick={()=>{history.push('/shops/new'); closeModal()}}>Launch a new shop </button>
+            <button className="userNavButton" onClick={()=>{history.push('/shops/edit'); closeModal()}}>Manage owned shops</button>
             <button className="userNavButton" onClick={handleLogout}>Log Out</button>
             </div>
           </>

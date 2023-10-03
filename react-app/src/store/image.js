@@ -33,7 +33,8 @@ function imagesReducer(state={}, action){
     switch (action.type){
         case GET_ALL:
             let newState = {...state}
-            action?.images?.forEach(element => {
+            console.log(action.payload.images,'IMAGES REDUCER')
+            action.payload.images.forEach(element => {
                 newState[element.id]=element
             })
         return newState

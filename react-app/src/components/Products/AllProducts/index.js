@@ -118,22 +118,22 @@ export default function Products(){
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/trinkets')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg" alt="Image"/>
                 <p>Trinkets</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/ceramics')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/4207892/pexels-photo-4207892.jpeg" alt="Image"/>
                 <p>Ceramics</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/tools')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/5691629/pexels-photo-5691629.jpeg" alt="Image"/>
                 <p>Tools</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/jewelry')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/4595723/pexels-photo-4595723.jpeg" alt="Image"/>
                 <p>Jewelry</p>
             </button>
         </div>
