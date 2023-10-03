@@ -9,8 +9,8 @@ from app.models import Product
 def product_image(form, field):
     image = form.data['image']
 
-    if not image.endswith('jpeg') and not image.endswith('jpg'):
-        raise ValidationError('Image must end with jpeg or jpg')
+    if not image.endswith('jpeg') and not image.endswith('jpg') and not image.endswith('png'):
+        raise ValidationError('Image must end with jpeg, jpg, or png')
 
 def product_price(form, field):
     price = form.data['price']
