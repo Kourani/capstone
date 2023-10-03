@@ -53,6 +53,8 @@ function ProductDetails(){
 
     const productElements = Object.values(productState)
     const commentElements = Object.values(commentState)
+    const imageElements = Object.values(imageState)
+
 
     const shopOwner = shopState[productState[productId]?.shopId]?.ownerId
 
@@ -71,11 +73,28 @@ function ProductDetails(){
         12:'December'
     }
 
+    function imagesProduct(){
+        imageElements?.map(element=>{
+            if(element.category === 'product'){
+                if(element.productId === productId){
+                    console.log(element.productId, 'images productId')
+                    console.log(productId, 'productId useParams')
+                    return (
+
+                        <img src={element.image} alt='Image'/>
+                    )
+                }
+            }
+        })
+    }
+
     //returns details of a product
     function productDetails(){
         // const foundProduct = productState?.products?.find(element=>element.id === parseInt(productId))
         return(
             <div className="productDetails">
+                {imagesProduct()}
+
                 <img className="productImageOnDetails"
                                 src={productState[productId]?.image ? productState[productId]?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
                                 alt="Image"

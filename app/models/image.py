@@ -19,6 +19,7 @@ class Image (db.Model):
     ))
 
     category = db.Column(db.String)
+    
     image1 = db.Column(db.String)
     image2 = db.Column(db.String)
     image3 = db.Column(db.String)
