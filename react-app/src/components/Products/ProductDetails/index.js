@@ -9,6 +9,7 @@ import OpenModalButton from '../../OpenModalButton'
 import EditComment from "../../Comments/EditComment"
 import DeleteComment from "../../Comments/DeleteComment"
 import CreateComment from "../../Comments/CreateComment"
+import * as imageActions from "../../../store/image"
 
 import { useModal } from "../../../context/Modal"
 
@@ -39,12 +40,16 @@ function ProductDetails(){
         dispatch(shopActions.getShops())
         dispatch(commentActions.getComments())
         dispatch(userActions.getUsers())
+        dispatch(imageActions.getImages())
     }, [dispatch])
 
     const userState = useSelector(state=>state?.session)
     const productState = useSelector(state=>state?.product)
     const shopState = useSelector(state=>state?.shop)
     const commentState = useSelector(state=>state?.comment)
+    const imageState = useSelector(state=>state?.image)
+
+    console.log(imageState,'!!!!!!!!!!!!')
 
     const productElements = Object.values(productState)
     const commentElements = Object.values(commentState)

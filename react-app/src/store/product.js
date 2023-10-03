@@ -88,8 +88,8 @@ export const editProduct = (payload, productId) => async(dispatch) => {
 }
 
 export const deleteProduct = (productId) => async (dispatch) => {
-	const response = await fetch(`/api/products/${productId}/delete`, {
-		methods:'DELETE',
+	const response = await fetch(`/api/products/${productId}`, {
+		method:'DELETE',
 		headers:{
 			'Content-Type': "application/json"
 		}
@@ -98,7 +98,7 @@ export const deleteProduct = (productId) => async (dispatch) => {
 	if(response.ok){
 		const removedProduct = await response.json()
 		console.log(removedProduct, 'removedProduct')
-		dispatch(deleteOne(removedProduct))
+		dispatch(deleteOne(productId))
 	}
 
 	else{
@@ -123,12 +123,12 @@ function productsReducer(state = {}, action) {
 
 		case EDIT_PRODUCT:
 			let edited = {...state}
-			edited[action.payload]=action.payload
+			edited[action.payload.id]=action.payload
 			return edited
 
 		case DELETE_PRODUCT:
 			let newSt={...state}
-			delete newSt[action.product.id]
+			delete newSt[action.product]
 			return {
 				...newSt
 			}

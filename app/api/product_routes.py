@@ -54,10 +54,10 @@ def update_product(id):
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 #delete product
-@product_routes.route('/<int:id>/delete', methods=['DELETE'])
+@product_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_product(id):
-    form = ProductForm
+    # form = ProductForm
 
     product = Product.query.get(id)
 

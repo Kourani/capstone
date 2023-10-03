@@ -12,8 +12,6 @@ export function heart(){
     )
 }
 
-<i class="fa-regular fa-heart"></i>
-
 export function plainHeart(){
     return (
         <i className="far fa-heart"></i>

@@ -6,9 +6,9 @@ const GET_ALL = "images/GET_ALL"
 
 //-----------------ACTIONS---------------
 
-const getAll = () => ({
+const getAll = (images) => ({
     type:GET_ALL,
-    payload
+    payload:images
 })
 
 //------------------THUNKS------------------
@@ -20,6 +20,7 @@ export const getImages = () => async (dispatch) => {
     if(response.ok){
         const allImages = await response.json()
         dispatch(getAll(allImages))
+        console.log(allImages,'THUNK IF')
     }
     else {
         return await response.json()
@@ -32,7 +33,7 @@ function imagesReducer(state={}, action){
     switch (action.type){
         case GET_ALL:
             let newState = {...state}
-            action.payload.images.forEach(element => {
+            action?.images?.forEach(element => {
                 newState[element.id]=element
             })
         return newState

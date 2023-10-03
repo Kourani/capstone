@@ -2,6 +2,7 @@
 import "./AllProducts.css";
 import * as productActions from "../../../store/product"
 import * as shopActions from "../../../store/shop"
+import * as favoriteActions from "../../../store/favorite"
 
 import * as additionalFunctions from "../../../context/additional"
 
@@ -18,15 +19,18 @@ export default function Products(){
     useEffect(()=>{
         dispatch(productActions.getProducts())
         dispatch(shopActions.getShops())
+        dispatch(favoriteActions.getFavorites())
     },[dispatch])
 
     const productState = useSelector(state=>state.product)
     const shopState = useSelector(state=>state.shop)
+    const favoriteState = useSelector(state=>state.favorite)
+    const userState = useSelector(state=>state.session)
+
     const productElements = Object.values(productState)
     const shopElements = Object.values(shopState)
+    const favoriteElements = Object.values(favoriteState)
 
-
-    const [heartClicked, setHeartClicked] = useState("False")
 
     function allProducts(){
         let count = 0
@@ -51,17 +55,24 @@ export default function Products(){
         })
     }
 
-    function heartClick(id){
-        
-        if (heartClicked === 'True'){
-            if(id===id){
-                return  <button onClick={()=>{setHeartClicked('False')}}>{additionalFunctions.heart()}</button>
+
+    function heartChange(theShopId, favoriteElement){
+
+
+        if(!favoriteElement){
+            const payload={
+                category:'Shop',
+                number:theShopId,
+                userId:userState?.user?.id
             }
+            dispatch(favoriteActions.addFavorite(payload))
         }
 
-        else if (heartClicked === 'False'){
-           return <button onClick={()=>{setHeartClicked('True')}}>{additionalFunctions.plainHeart()}</button>
+        if(favoriteElement){
+            if(favoriteElement)
+            dispatch(favoriteActions.deleteFavorite(favoriteElement.id))
         }
+
     }
 
     function shops(){
@@ -71,9 +82,14 @@ export default function Products(){
             {
                 count++
                 if(count<5){
+
+                    let found = favoriteElements?.find(one => one.category === 'Shop' && one.number === element.id)
+                    console.log(found,'ffffffffound')
+
                     return(
                         <div>
-                            {heartClick(element.id)}
+
+                            {userState?.user?.id ? <button onClick={()=>{heartChange(element.id, found)}}> { found ? additionalFunctions.heart() : additionalFunctions.plainHeart() } </button> : null }
                             <button className= "landingShopsButton" onClick={()=>{history.push(`/shops/${element.id}`)}}>
                                 <img className="landingShopsInside" src={element?.image} alt="Image"/>
                                 <p className="landingShopName">{element?.name}</p>

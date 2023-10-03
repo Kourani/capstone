@@ -62,24 +62,22 @@ function OwnedShops(){
             if(userState?.user?.id === element?.ownerId){
                 return (
                     <>
-                    <div className="shopsOwned">
-                        <button className='buttonOneOwned' onClick={()=>{history.push(`/shops/${element.id}/products/manage`)}}>
+                        <div className="allContentShops">
                             <div className="buttonContentOwned">
+                                <img className='productImage' src={element.image} alt='Image'/>
                                 <div>Name: {element.name}</div>
                                 <div>Address: {element.address}</div>
                                 <div>City: {element.city}</div>
                                 <div>State: {element.state}</div>
                                 <div>Country: {element.country}</div>
                                 <div>Accepted Currency: {element.currency}</div>
-                                <div>image:{element.image}</div>
                             </div>
-                        </button>
-
-                        <div className="buttonsOwned">
-                            {editShop(element.id)}
-                            {deleteShop(element.id)}
+                            <div className="buttonsOwned">
+                                {editShop(element.id)}
+                                {deleteShop(element.id)}
+                                <button onClick={()=>{history.push(`/shops/${element.id}/products/manage`)}}> View/Manage Products </button>
+                            </div>
                         </div>
-                    </div>
                     </>
                 )
             }
@@ -89,7 +87,7 @@ function OwnedShops(){
     return(
         <>
 
-        <div>{ownedShops()}</div>
+        <div className="shopsOwned">{ownedShops()}</div>
         </>
     )
 }

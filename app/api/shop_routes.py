@@ -131,3 +131,6 @@ def new_product(id):
 
     print(form.data,'shop1')
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+
+
+

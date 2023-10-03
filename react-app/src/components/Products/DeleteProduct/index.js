@@ -15,13 +15,10 @@ export default function DeleteProduct(productId){
 
     const [clicked, setClicked] = useState('False')
 
-    useEffect(()=>{
-        dispatch(productActions.getProducts())
-    },[dispatch, clicked])
-
-
+ 
     function toDelete(){
         dispatch(productActions.deleteProduct(productId.productId))
+        console.log(productId,'aaaaaaaaaaaa')
         setClicked('True')
         closeModal()
         return

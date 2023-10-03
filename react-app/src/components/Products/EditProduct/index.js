@@ -47,15 +47,16 @@ function EditProduct(productId){
             setErrors(data.errors)
         }
         else{
+            setClicked('True')
             closeModal()
         }
 
-        setClicked('True')
+
     }
     console.log(errors,'errors')
     console.log(errors.price,'dot price')
     console.log(errors[price],'bracket price')
-    
+
     return(
         <>
         <h1> Edit Product </h1>

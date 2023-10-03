@@ -15,6 +15,7 @@ import EditProduct from "../EditProduct"
 function ShopProducts(){
 
     const dispatch = useDispatch()
+    const history = useHistory()
     const {shopId} = useParams()
 
     const {closeModal} = useModal()
@@ -74,6 +75,7 @@ function ShopProducts(){
 
     return (
         <>
+        <button onClick={()=>{history.push(`/shops/${shopId}/products/new`)}}> Add a New Product </button>
         {findProducts()}
         </>
     )
