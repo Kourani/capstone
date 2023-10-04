@@ -76,6 +76,7 @@ function ProductDetails(){
     console.log(imageElements, 'imageElements!!')
 
     function imagesProduct(){
+        console.log('inside the function ')
         imageElements?.map(element=>{
             if(element.category === 'product'){
                 console.log('inside product if')
@@ -96,7 +97,8 @@ function ProductDetails(){
         // const foundProduct = productState?.products?.find(element=>element.id === parseInt(productId))
         return(
             <div className="productDetails">
-                {imagesProduct()}
+
+                <div>{imagesProduct()}</div>
 
                 <img className="productImageOnDetails"
                                 src={productState[productId]?.image ? productState[productId]?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
