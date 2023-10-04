@@ -1,7 +1,7 @@
 """orders
 
 Revision ID: e6e3be0a103b
-Revises: 3426e6af8039
+Revises: a7d6836dc7d5
 Create Date: 2023-09-16 14:46:23.762878
 
 """
@@ -15,7 +15,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = 'e6e3be0a103b'
-down_revision = '3426e6af8039'
+down_revision = 'a7d6836dc7d5'
 branch_labels = None
 depends_on = None
 

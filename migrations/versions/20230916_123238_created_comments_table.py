@@ -1,7 +1,7 @@
 """created comments table
 
 Revision ID: a7d6836dc7d5
-Revises: b0bfbfcf23ed
+Revises: 3426e6af8039
 Create Date: 2023-09-16 09:32:38.948638
 
 """
@@ -15,7 +15,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = 'a7d6836dc7d5'
-down_revision = 'b0bfbfcf23ed'
+down_revision = '3426e6af8039'
 branch_labels = None
 depends_on = None
 

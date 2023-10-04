@@ -73,10 +73,13 @@ function ProductDetails(){
         12:'December'
     }
 
+    console.log(imageElements, 'imageElements!!')
+
     function imagesProduct(){
         imageElements?.map(element=>{
             if(element.category === 'product'){
-                if(element.productId === productId){
+                console.log('inside product if')
+                if(element.productId === parseInt(productId)){
                     console.log(element.productId, 'images productId')
                     console.log(productId, 'productId useParams')
                     return (

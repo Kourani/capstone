@@ -1,7 +1,7 @@
 """create products table
 
 Revision ID: 3426e6af8039
-Revises: a7d6836dc7d5
+Revises: b0bfbfcf23ed
 Create Date: 2023-09-16 12:18:30.151866
 
 """
@@ -15,7 +15,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = '3426e6af8039'
-down_revision = 'a7d6836dc7d5'
+down_revision = 'b0bfbfcf23ed'
 branch_labels = None
 depends_on = None
 
