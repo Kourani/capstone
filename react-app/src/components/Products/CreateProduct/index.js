@@ -104,7 +104,7 @@ function CreateProduct(){
                 placeholder="Choose a Category">
                     <option value='toys'>Toys</option>
                     <option value='books'>Books</option>
-                    <option value='trinkets'>Trinkets</option>
+                    <option value='watches'>Watches</option>
                     <option value = 'ceramics'>Ceramics</option>
                     <option value = 'tools'>Tools</option>
                     <option value = 'jewelry'> Jewelry</option>

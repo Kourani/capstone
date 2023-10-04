@@ -24,10 +24,8 @@ function ProductDetails(){
     const ulRef = useRef();
     const {productId} = useParams()
 
-
     const { closeModal } = useModal();
     const [showMenu, setShowMenu] = useState(false);
-
 
     const closeMenu = (e) => {
         if (!ulRef.current.contains(e.target)) {
@@ -49,12 +47,12 @@ function ProductDetails(){
     const commentState = useSelector(state=>state?.comment)
     const imageState = useSelector(state=>state?.image)
 
-    console.log(imageState,'!!!!!!!!!!!!')
-
     const productElements = Object.values(productState)
     const commentElements = Object.values(commentState)
     const imageElements = Object.values(imageState)
 
+    console.log(productState[productId])
+    const [bee, setBee] = useState(productState?.[productId]?.image)
 
     const shopOwner = shopState[productState[productId]?.shopId]?.ownerId
 
@@ -75,33 +73,32 @@ function ProductDetails(){
 
     console.log(imageElements, 'imageElements!!')
 
-    function imagesProduct(){
-        console.log('inside the function ')
-        imageElements?.map(element=>{
-            if(element.category === 'product'){
-                console.log('inside product if')
-                if(element.productId === parseInt(productId)){
-                    console.log(element.productId, 'images productId')
-                    console.log(productId, 'productId useParams')
-                    return (
 
-                        <img src={element.image} alt='Image'/>
-                    )
-                }
-            }
-        })
-    }
 
     //returns details of a product
     function productDetails(){
         // const foundProduct = productState?.products?.find(element=>element.id === parseInt(productId))
+        const foundImage = imageElements?.find(element=>element.productId ===parseInt(productId))
+        console.log(foundImage,'foundIMage!')
+
+        function iteration(){
+            let array = []
+            for(let i=1; i<11; i++){
+                console.log('inside the for ')
+                if(foundImage && foundImage[`image${i}`]) {
+                        array.push(<div onClick={()=>{setBee(foundImage[`image${i}`]) }}> {<img className='tinyImage' src={foundImage[`image${i}`]} alt="Image"/>}</div>)
+                }
+            }
+            return array
+        }
+
         return(
             <div className="productDetails">
 
-                <div>{imagesProduct()}</div>
+                {iteration()}
 
                 <img className="productImageOnDetails"
-                                src={productState[productId]?.image ? productState[productId]?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
+                                src={bee}
                                 alt="Image"
                 />
 

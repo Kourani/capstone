@@ -6,94 +6,94 @@ from sqlalchemy.sql import text
 def seed_products():
 
     product0 = Product(
-        shop_id=1, name='Scar', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Scar', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/132464/pexels-photo-132464.jpeg"
     )
     product1= Product(
-        shop_id=1, name='Simba', description='super soft and fluffy', category='toys', price=50.12, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Simba', description='super soft and fluffy', category='toys', price=50.12, image="https://images.pexels.com/photos/207891/pexels-photo-207891.jpeg"
     )
     product2=Product(
-        shop_id=1, name='Mufasa', description='awesome material', category='toys', price=5, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Mufasa', description='awesome material', category='toys', price=5, image="https://images.pexels.com/photos/3068579/pexels-photo-3068579.jpeg"
     )
     product3 = Product(
-        shop_id=1, name='Timon', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Timon', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/139167/pexels-photo-139167.jpeg"
     )
     product4 = Product(
-        shop_id=1, name='Pumbaa', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Pumbaa', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1205650/pexels-photo-1205650.jpeg"
     )
     product5 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1971084/pexels-photo-1971084.jpeg"
     )
     product6 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1329328/pexels-photo-1329328.jpeg"
     )
     product7 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1362595/pexels-photo-1362595.jpeg"
     )
     product8 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/3663060/pexels-photo-3663060.jpeg"
     )
     product9 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/2855628/pexels-photo-2855628.jpeg"
     )
     product10 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1387014/pexels-photo-1387014.jpeg"
     )
     product11 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/6743164/pexels-photo-6743164.jpeg"
     )
     product12 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/590750/pexels-photo-590750.jpeg"
     )
     product13 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1364562/pexels-photo-1364562.jpeg"
     )
     product14 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1363452191i/13326831.jpg"
     )
     product15 = Product(
-        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1456172676i/28954189.jpg"
     )
     product16 = Product(
-        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1533058119i/41014903.jpg"
     )
     product17 = Product(
-        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1507557775i/36381037.jpg"
     )
     product18 = Product(
-        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1344986164i/11366397.jpg"
     )
     product19 = Product(
-        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=1, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1458765056i/25689033.jpg"
     )
     product20 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1460224537i/29863662.jpg"
     )
     product21 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1359853842i/16101128.jpg"
     )
     product22 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1586722975i/2767052.jpg"
     )
     product23 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1516127989i/34728667.jpg"
     )
     product24 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677007850i/10215349.jpg"
     )
     product25 = Product(
-        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=2, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1443433956i/23395680.jpg"
     )
     product26 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1651710803i/23437156.jpg"
     )
     product27 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1461354651i/15839976.jpg"
     )
     product28 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1519425615i/27774758.jpg"
     )
     product29 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images.pexels.com/photos/264917/pexels-photo-264917.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560056657i/30075662.jpg"
     )
     product30 = Product(
         shop_id=3, name='Rafiki', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/7992686/pexels-photo-7992686.jpeg"
@@ -197,6 +197,30 @@ def seed_products():
     product63 = Product(
         shop_id=2, name='Rafiki', description='hand crafted', category='ceramics', price=29.99, image="https://images.pexels.com/photos/6694692/pexels-photo-6694692.jpeg"
     )
+    product64 = Product(
+        shop_id=2, name='Rafiki', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/2113994/pexels-photo-2113994.jpeg"
+    )
+    product65 = Product(
+        shop_id=2, name='Rafiki', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg"
+    )
+    product66 = Product(
+        shop_id=2, name='Rafiki', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/280250/pexels-photo-280250.jpeg"
+    )
+    product67 = Product(
+        shop_id=2, name='Rafiki', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/3766111/pexels-photo-3766111.jpeg"
+    )
+    product68 = Product(
+        shop_id=2, name='Rafiki', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/2783873/pexels-photo-2783873.jpeg"
+    )
+    product69 = Product(
+        shop_id=2, name='Rafiki', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/3419331/pexels-photo-3419331.jpeg"
+    )
+    product70 = Product(
+        shop_id=2, name='Rafiki', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg"
+    )
+    product71 = Product(
+        shop_id=2, name='Rafiki', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/2799535/pexels-photo-2799535.jpeg"
+    )
 
     db.session.add(product0)
     db.session.add(product1)
@@ -262,7 +286,14 @@ def seed_products():
     db.session.add(product61)
     db.session.add(product62)
     db.session.add(product63)
-
+    db.session.add(product64)
+    db.session.add(product65)
+    db.session.add(product66)
+    db.session.add(product67)
+    db.session.add(product68)
+    db.session.add(product69)
+    db.session.add(product70)
+    db.session.add(product71)
 
     db.session.commit()
 

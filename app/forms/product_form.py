@@ -25,7 +25,7 @@ class ProductForm(FlaskForm):
     price = FloatField('price', validators=[DataRequired(), product_price])
     description = StringField('description')
 
-    category = SelectField('Category', choices=[('toys','Toys'), ('books','Books'), ('trinkets', 'Trinkets'), ('ceramics', 'Ceramics'), ('tools', 'Tools'), ('jewelry', 'Jewelry')])
+    category = SelectField('Category', choices=[('toys','Toys'), ('books','Books'), ('watches', 'Watches'), ('ceramics', 'Ceramics'), ('tools', 'Tools'), ('jewelry', 'Jewelry')])
     image = StringField('image', validators=[product_image])
 
 #options = [('toys','Toys'), 'books']

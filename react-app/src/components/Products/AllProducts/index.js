@@ -113,13 +113,13 @@ export default function Products(){
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/books')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg" alt="Image"/>
                 <p>Books</p>
             </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/trinkets')}}>
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/watches')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg" alt="Image"/>
-                <p>Trinkets</p>
+                <p>Watches</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/ceramics')}}>
