@@ -10,6 +10,15 @@
     height: 100px;
     object-fit: cover;
 }
+
+.editProductModal{
+    cursor: pointer;
+}
+
+.messageShopOwner{
+    cursor: pointer;
+}
+
 .productDetails{
     display:flex;
     justify-content: space-between;
@@ -50,6 +59,7 @@
     padding-bottom: 10px;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .headersProductDetails{
@@ -74,6 +84,7 @@
     color:white;
     border: 2px solid whitesmoke;
     border-radius: 100px;
+    cursor: pointer;
 }
 
 .buyItNowProductDetails{
@@ -81,6 +92,7 @@
     color:black;
     border: 2px solid black;
     border-radius: 100px;
+    cursor: pointer;
 
 }
 

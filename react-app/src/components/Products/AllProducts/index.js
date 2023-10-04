@@ -78,6 +78,7 @@ export default function Products(){
     function shops(){
         let count = 0
         return shopElements?.map(element=>{
+
             if(element?.country === 'United States')
             {
                 count++
@@ -140,10 +141,9 @@ export default function Products(){
             <div className="allProducts"> {allProducts()} </div>
 
         <div className='landingShops'>
-            <button className='headersProductDetailsLanding' > Discover shops in the US </button>
+        <button className='headersProductDetailsLanding' >Discover shops in the US </button>
             {shops()}
         </div>
-
         </>
     )
 }

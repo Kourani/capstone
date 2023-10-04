@@ -18,7 +18,7 @@ export function plainHeart(){
     )
 }
 
-export default function comingSoon(){
+export function comingSoon(){
     return(
         window.alert('Coming Soon')
     )
@@ -30,4 +30,8 @@ export function futureWork(){
             <div>COMING SOON</div>
         </>
     )
+}
+
+export default function empty(){
+    return null
 }

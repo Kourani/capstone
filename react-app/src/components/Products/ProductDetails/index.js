@@ -11,6 +11,8 @@ import DeleteComment from "../../Comments/DeleteComment"
 import CreateComment from "../../Comments/CreateComment"
 import * as imageActions from "../../../store/image"
 
+import * as additionalFunctions from "../../../context/additional"
+
 import { useModal } from "../../../context/Modal"
 
 import React,  { useEffect, useState, useRef } from "react"
@@ -113,16 +115,15 @@ function ProductDetails(){
                     <div> ${productState[productId]?.price}</div>
                     <div>{productState[productId]?.description}</div>
                     <div>{shopState[productState[productId]?.shopId]?.name}</div>
-                    <p>Quantity</p>
-                    <p>Color</p>
+
                     <div className="productDetailsButtons">
-                        <button className="buyItNowProductDetails">Buy it Now </button>
-                        <button className="addToCartProductDetails"> Add to Cart </button>
+                        <button className="buyItNowProductDetails" onClick={()=>{additionalFunctions.comingSoon()}}>Buy it Now </button>
+                        <button className="addToCartProductDetails" onClick={()=>{additionalFunctions.comingSoon()}}> Add to Cart </button>
                     </div>
                     <p>Meet your Seller</p>
                     <div>{userState[shopOwner]?.firstName} {userState[shopOwner]?.lastName}</div>
                     <div>Owner of {shopState[productState[productId]?.shopId]?.name} </div>
-                    <button>Message {userState[shopOwner]?.firstName}</button>
+                    <button className="messageShopOwner" onClick={()=>{additionalFunctions.comingSoon()}}>Message {userState[shopOwner]?.firstName}</button>
                 </div>
             </div>
         )
@@ -130,8 +131,11 @@ function ProductDetails(){
 
     //returns other products for a shop
     function otherProducts(){
+        let count = 0
         return productElements?.map(element=>{
             if(element?.shopId===productState[productId]?.shopId && productState[productId]?.id !== element?.id){
+                count ++
+               if(count<6){
                 return(
                     <button className="product" onClick={()=>{history.push(`/shops/${element.shopId}`)}}>
                         <div>
@@ -144,6 +148,7 @@ function ProductDetails(){
                         </div>
                     </button>
                 )
+               }
             }
         })
     }
@@ -243,7 +248,13 @@ function ProductDetails(){
             <div>{commentCount() >0 ? productComments() : 'We would love to hear your feedback! Be the first to share your thoughts '}</div>
 
             <p className="headersProductDetails">More from this Shop</p>
-            <div className="shopDetailsOtherProducts">{otherProducts()} </div>
+            
+            <div>
+                <button onClick={()=>additionalFunctions.comingSoon()}>See All Items</button>
+                <div className="shopDetailsOtherProducts">
+                    {otherProducts()}
+                </div>
+            </div>
         </>
     )
 }
