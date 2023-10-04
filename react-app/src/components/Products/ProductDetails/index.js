@@ -33,6 +33,8 @@ function ProductDetails(){
         }
       };
 
+
+
     useEffect(()=>{
         dispatch(productActions.getProducts())
         dispatch(shopActions.getShops())
@@ -53,6 +55,11 @@ function ProductDetails(){
 
     console.log(productState[productId])
     const [bee, setBee] = useState(productState?.[productId]?.image)
+
+    useEffect(()=>{
+        setBee(productState?.[productId]?.image)
+    },[productState])
+
 
     const shopOwner = shopState[productState[productId]?.shopId]?.ownerId
 
@@ -83,7 +90,7 @@ function ProductDetails(){
 
         function iteration(){
             let array = []
-            for(let i=1; i<11; i++){
+            for(let i=1; i<6; i++){
                 console.log('inside the for ')
                 if(foundImage && foundImage[`image${i}`]) {
                         array.push(<div onClick={()=>{setBee(foundImage[`image${i}`]) }}> {<img className='tinyImage' src={foundImage[`image${i}`]} alt="Image"/>}</div>)
@@ -95,7 +102,7 @@ function ProductDetails(){
         return(
             <div className="productDetails">
 
-                {iteration()}
+                <div className="imageCarousel">{iteration()}</div>
 
                 <img className="productImageOnDetails"
                                 src={bee}

@@ -3,6 +3,10 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
 }
+
+.heartStyle{
+    cursor: pointer;
+}
 .allProducts{
     display: flex;
     flex-direction: row;
@@ -43,6 +47,7 @@
     background-color: white;
     border: none;
     padding: 10px;
+    cursor: pointer;
 
 
 }
@@ -68,10 +73,13 @@
     justify-content: center;
 
     border: 5px solid black;
-    margin-top: 10px;
+    margin-top: 40px;
     margin-right: 10px;
     height:500px;
+    cursor: pointer;
 }
+
+
 
 
 .roundImages{

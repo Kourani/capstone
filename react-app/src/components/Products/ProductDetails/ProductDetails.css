@@ -1,4 +1,10 @@
 
+.imageCarousel{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
 .tinyImage{
     width:100px;
     height: 100px;

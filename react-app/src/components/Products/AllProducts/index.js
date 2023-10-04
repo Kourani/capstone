@@ -84,12 +84,10 @@ export default function Products(){
                 if(count<5){
 
                     let found = favoriteElements?.find(one => one.category === 'Shop' && one.number === element.id)
-                    console.log(found,'ffffffffound')
 
                     return(
                         <div>
-
-                            {userState?.user?.id ? <button onClick={()=>{heartChange(element.id, found)}}> { found ? additionalFunctions.heart() : additionalFunctions.plainHeart() } </button> : null }
+                            {userState?.user?.id ? <button className="heartStyle" onClick={()=>{heartChange(element.id, found)}}> { found ? additionalFunctions.heart() : additionalFunctions.plainHeart() } </button> : null }
                             <button className= "landingShopsButton" onClick={()=>{history.push(`/shops/${element.id}`)}}>
                                 <img className="landingShopsInside" src={element?.image} alt="Image"/>
                                 <p className="landingShopName">{element?.name}</p>

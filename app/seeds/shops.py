@@ -3,7 +3,7 @@ from sqlalchemy.sql import text
 
 def seed_shops():
     shop0 = Shop(
-        owner_id = 1, address='Farmington Hills', city='Grand Rapids', state='California', country='United States', name='Digital Art', currency='USD', image="https://images.pexels.com/photos/1705287/pexels-photo-1705287.jpeg")
+        owner_id = 1, address='Farmington Hills', city='Grand Rapids', state='California', country='United States', name='Hand Crafts', currency='USD', image="https://images.pexels.com/photos/1705287/pexels-photo-1705287.jpeg")
     shop1 = Shop(
         owner_id = 2, address='BloomField', city='Lansing', state='Florida', country='United States', name='Remembered Gifts', currency='USD', image="https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg")
     shop2 = Shop(
