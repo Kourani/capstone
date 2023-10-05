@@ -3,3 +3,9 @@
     width: 100px;
     height: 100px;
 }
+
+.ownedProducts{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}

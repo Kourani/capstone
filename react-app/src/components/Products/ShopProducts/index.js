@@ -63,7 +63,7 @@ function ShopProducts(){
                         <div> {element?.name} </div>
                         <div> {element?.description} </div>
                         <div> {element?.category} </div>
-                        <div> {element?.price} </div>
+                        <div> ${element?.price} </div>
                         {editProduct(element?.id)}
                         {deleteProduct(element?.id)}
                     </div>
