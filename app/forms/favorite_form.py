@@ -7,5 +7,5 @@ from wtforms.validators import DataRequired, ValidationError
 from app.models import Favorite
 
 class FavoriteForm(FlaskForm):
-    number = IntegerField('name', validators=[DataRequired()])
-    category = StringField('price', validators=[DataRequired()])
+    number = IntegerField('number', validators=[DataRequired()])
+    category = StringField('category', validators=[DataRequired()])
