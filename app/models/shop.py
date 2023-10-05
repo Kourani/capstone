@@ -24,7 +24,7 @@ class Shop(db.Model):
     created_at = db.Column(db.DateTime, default = datetime.now())
 
     users = db.relationship('User', back_populates='shops') #user table fill out business
-    products = db.relationship('Product', back_populates='shops') #product table fill out business
+    products = db.relationship('Product', back_populates='shops', cascade="all, delete-orphan") #product table fill out business
 
     def to_dict(self):
         return {

@@ -45,11 +45,7 @@ def edit_comment(id):
 @login_required
 def delete_comment(id):
 
-    form = CommentForm()
-
     comment = Comment.query.get(id)
-
-    form['csrf_token'].data = request.cookies['csrf_token']
 
     if not comment:
         return {'error': 'Comment not found'}

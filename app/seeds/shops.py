@@ -9,7 +9,7 @@ def seed_shops():
     shop2 = Shop(
         owner_id = 3, address='Gross Pointe', city='Detroit', state='Michigan', country='United States', name='Kid WonderLand', currency='USD', image="https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg")
     shop3 = Shop(
-        owner_id = 3, address='6743 Nepal', city='Mumbai', state='Assam', country='India', name='Spice Land', currency='Rupee', image="https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg")
+        owner_id = 3, address='6743 Nepal', city='Mumbai', state='Assam', country='India', name='A Thousand Lives', currency='Rupee', image="https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg")
 
     db.session.add(shop0)
     db.session.add(shop1)

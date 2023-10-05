@@ -25,7 +25,6 @@ def upgrade():
     op.create_table('images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('product_id', sa.Integer(), nullable=False),
-    sa.Column('shop_id', sa.Integer(), nullable=True),
     sa.Column('image1', sa.String(), nullable=True),
     sa.Column('image2', sa.String(), nullable=True),
     sa.Column('image3', sa.String(), nullable=True),

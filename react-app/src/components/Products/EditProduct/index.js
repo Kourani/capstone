@@ -95,15 +95,21 @@ function EditProduct(productId){
                     />
             </label>
 
-            <label>
+            <label className="createProductName" >
                 Category
-                <input
-                    type='text'
-                    value={category}
-                    onChange={(e)=>setCategory(e.target.value)}
-                    required
-                    />
+                <select
+                onChange={(e)=>setCategory(e.target.value)}
+                value={category}
+                placeholder="Choose a Category">
+                    <option value='toys'>Toys</option>
+                    <option value='books'>Books</option>
+                    <option value='watches'>Watches</option>
+                    <option value = 'ceramics'>Ceramics</option>
+                    <option value = 'tools'>Tools</option>
+                    <option value = 'jewelry'> Jewelry</option>
+                </select>
             </label>
+
 
             <label>
                 image

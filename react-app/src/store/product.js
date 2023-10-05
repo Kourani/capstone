@@ -96,8 +96,6 @@ export const deleteProduct = (productId) => async (dispatch) => {
 	})
 
 	if(response.ok){
-		const removedProduct = await response.json()
-		console.log(removedProduct, 'removedProduct')
 		dispatch(deleteOne(productId))
 	}
 
