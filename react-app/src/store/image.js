@@ -3,6 +3,7 @@
 //-------------------CONSTANTS-----------
 
 const GET_ALL = "images/GET_ALL"
+const ADD_IMAGES = "images/ADD_ONE"
 
 //-----------------ACTIONS---------------
 
@@ -10,6 +11,12 @@ const getAll = (images) => ({
     type:GET_ALL,
     payload:images
 })
+
+const addOne = (images) => ({
+    type:ADD_IMAGES,
+    images
+})
+
 
 //------------------THUNKS------------------
 
@@ -27,6 +34,22 @@ export const getImages = () => async (dispatch) => {
     }
 }
 
+export const addImages = (payload, productId) => async (dispatch) => {
+    const response = await fetch("/api/images",{
+        method:'POST',
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify(payload)
+    })
+
+    if(response.ok){
+        const newImages = await response.json()
+        dispatch(addOne(newImages))
+    }
+    else{
+        return await response.json()
+    }
+}
+
 
 //---------------------REDUCER-----------------
 function imagesReducer(state={}, action){
@@ -37,7 +60,14 @@ function imagesReducer(state={}, action){
             action.payload.images.forEach(element => {
                 newState[element.id]=element
             })
-        return newState
+            return newState
+            
+        case ADD_IMAGES:
+            let addition = {...state}
+            addition[action.images.id]=action.images
+            return addition
+
+
 
         default:
             return state;

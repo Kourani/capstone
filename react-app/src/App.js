@@ -21,6 +21,8 @@ import AllFavorites from "./components/Favorites/allFavorites";
 
 import Cart from "./components/Cart"
 
+import ProtectedRoute from "./components/auth/ProtectedRoute"
+
 
 
 function App() {
@@ -50,37 +52,33 @@ function App() {
             <SignupFormPage />
           </Route>
 
-          <Route path="/shops/edit">
+          <ProtectedRoute path="/shops/edit">
             <OwnedShops/>
-          </Route>
+          </ProtectedRoute>
 
-          <Route path="/shops/new">
+          <ProtectedRoute path="/shops/new">
             <CreateShop/>
-          </Route>
+          </ProtectedRoute>
 
           <Route path="/cart">
             <Cart/>
           </Route>
 
-          <Route path="/shops/:shopId/products/new">
+          <ProtectedRoute path="/shops/:shopId/products/new">
             <CreateProduct/>
-          </Route>
+          </ProtectedRoute>
 
-          <Route path="/shops/:shopId/products/edit">
+          <ProtectedRoute path="/shops/:shopId/products/edit">
             <ShopProducts/>
-          </Route>
+          </ProtectedRoute>
 
-          <Route path="/shops/:shopId/products">
+          <ProtectedRoute path="/shops/:shopId/products">
             <ShopProducts/>
-          </Route>
+          </ProtectedRoute>
 
           <Route path="/shops/:shopId">
             <OneShops/>
           </Route>
-
-
-
-
 
           <Route path="/products/categories/:category">
             <CircleProducts/>
@@ -89,8 +87,6 @@ function App() {
           <Route path="/products/:productId">
             <ProductDetails/>
           </Route>
-
-
 
           <Route exact path="/">
             <AllProducts/>
