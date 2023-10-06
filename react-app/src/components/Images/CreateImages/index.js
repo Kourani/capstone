@@ -3,14 +3,21 @@ import react, {useState} from 'react'
 
 
 import { useDispatch } from 'react-redux'
+import {useParams} from 'react-router-dom'
 
 
 import * as imageActions from "../../../store/image"
+import { useHistory } from 'react-router-dom'
 
 
 export default function CreateImages(){
 
     const dispatch = useDispatch()
+    const history = useHistory()
+    const {productId} = useParams()
+
+
+    console.log(productId,'aaaaaaaaaaaaaaaaaahhhhhhhh')
 
     const [image1, setImage1] = useState("")
     const [image2, setImage2] = useState("")
@@ -19,18 +26,29 @@ export default function CreateImages(){
     const [image5, setImage5] = useState("")
     const [errors, setErrors] = useState({})
 
+    const payload = {
+        productId:parseInt(productId),
+        image1,
+        image2,
+        image3,
+        image4,
+        image5
+    }
 
     const handleSubmit= async(e) => {
 
         e.preventDefault()
 
-        const data = await dispatch(imageActions.addImages(payload))
+        const data = await dispatch(imageActions.addImages(payload, productId))
 
         if(data && data?.errors){
             setErrors(data.errors)
         }
-    }
+        else{
+            history.push(`/products/${productId}`)
 
+        }
+    }
 
     return(
         <>

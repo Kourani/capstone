@@ -48,52 +48,52 @@ def seed_products():
         shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1364562/pexels-photo-1364562.jpeg"
     )
     product14 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1363452191i/13326831.jpg"
+        shop_id=4, name='The Testing', description='Use or be used to survive. School is not the same here one wrong answer is the difference between life and death. Choose wisely!', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1363452191i/13326831.jpg"
     )
     product15 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1456172676i/28954189.jpg"
+        shop_id=4, name='Scythe', description='Over population not a problem just normalize a career where if hired it is your job to kill. You decide who lives and who dies', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1456172676i/28954189.jpg"
     )
     product16 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1533058119i/41014903.jpg"
+        shop_id=4, name='WarCross', description="Some games you play others you surive. Can't get over the death of someone close, turn to AI", category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1533058119i/41014903.jpg"
     )
     product17 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1507557775i/36381037.jpg"
+        shop_id=4, name='Cinder', description="A cyborg cinderella, well that's a twist to the original fairytale", category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1507557775i/36381037.jpg"
     )
     product18 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1344986164i/11366397.jpg"
+        shop_id=4, name='The Program', description='Depression no problem lets just wipe those individuals clean', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1344986164i/11366397.jpg"
     )
     product19 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1458765056i/25689033.jpg"
+        shop_id=4, name='Genius', description='Secrecy smarts and a hunt well played', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1458765056i/25689033.jpg"
     )
     product20 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1460224537i/29863662.jpg"
+        shop_id=4, name='Legend', description='Justice or power you could only have one, choose', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1460224537i/29863662.jpg"
     )
     product21 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1359853842i/16101128.jpg"
+        shop_id=4, name='The 5th Wave', description='What are aliens but AI in disguise, can we coexist?', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1359853842i/16101128.jpg"
     )
     product22 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1586722975i/2767052.jpg"
+        shop_id=4, name='The Hunger Games', description="Poverty, Hunger, War no problem instill peace through fear. Kill or be killed that's the game", category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1586722975i/2767052.jpg"
     )
     product23 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1516127989i/34728667.jpg"
+        shop_id=4, name='The 100', description="With thier hunger for improvements in tech, AI became too strong and humans have compromised the safety of Earth. To save the last of the human race, they move to space", category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1377012321i/17332969.jpg"
     )
     product24 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677007850i/10215349.jpg"
+        shop_id=4, name='Three Dark Crowns', description='Three sisters seperated at birth forced to kill each other against their will for a throne neither wants', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1469265712i/28374007.jpg"
     )
     product25 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1443433956i/23395680.jpg"
+        shop_id=4, name='Illuminae', description='Company gone astray, fraud, abuse and hidden scandals unraveled', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1443433956i/23395680.jpg"
     )
     product26 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1651710803i/23437156.jpg"
+        shop_id=4, name='Six of Crows', description="Mystery wit cleverness and street smarts that's what it takes to survive", category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1651710803i/23437156.jpg"
     )
     product27 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1461354651i/15839976.jpg"
+        shop_id=4, name='Red Rising', description='Interplanatery War', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1461354651i/15839976.jpg"
     )
     product28 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1519425615i/27774758.jpg"
+        shop_id=4, name='An Ember in the Ashes', description='Deception lies and truth all wrapped in one', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1519425615i/27774758.jpg"
     )
     product29 = Product(
-        shop_id=4, name='Rafiki', description='hand crafted', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560056657i/30075662.jpg"
+        shop_id=4, name='Aurora Rising', description='Space', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560056657i/30075662.jpg"
     )
     product30 = Product(
         shop_id=2, name='Rafiki', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/7992686/pexels-photo-7992686.jpeg"

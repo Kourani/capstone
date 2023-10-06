@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+
+import { authenticate } from "./store/session";
+
+import ProtectedRoute from "./components/auth/ProtectedRoute"
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
-import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer"
 
@@ -21,7 +24,9 @@ import AllFavorites from "./components/Favorites/allFavorites";
 
 import Cart from "./components/Cart"
 
-import ProtectedRoute from "./components/auth/ProtectedRoute"
+import CreateImages from "./components/Images/CreateImages"
+
+
 
 
 
@@ -80,9 +85,14 @@ function App() {
             <OneShops/>
           </Route>
 
+
           <Route path="/products/categories/:category">
             <CircleProducts/>
           </Route>
+
+          <ProtectedRoute path="/products/:productId/images/new">
+            <CreateImages/>
+          </ProtectedRoute>
 
           <Route path="/products/:productId">
             <ProductDetails/>

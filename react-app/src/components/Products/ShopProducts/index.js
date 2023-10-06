@@ -7,9 +7,11 @@ import { useHistory, useParams } from "react-router-dom";
 
 import OpenModalButton from "../../OpenModalButton";
 import { useModal } from "../../../context/Modal";
-import * as productActions from "../../../store/product";
 import DeleteProduct from "../DeleteProduct";
 import EditProduct from "../EditProduct"
+
+import * as productActions from "../../../store/product";
+import * as imageActions from "../../../store/image"
 
 
 function ShopProducts(){
@@ -31,10 +33,13 @@ function ShopProducts(){
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
+        dispatch(imageActions.getImages())
     },[dispatch])
 
     const productState = useSelector(state=>state.product)
     const productElements = Object.values(productState)
+
+    const imageState = useSelector(state=>state.image)
 
     function deleteProduct(productId){
         return(
@@ -59,7 +64,8 @@ function ShopProducts(){
             if(element?.shopId === parseInt(shopId)){
                 return(
                     <div className="ownedProducts">
-                        <img className='imageShopProducts' src={element?.image} alt="Image"/>
+                        <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
+                        <div>{imageState?.[element.id]? (Object.values(imageState?.[element.id]).length - 2 ): null}</div>
                         <div> {element?.name} </div>
                         <div> {element?.description} </div>
                         <div> {element?.category} </div>

@@ -35,7 +35,7 @@ export const getImages = () => async (dispatch) => {
 }
 
 export const addImages = (payload, productId) => async (dispatch) => {
-    const response = await fetch("/api/images",{
+    const response = await fetch(`/api/${productId}/images`,{
         method:'POST',
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify(payload)
@@ -58,10 +58,10 @@ function imagesReducer(state={}, action){
             let newState = {...state}
             console.log(action.payload.images,'IMAGES REDUCER')
             action.payload.images.forEach(element => {
-                newState[element.id]=element
+                newState[element.productId]=element
             })
             return newState
-            
+
         case ADD_IMAGES:
             let addition = {...state}
             addition[action.images.id]=action.images

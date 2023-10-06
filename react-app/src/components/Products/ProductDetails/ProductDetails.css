@@ -1,4 +1,6 @@
 
+
+
 .imageCarousel{
     display: flex;
     flex-direction: column;
@@ -23,6 +25,22 @@
     display:flex;
     justify-content: space-between;
     padding: 10px;
+}
+
+.productDetailsSideInformation{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.justTheName{
+    width: 200px;
+}
+
+.justThePrice{
+    font-weight: bold;
+    font-size: larger;
 }
 
 .productImageOnDetails{

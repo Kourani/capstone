@@ -18,6 +18,7 @@ import { useModal } from "../../../context/Modal"
 import React,  { useEffect, useState, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory } from "react-router-dom"
+import { NavLink } from "react-router-dom/cjs/react-router-dom"
 
 function ProductDetails(){
 
@@ -33,9 +34,7 @@ function ProductDetails(){
         if (!ulRef.current.contains(e.target)) {
           setShowMenu(false);
         }
-      };
-
-
+    };
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
@@ -55,7 +54,6 @@ function ProductDetails(){
     const commentElements = Object.values(commentState)
     const imageElements = Object.values(imageState)
 
-    console.log(productState[productId])
     const [bee, setBee] = useState(productState?.[productId]?.image)
 
     useEffect(()=>{
@@ -79,10 +77,6 @@ function ProductDetails(){
         11:'November',
         12:'December'
     }
-
-    console.log(imageElements, 'imageElements!!')
-
-
 
     //returns details of a product
     function productDetails(){
@@ -111,10 +105,10 @@ function ProductDetails(){
                                 alt="Image"
                 />
 
-                <div>
-                    <div> ${productState[productId]?.price}</div>
-                    <div>{productState[productId]?.description}</div>
-                    <div>{shopState[productState[productId]?.shopId]?.name}</div>
+                <div className="productDetailsSideInformation">
+                    <div className="justThePrice"> ${productState[productId]?.price}</div>
+                    <div className="justTheName">{productState[productId]?.description}</div>
+                    <NavLink exact to={`/shops/${productState[productId]?.shopId}`}>{shopState[productState[productId]?.shopId]?.name}</NavLink>
 
                     <div className="productDetailsButtons">
                         <button className="buyItNowProductDetails" onClick={()=>{additionalFunctions.comingSoon()}}>Buy it Now </button>
@@ -122,7 +116,7 @@ function ProductDetails(){
                     </div>
                     <p>Meet your Seller</p>
                     <div>{userState[shopOwner]?.firstName} {userState[shopOwner]?.lastName}</div>
-                    <div>Owner of {shopState[productState[productId]?.shopId]?.name} </div>
+                    <div>Owner of <NavLink exact to={`/shops/${productState[productId]?.shopId}`}>{shopState[productState[productId]?.shopId]?.name}</NavLink></div>
                     <button className="messageShopOwner" onClick={()=>{additionalFunctions.comingSoon()}}>Message {userState[shopOwner]?.firstName}</button>
                 </div>
             </div>
@@ -248,9 +242,9 @@ function ProductDetails(){
             <div>{commentCount() >0 ? productComments() : 'We would love to hear your feedback! Be the first to share your thoughts '}</div>
 
             <p className="headersProductDetails">More from this Shop</p>
-            
+
             <div>
-                <button onClick={()=>additionalFunctions.comingSoon()}>See All Items</button>
+                <button onClick={()=>{history.push(`/shops/${productState[productId]?.shopId}`)}}>See All Items</button>
                 <div className="shopDetailsOtherProducts">
                     {otherProducts()}
                 </div>
