@@ -99,7 +99,7 @@ function ShopProducts(){
                             <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
                             <div className="imageButtons">
                                 <div>{imageState?.[element.id] ? (Object.values(imageState?.[element.id]).length - 2 ) : '0' }</div>
-                                {!imageState?.[element.id] || (imageState?.[element.id] && (Object.values(imageState?.[element.id]).length - 2)<5) ? addImages() : null }
+                                {!imageState?.[element.id] || (imageState?.[element.id] && (Object.values(imageState?.[element.id]).length - 2)<5) ? addImages(element.id, element.name) : null }
                                 {imageState?.[element.id] ? <button onClick={()=>{history.push(`/products/${element.id}`)}}> View Layout </button> : null}
                                 {imageState?.[element.id] ? editImages(element.id, element.name): null}
                             </div>

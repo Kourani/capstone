@@ -10,7 +10,7 @@ import * as imageActions from "../../../store/image"
 import { useHistory } from 'react-router-dom'
 
 
-export default function CreateImages(){
+export default function CreateImages(product){
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -27,7 +27,7 @@ export default function CreateImages(){
     const [errors, setErrors] = useState({})
 
     const payload = {
-        productId:parseInt(productId),
+        productId:product.productId,
         image1,
         image2,
         image3,
@@ -39,13 +39,13 @@ export default function CreateImages(){
 
         e.preventDefault()
 
-        const data = await dispatch(imageActions.addImages(payload, productId))
+        const data = await dispatch(imageActions.addImages(payload, product.productId))
 
         if(data && data?.errors){
             setErrors(data.errors)
         }
         else{
-            history.push(`/products/${productId}`)
+            history.push(`/products/${product.productId}`)
 
         }
     }

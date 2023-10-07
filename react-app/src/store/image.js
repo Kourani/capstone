@@ -41,7 +41,7 @@ export const getImages = () => async (dispatch) => {
 }
 
 export const addImages = (payload, productId) => async (dispatch) => {
-    const response = await fetch(`/api/${productId}/images`,{
+    const response = await fetch(`/api/products/${productId}/images`,{
         method:'POST',
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify(payload)

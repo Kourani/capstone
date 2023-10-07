@@ -9,7 +9,7 @@ export default function Footer(){
     return (
         <div className='footer'>
             <div className='footerContent'>
-                {'(c) Interact 2023'}
+                &copy; Interact 2023
             </div>
         </div>
     )
