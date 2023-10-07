@@ -20,7 +20,7 @@ def image2_valid(form,field):
         raise ValidationError('Image must end with jpeg, jpg, or png')
 
 def image3_valid(form,field):
-    image_3 = form.data['image_1']
+    image_3 = form.data['image_3']
 
     if image_3 and (not image_3.endswith('jpeg') and not image_3.endswith('jpg') and not image_3.endswith('png')):
         raise ValidationError('Image must end with jpeg, jpg, or png')

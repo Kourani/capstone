@@ -41,14 +41,17 @@ export const getImages = () => async (dispatch) => {
 }
 
 export const addImages = (payload, productId) => async (dispatch) => {
+    console.log('inside think')
     const response = await fetch(`/api/products/${productId}/images`,{
         method:'POST',
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify(payload)
     })
 
+
     if(response.ok){
         const newImages = await response.json()
+        console.log(newImages, 'response!')
         dispatch(addOne(newImages))
     }
     else{
@@ -93,7 +96,7 @@ function imagesReducer(state={}, action){
 
         case EDIT_IMAGES:
             let edited = {...state}
-            edited[action.payload.id]=action.payload
+            edited[action.image.id]=action.image
             return edited
 
         default:

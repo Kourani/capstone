@@ -116,12 +116,13 @@ def new_image(id):
     if form.validate_on_submit():
         image = Image(
             product_id = id,
-            image_1 = form.data['image_1'],
+            image_1 = form.data['image_1'], #first model second backend
             image_2 = form.data['image_2'],
             image_3 = form.data['image_3'],
             image_4 = form.data['image_4'],
             image_5 = form.data['image_5']
         )
+        print(image)
         db.session.add(image)
         db.session.commit()
         return image.to_dict()

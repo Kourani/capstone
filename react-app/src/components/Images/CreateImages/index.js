@@ -9,6 +9,8 @@ import {useParams} from 'react-router-dom'
 import * as imageActions from "../../../store/image"
 import { useHistory } from 'react-router-dom'
 
+import { useModal } from '../../../context/Modal'
+
 
 export default function CreateImages(product){
 
@@ -16,8 +18,7 @@ export default function CreateImages(product){
     const history = useHistory()
     const {productId} = useParams()
 
-
-    console.log(productId,'aaaaaaaaaaaaaaaaaahhhhhhhh')
+    const {closeModal} = useModal()
 
     const [image1, setImage1] = useState("")
     const [image2, setImage2] = useState("")
@@ -26,18 +27,20 @@ export default function CreateImages(product){
     const [image5, setImage5] = useState("")
     const [errors, setErrors] = useState({})
 
-    const payload = {
-        productId:product.productId,
-        image1,
-        image2,
-        image3,
-        image4,
-        image5
-    }
+
 
     const handleSubmit= async(e) => {
 
         e.preventDefault()
+
+        const payload = {
+            productId:product.productId,
+            image_1:image1,
+            image_2:image2,
+            image_3:image3,
+            image_4:image4,
+            image_5:image5
+        }
 
         const data = await dispatch(imageActions.addImages(payload, product.productId))
 
@@ -45,8 +48,7 @@ export default function CreateImages(product){
             setErrors(data.errors)
         }
         else{
-            history.push(`/products/${product.productId}`)
-
+            closeModal()
         }
     }
 

@@ -32,11 +32,11 @@ export default function EditImages(product){
 
     const payload = {
         productId:product.productId,
-        image1,
-        image2,
-        image3,
-        image4,
-        image5
+        image_1:image1,
+        image_2:image2,
+        image_3:image3,
+        image_4:image4,
+        image_5:image5
     }
 
     const handleSubmit= async(e) => {
@@ -57,7 +57,7 @@ export default function EditImages(product){
         <>
         <form onSubmit={handleSubmit}>
             <div className='modalsInside'>
-            
+
             <h1 className='modalHeader'>Edit Images for Product</h1>
             <div> Maximum of 5 side images accepted</div>
 
