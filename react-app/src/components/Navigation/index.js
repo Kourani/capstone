@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -7,7 +7,10 @@ import './Navigation.css';
 
 
 
+
+
 function Navigation({ isLoaded }){
+
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
@@ -18,7 +21,9 @@ function Navigation({ isLoaded }){
 			</div>
 			{isLoaded && (
 				<>
-					<ProfileButton user={sessionUser} />
+
+					<ProfileButton user={sessionUser}/>
+
 				</>
 			)}
 		</div>

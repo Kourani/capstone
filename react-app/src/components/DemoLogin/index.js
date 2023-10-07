@@ -17,8 +17,11 @@ function DemoLogin() {
 
   return (
     <>
-      <h1>Demo</h1>
+
+
       <form onSubmit={handleSubmit}>
+        <div className="modalsInside">
+        <h1>Log in as a demo user</h1>
         <label>
           Email
           <input
@@ -36,6 +39,7 @@ function DemoLogin() {
           />
         </label>
         <button type="submit">Log In Demo</button>
+        </div>
       </form>
     </>
   );
