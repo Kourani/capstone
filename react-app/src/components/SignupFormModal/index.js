@@ -17,28 +17,25 @@ function SignupFormModal() {
 		e.preventDefault();
 		if (password === confirmPassword) {
 			const data = await dispatch(signUp(username, email, password));
+
 			if (data) {
 				setErrors(data);
 			} else {
 				closeModal();
 			}
 		} else {
-			setErrors([
-				"Confirm Password field must be the same as the Password field",
-			]);
+			setErrors({"password":"Confirm Password field must be the same as the Password field"});
 		}
 	};
 
 	return (
 		<>
-			<h1>Sign Up</h1>
+
+
 			<form onSubmit={handleSubmit}>
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
-				<label>
+			<div className="modalsInside">
+			<h1 className="modalHeader">Sign Up</h1>
+				<label className="labelName">
 					Email
 					<input
 						type="text"
@@ -47,7 +44,10 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+
+				<div className="errors">{errors?.email ? errors?.email : null}</div>
+
+				<label className="labelName">
 					Username
 					<input
 						type="text"
@@ -56,7 +56,10 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+
+				<div className="errors">{errors?.username ? errors?.username : null}</div>
+
+				<label className="labelName">
 					Password
 					<input
 						type="password"
@@ -65,7 +68,8 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<label>
+
+				<label className="labelName">
 					Confirm Password
 					<input
 						type="password"
@@ -74,7 +78,11 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+
+				<div className="errors">{errors?.password ? errors?.password : null}</div>
+
 				<button type="submit">Sign Up</button>
+				</div>
 			</form>
 		</>
 	);

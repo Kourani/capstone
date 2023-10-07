@@ -14,6 +14,7 @@ import * as shopActions from "../../../store/shop"
 import * as productActions from "../../../store/product";
 import * as imageActions from "../../../store/image"
 import EditImages from "../../Images/EditImages";
+import CreateImages from "../../Images/CreateImages";
 
 
 function ShopProducts(){
@@ -77,6 +78,16 @@ function ShopProducts(){
         )
     }
 
+    function addImages(productId, productName){
+        return (
+            <OpenModalButton
+            buttonText="Add Images"
+            onItemClick={closeMenu}
+            modalComponent={<CreateImages productId={productId}/>}
+            />
+        )
+    }
+
     const foundShop = shopElements.find(element=>element.id === parseInt(shopId) && element.ownerId === userState?.user?.id)
 
     function findProducts(){
@@ -88,7 +99,7 @@ function ShopProducts(){
                             <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
                             <div className="imageButtons">
                                 <div>{imageState?.[element.id] ? (Object.values(imageState?.[element.id]).length - 2 ) : '0' }</div>
-                                {!imageState?.[element.id] || (imageState?.[element.id] && (Object.values(imageState?.[element.id]).length - 2)<5) ? <button onClick={()=>{history.push(`/products/${element.id}/images/new`)}}>Add Images</button> : null }
+                                {!imageState?.[element.id] || (imageState?.[element.id] && (Object.values(imageState?.[element.id]).length - 2)<5) ? addImages() : null }
                                 {imageState?.[element.id] ? <button onClick={()=>{history.push(`/products/${element.id}`)}}> View Layout </button> : null}
                                 {imageState?.[element.id] ? editImages(element.id, element.name): null}
                             </div>

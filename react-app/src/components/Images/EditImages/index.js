@@ -55,9 +55,13 @@ export default function EditImages(product){
 
     return(
         <>
-        <p>Edit Images for Product</p>
         <form onSubmit={handleSubmit}>
-            <label>
+            <div className='modalsInside'>
+            
+            <h1 className='modalHeader'>Edit Images for Product</h1>
+            <div> Maximum of 5 side images accepted</div>
+
+            <label className='labelName'> Top Image
                 <input
                     type='text'
                     value={image1}
@@ -68,7 +72,7 @@ export default function EditImages(product){
 
             <div className="errors"> {errors.image1 ? errors.image1 : null}</div>
 
-            <label>
+            <label className='labelName'> Second Image
                 <input
                     type='text'
                     value={image2}
@@ -79,7 +83,7 @@ export default function EditImages(product){
 
             <div className="errors"> {errors.image2 ? errors.image2 : null}</div>
 
-            <label>
+            <label className='labelName'> Third Image
                 <input
                     type='text'
                     value={image3}
@@ -90,7 +94,7 @@ export default function EditImages(product){
 
             <div className="errors"> {errors.image3 ? errors.image3 : null}</div>
 
-            <label>
+            <label className='labelName'> Fourth Image
                 <input
                     type='text'
                     value={image4}
@@ -101,7 +105,7 @@ export default function EditImages(product){
 
             <div className="errors"> {errors.image4 ? errors.image4 : null}</div>
 
-            <label>
+            <label className='labelName'> Bottom Image
                 <input
                     type='text'
                     value={image5}
@@ -113,6 +117,7 @@ export default function EditImages(product){
             <div className="errors"> {errors.image5 ? errors.image5 : null}</div>
 
             <button type='submit'>Update</button>
+            </div>
 
         </form>
         </>

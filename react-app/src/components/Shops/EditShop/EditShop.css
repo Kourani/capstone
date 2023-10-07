@@ -2,13 +2,21 @@
 
 .modalHeader{
     font-size: 50px;
+    display: flex;
+    align-items: center;
 }
 .modalsInside{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap:10px;
-    padding-bottom: 10px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 5px solid black;
+}
 
+.labelName{
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
 }

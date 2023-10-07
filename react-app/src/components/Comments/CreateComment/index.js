@@ -48,11 +48,12 @@ export default function CreateCommment(productId){
 
     return (
         <>
-            <h1>Create Comment</h1>
+
             <form onSubmit={handleSubmit}>
+            <div className="modalsInside">
+            <h1 className="modalHeader">Create Comment</h1>
             <label>
-            comment
-            <input
+            Comment <input
                 type='text'
                 value={comment}
                 placeholder="Enter Comment"
@@ -60,6 +61,7 @@ export default function CreateCommment(productId){
                 />
             </label>
             <button> Submit </button>
+            </div>
             </form>
         </>
     )

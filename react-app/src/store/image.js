@@ -28,7 +28,7 @@ const editOne = (image) =>({
 
 export const getImages = () => async (dispatch) => {
 
-    const response = await fetch("/api/images")
+    const response = await fetch("/api/images/")
 
     if(response.ok){
         const allImages = await response.json()

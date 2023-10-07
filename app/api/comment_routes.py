@@ -41,7 +41,7 @@ def edit_comment(id):
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@comment_routes.route('/<int:id>/delete', methods=['DELETE'])
+@comment_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_comment(id):
 

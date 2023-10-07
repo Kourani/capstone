@@ -53,8 +53,10 @@ export default function CreateImages(){
     return(
         <>
         <form onSubmit={handleSubmit}>
-            <label>
-                <input
+            <div className='modalsInside'>
+            <div className='modalHeader'> Add Images for Product </div>
+            <label > Top Image
+                <input className='labelName'
                     type='text'
                     value={image1}
                     placeholder='Enter image link'
@@ -64,7 +66,8 @@ export default function CreateImages(){
 
             <div className="errors"> {errors.image1 ? errors.image1 : null}</div>
 
-            <label>
+            <label className='labelName'>
+                Second Image
                 <input
                     type='text'
                     value={image2}
@@ -75,7 +78,8 @@ export default function CreateImages(){
 
             <div className="errors"> {errors.image2 ? errors.image2 : null}</div>
 
-            <label>
+            <label className='labelName'>
+                Third Image
                 <input
                     type='text'
                     value={image3}
@@ -86,7 +90,8 @@ export default function CreateImages(){
 
             <div className="errors"> {errors.image3 ? errors.image3 : null}</div>
 
-            <label>
+            <label className='labelName'>
+                Fourth Image
                 <input
                     type='text'
                     value={image4}
@@ -97,7 +102,8 @@ export default function CreateImages(){
 
             <div className="errors"> {errors.image4 ? errors.image4 : null}</div>
 
-            <label>
+            <label className='labelName'>
+                Bottom Image
                 <input
                     type='text'
                     value={image5}
@@ -109,6 +115,7 @@ export default function CreateImages(){
             <div className="errors"> {errors.image5 ? errors.image5 : null}</div>
 
             <button type='submit'>Submit</button>
+            </div>
 
         </form>
         </>

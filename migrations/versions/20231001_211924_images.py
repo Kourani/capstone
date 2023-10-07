@@ -25,11 +25,11 @@ def upgrade():
     op.create_table('images',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('product_id', sa.Integer(), nullable=False),
-    sa.Column('image1', sa.String(), nullable=True),
-    sa.Column('image2', sa.String(), nullable=True),
-    sa.Column('image3', sa.String(), nullable=True),
-    sa.Column('image4', sa.String(), nullable=True),
-    sa.Column('image5', sa.String(), nullable=True),
+    sa.Column('image_1', sa.String(), nullable=True),
+    sa.Column('image_2', sa.String(), nullable=True),
+    sa.Column('image_3', sa.String(), nullable=True),
+    sa.Column('image_4', sa.String(), nullable=True),
+    sa.Column('image_5', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

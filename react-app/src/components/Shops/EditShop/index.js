@@ -62,9 +62,8 @@ function EditShop(shopId){
             <div className="modalsInside">
               <h1 className="modalHeader"> Edit {name}</h1>
 
-              <label>
-                Shop Name
-                <input
+              <label className="labelName">
+                Shop Name <input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -72,9 +71,8 @@ function EditShop(shopId){
                 />
               </label>
 
-              <label>
-                Address
-                <input
+              <label className="labelName">
+                Address <input
                   type="text"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
@@ -82,9 +80,8 @@ function EditShop(shopId){
                 />
               </label>
 
-              <label>
-                City
-                <input
+              <label className="labelName" >
+                City <input
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
@@ -92,9 +89,8 @@ function EditShop(shopId){
                 />
               </label>
 
-              <label>
-                State
-                <input
+              <label className="labelName" >
+                State <input
                   type="text"
                   value={state}
                   onChange={(e) => setState(e.target.value)}
@@ -102,9 +98,8 @@ function EditShop(shopId){
                 />
               </label>
 
-              <label>
-                Country
-                <input
+              <label className="labelName" >
+                Country <input
                   type="text"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
@@ -112,9 +107,8 @@ function EditShop(shopId){
                 />
               </label>
 
-              <label>
-                Accepted Currency
-                <input
+              <label className="labelName" >
+                Accepted Currency <input
                   type="text"
                   value={currency}
                   onChange={(e) => setCurrency(e.target.value)}
@@ -122,9 +116,8 @@ function EditShop(shopId){
                 />
               </label>
 
-              <label>
-                Shop Image
-                <input
+              <label className="labelName">
+                Shop Image <input
                   type="text"
                   value={image}
                   onChange={(e) => setImage(e.target.value)}

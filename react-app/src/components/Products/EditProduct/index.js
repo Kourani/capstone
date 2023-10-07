@@ -59,12 +59,12 @@ function EditProduct(productId){
 
     return(
         <>
-        <h1> Edit Product </h1>
-
         <form onSubmit={handleSubmit}>
 
-            <label>
-                Name
+        <div className="modalsInside">
+            <h1 className="modalHeader"> Edit Product </h1>
+            <label className="labelName" >
+                Product Name
                 <input
                     type='text'
                     value={name}
@@ -73,7 +73,7 @@ function EditProduct(productId){
                     />
             </label>
 
-            <label>
+            <label className="labelName">
                 Price
                 <input
                     type='text'
@@ -85,7 +85,7 @@ function EditProduct(productId){
 
             <div className="errors"> {errors.price ? errors.price : null}</div>
 
-            <label>
+            <label className="labelName" >
                 Description
                 <input
                     type='text'
@@ -95,7 +95,7 @@ function EditProduct(productId){
                     />
             </label>
 
-            <label className="createProductName" >
+            <label className="labelName" >
                 Category
                 <select
                 onChange={(e)=>setCategory(e.target.value)}
@@ -111,8 +111,8 @@ function EditProduct(productId){
             </label>
 
 
-            <label>
-                image
+            <label className="labelName" >
+                Main Image
                 <input
                     type='text'
                     value={image}
@@ -124,6 +124,7 @@ function EditProduct(productId){
             <div className="errors"> {errors.image ? errors.image : null}</div>
 
             <button>Update</button>
+            </div>
         </form>
         </>
 

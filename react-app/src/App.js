@@ -20,8 +20,6 @@ import OneShops from "./components/Shops/OneShops"
 import OwnedShops from "./components/Shops/OwnedShops"
 import CreateShop from "./components/Shops/CreateShop"
 
-import CreateImages from "./components/Images/CreateImages"
-
 import AllFavorites from "./components/Favorites/allFavorites";
 
 import Cart from "./components/Cart"
@@ -87,10 +85,6 @@ function App() {
           <Route path="/products/categories/:category">
             <CircleProducts/>
           </Route>
-
-          <ProtectedRoute path="/products/:productId/images/new">
-            <CreateImages/>
-          </ProtectedRoute>
 
           <Route path="/products/:productId">
             <ProductDetails/>

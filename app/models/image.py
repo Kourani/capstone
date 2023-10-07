@@ -14,11 +14,11 @@ class Image (db.Model):
     product_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('products.id')), nullable=False)
 
-    image1 = db.Column(db.String)
-    image2 = db.Column(db.String)
-    image3 = db.Column(db.String)
-    image4 = db.Column(db.String)
-    image5 = db.Column(db.String)
+    image_1 = db.Column(db.String)
+    image_2 = db.Column(db.String)
+    image_3 = db.Column(db.String)
+    image_4 = db.Column(db.String)
+    image_5 = db.Column(db.String)
 
     products = db.relationship('Product', back_populates='images')
 
@@ -26,9 +26,9 @@ class Image (db.Model):
         return {
             'id' : self.id,
             'productId' : self.product_id,
-            'image1': self.image1,
-            'image2' : self.image2,
-            'image3' : self.image3,
-            'image4' : self.image4,
-            'image5' : self.image5,
+            'image1': self.image_1,
+            'image2' : self.image_2,
+            'image3' : self.image_3,
+            'image4' : self.image_4,
+            'image5' : self.image_5,
         }

@@ -7,9 +7,6 @@ import * as shopActions from "../../../store/shop"
 import { useDispatch } from "react-redux";
 
 export default function DeleteShop(shopId){
-
-    console.log(shopId,'!!!!!!!!!!!!!!!!!!!')
-
     const {closeModal} = useModal()
     const dispatch = useDispatch()
     const [clicked, setClicked] = useState('False')
@@ -26,15 +23,12 @@ export default function DeleteShop(shopId){
         return
     }
 
-
-
-
     return(
-        <>
+        <div className="modalsInside">
             <p>Are you sure you want to delete this shop?</p>
             <button onClick={toDelete}> YES, DELETE </button>
             <button onClick={()=>{closeModal()}}> No, keep </button>
-        </>
+        </div>
     )
 
 

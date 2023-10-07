@@ -94,6 +94,7 @@ export const deleteComment = (commentId) => async(dispatch) =>{
     })
 
     if(response.ok){
+        console.log(commentId, 'inside teh THunk')
         dispatch(deleteOne(commentId))
     }
 
@@ -128,7 +129,7 @@ function commentsReducer(state={}, action){
 
         case DELETE_COMMENT:
                 let gone = {...state}
-                delete gone.action.comment
+                delete gone[action.comment]
                 return gone
 
         default:

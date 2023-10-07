@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import * as commentActions from '../../../store/comment'
 import { useModal } from "../../../context/Modal"
 
+import "./EditComment.css"
 
 
 export default function EditComment(commentId){

@@ -22,5 +22,9 @@
   position: absolute;
   background-color:white;
   width:80%;
-  border: 5px solid gray;
+  border: 5px solid black;
+  background-image: url("https://images.pexels.com/photos/18229795/pexels-photo-18229795/free-photo-of-red-leaves-on-a-tree.jpeg");
+  object-fit: cover;
+  background-size:cover;
+  padding: 20px;
 }
