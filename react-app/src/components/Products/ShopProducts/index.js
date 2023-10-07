@@ -10,8 +10,10 @@ import { useModal } from "../../../context/Modal";
 import DeleteProduct from "../DeleteProduct";
 import EditProduct from "../EditProduct"
 
+import * as shopActions from "../../../store/shop"
 import * as productActions from "../../../store/product";
 import * as imageActions from "../../../store/image"
+import EditImages from "../../Images/EditImages";
 
 
 function ShopProducts(){
@@ -34,10 +36,16 @@ function ShopProducts(){
     useEffect(()=>{
         dispatch(productActions.getProducts())
         dispatch(imageActions.getImages())
+        dispatch(shopActions.getShops())
     },[dispatch])
 
     const productState = useSelector(state=>state.product)
     const productElements = Object.values(productState)
+
+    const userState = useSelector(state=>state.session)
+    const shopState = useSelector(state=>state.shop)
+
+    const shopElements = Object.values(shopState)
 
     const imageState = useSelector(state=>state.image)
 
@@ -59,29 +67,49 @@ function ShopProducts(){
         />)
     }
 
+    function editImages(productId, productName){
+        return (
+            <OpenModalButton
+            buttonText="Edit Images"
+            onItemClick={closeMenu}
+            modalComponent={<EditImages productId={productId}/>}
+            />
+        )
+    }
+
+    const foundShop = shopElements.find(element=>element.id === parseInt(shopId) && element.ownerId === userState?.user?.id)
+
     function findProducts(){
-        return productElements?.map(element=>{
-            if(element?.shopId === parseInt(shopId)){
-                return(
-                    <div className="ownedProducts">
-                        <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
-                        <div>{imageState?.[element.id]? (Object.values(imageState?.[element.id]).length - 2 ): null}</div>
-                        <div> {element?.name} </div>
-                        <div> {element?.description} </div>
-                        <div> {element?.category} </div>
-                        <div> ${element?.price} </div>
-                        {editProduct(element?.id)}
-                        {deleteProduct(element?.id)}
-                    </div>
-                )
-            }
-        })
+        if(foundShop){
+            return productElements?.map(element=>{
+                if(element?.shopId === parseInt(shopId)){
+                    return(
+                        <div className="ownedProducts">
+                            <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
+                            <div className="imageButtons">
+                                <div>{imageState?.[element.id] ? (Object.values(imageState?.[element.id]).length - 2 ) : '0' }</div>
+                                {!imageState?.[element.id] || (imageState?.[element.id] && (Object.values(imageState?.[element.id]).length - 2)<5) ? <button onClick={()=>{history.push(`/products/${element.id}/images/new`)}}>Add Images</button> : null }
+                                {imageState?.[element.id] ? <button onClick={()=>{history.push(`/products/${element.id}`)}}> View Layout </button> : null}
+                                {imageState?.[element.id] ? editImages(element.id, element.name): null}
+                            </div>
+                            <div> {element?.name} </div>
+                            <div> {element?.description} </div>
+                            <div> {element?.category} </div>
+                            <div> ${element?.price} </div>
+                            {editProduct(element?.id)}
+                            {deleteProduct(element?.id)}
+                        </div>
+                    )
+                }
+            })
+        }
+
 
     }
 
     return (
         <>
-        <button onClick={()=>{history.push(`/shops/${shopId}/products/new`)}}> Add a New Product </button>
+        {foundShop ? <button onClick={()=>{history.push(`/shops/${shopId}/products/new`)}}> Add a New Product </button> : null}
         {findProducts()}
         </>
     )

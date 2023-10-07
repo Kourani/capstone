@@ -18,7 +18,7 @@ function CreateProduct(){
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState('toys')
     const [image, setImage] = useState("")
     const [errors, setErrors] = useState({})
 

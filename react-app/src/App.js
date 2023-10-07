@@ -20,13 +20,11 @@ import OneShops from "./components/Shops/OneShops"
 import OwnedShops from "./components/Shops/OwnedShops"
 import CreateShop from "./components/Shops/CreateShop"
 
+import CreateImages from "./components/Images/CreateImages"
+
 import AllFavorites from "./components/Favorites/allFavorites";
 
 import Cart from "./components/Cart"
-
-import CreateImages from "./components/Images/CreateImages"
-
-
 
 
 
