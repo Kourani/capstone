@@ -95,8 +95,11 @@ function ShopProducts(){
             return productElements?.map(element=>{
                 if(element?.shopId === parseInt(shopId)){
                     return(
+
                         <div className="ownedProducts">
-                            <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
+                            <div className="approxWidth">
+                                <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
+                            </div>
 
                             <div className="imageButtons">
                                 <div className="approxWidth">{imageState?.[element.id] ? (Object.values(imageState?.[element.id]).length - 2 ) : '0' }</div>
@@ -104,12 +107,15 @@ function ShopProducts(){
                                 <div className="approxWidth">{imageState?.[element.id] ? <button onClick={()=>{history.push(`/products/${element.id}`)}}> View Layout </button> : null}</div>
                                 <div className="approxWidth">{imageState?.[element.id] ? editImages(element.id, element.name): null}</div>
                             </div>
+
                             <div className="approxWidth"> {element?.name} </div>
                             <div className="approxWidth"> {element?.description} </div>
                             <div className="approxWidth" > {element?.category} </div>
                             <div className="approxWidth"> ${element?.price} </div>
+
                             {editProduct(element?.id)}
                             {deleteProduct(element?.id)}
+
                         </div>
                     )
                 }
@@ -121,8 +127,19 @@ function ShopProducts(){
 
     return (
         <>
-        {foundShop ? <button onClick={()=>{history.push(`/shops/${shopId}/products/new`)}}> Add a New Product </button> : null}
-        {findProducts()}
+
+            {foundShop ? <button onClick={()=>{history.push(`/shops/${shopId}/products/new`)}}> Add a New Product </button> : null}
+
+           <div className="HeadingsForEdit">
+                <div className="approxWidth">Main Image</div>
+                <div className="approxWidth"># of Side Images</div>
+                <div className="approxWidth">Name</div>
+                <div className="approxWidth">Description</div>
+                <div className="approxWidth">Category</div>
+                <div className="approxWidth">Price</div>
+            </div>
+
+            {findProducts()}
         </>
     )
 

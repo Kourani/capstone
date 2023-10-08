@@ -2,5 +2,9 @@
 .shopsOwned{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space- space-around;
+    gap:50px;
+    padding: 25px 25px 200px 25px;
 
 }

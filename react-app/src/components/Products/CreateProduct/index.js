@@ -48,11 +48,10 @@ function CreateProduct(){
 
     return(
         <>
-        <h1 className="createProductTitle"> Create Product </h1>
-
         <form className="createProductForm" onSubmit={handleSubmit}>
 
-            <label className="createProductName">
+            <h1 className="createProductTitle"> Create Product </h1>
+            <label className="labelName">
                 Name
                 <input
                     type='text'
@@ -63,7 +62,7 @@ function CreateProduct(){
                     />
             </label>
 
-            <label className="createProductName">
+            <label className="labelName">
                 Price
                 <input
                     type='text'
@@ -76,7 +75,7 @@ function CreateProduct(){
 
             <div className="errors"> {errors.price ? errors.price : null}</div>
 
-            <label className="createProductName">
+            <label className="labelName">
                 Description
                 <input
                     type='text'
@@ -87,7 +86,7 @@ function CreateProduct(){
                     />
             </label>
 
-            <label className="createProductName" >
+            <label className="labelName" >
                 Category
                 <select
                 onChange={(e)=>setCategory(e.target.value)}
@@ -102,7 +101,7 @@ function CreateProduct(){
                 </select>
             </label>
 
-            <label className="createProductName" >
+            <label className="labelName" >
                 Image
                 <input
                     type='text'

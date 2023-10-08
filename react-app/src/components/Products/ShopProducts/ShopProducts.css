@@ -6,10 +6,23 @@
 
 .ownedProducts{
     display: flex;
-    justify-content: space-between;
     margin-top: 10px;
+    gap:5px;
 }
 
 .approxWidth{
     width: 450px;
+    padding: 0 50px 0 10px;
+}
+
+
+.imageButtons{
+    width: 150px;
+}
+
+.HeadingsForEdit{
+    display: flex;
+    flex-direction: row;
+    padding: 20px 150px 0 0;
+    font-weight: bold;
 }
