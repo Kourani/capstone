@@ -106,9 +106,9 @@ export default function Products(){
         <>
         <p className='headersProductDetails' > Fresh finds fit for cozy season </p>
         <div className="roundImagesDiv">
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/toys')}}>
+            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/sweets')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
-                <p>Toys</p>
+                <p>Sweets</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/books')}}>

@@ -18,7 +18,7 @@ function CreateProduct(){
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
-    const [category, setCategory] = useState('toys')
+    const [category, setCategory] = useState('sweets')
     const [image, setImage] = useState("")
     const [errors, setErrors] = useState({})
 
@@ -92,7 +92,7 @@ function CreateProduct(){
                 onChange={(e)=>setCategory(e.target.value)}
                 value={category}
                 placeholder="Choose a Category">
-                    <option value='toys'>Toys</option>
+                    <option value='sweets'>Sweets</option>
                     <option value='books'>Books</option>
                     <option value='watches'>Watches</option>
                     <option value = 'ceramics'>Ceramics</option>

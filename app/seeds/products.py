@@ -6,46 +6,46 @@ from sqlalchemy.sql import text
 def seed_products():
 
     product0 = Product(
-        shop_id=3, name='Scar', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/132464/pexels-photo-132464.jpeg"
+        shop_id=3, name='Scar', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/132464/pexels-photo-132464.jpeg"
     )
     product1= Product(
-        shop_id=3, name='Simba', description='super soft and fluffy', category='toys', price=50.12, image="https://images.pexels.com/photos/207891/pexels-photo-207891.jpeg"
+        shop_id=3, name='Simba', description='super soft and fluffy', category='sweets', price=50.12, image="https://images.pexels.com/photos/207891/pexels-photo-207891.jpeg"
     )
     product2=Product(
-        shop_id=3, name='Mufasa', description='awesome material', category='toys', price=5, image="https://images.pexels.com/photos/3068579/pexels-photo-3068579.jpeg"
+        shop_id=3, name='Mufasa', description='awesome material', category='sweets', price=5, image="https://images.pexels.com/photos/3068579/pexels-photo-3068579.jpeg"
     )
     product3 = Product(
-        shop_id=3, name='Timon', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/139167/pexels-photo-139167.jpeg"
+        shop_id=3, name='Timon', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/139167/pexels-photo-139167.jpeg"
     )
     product4 = Product(
-        shop_id=3, name='Pumbaa', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1205650/pexels-photo-1205650.jpeg"
+        shop_id=3, name='Pumbaa', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/1205650/pexels-photo-1205650.jpeg"
     )
     product5 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1971084/pexels-photo-1971084.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/1971084/pexels-photo-1971084.jpeg"
     )
     product6 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1329328/pexels-photo-1329328.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/1329328/pexels-photo-1329328.jpeg"
     )
     product7 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1362595/pexels-photo-1362595.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/1362595/pexels-photo-1362595.jpeg"
     )
     product8 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/3663060/pexels-photo-3663060.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/3663060/pexels-photo-3663060.jpeg"
     )
     product9 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/2855628/pexels-photo-2855628.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/2855628/pexels-photo-2855628.jpeg"
     )
     product10 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1387014/pexels-photo-1387014.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/1387014/pexels-photo-1387014.jpeg"
     )
     product11 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/6743164/pexels-photo-6743164.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/6743164/pexels-photo-6743164.jpeg"
     )
     product12 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/590750/pexels-photo-590750.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/590750/pexels-photo-590750.jpeg"
     )
     product13 = Product(
-        shop_id=3, name='Rafiki', description='hand crafted', category='toys', price=29.99, image="https://images.pexels.com/photos/1364562/pexels-photo-1364562.jpeg"
+        shop_id=3, name='Rafiki', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/1364562/pexels-photo-1364562.jpeg"
     )
     product14 = Product(
         shop_id=4, name='The Testing', description='Use or be used to survive. School is not the same here one wrong answer is the difference between life and death. Choose wisely!', category='books', price=29.99, image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1363452191i/13326831.jpg"

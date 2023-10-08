@@ -101,7 +101,7 @@ function EditProduct(productId){
                 onChange={(e)=>setCategory(e.target.value)}
                 value={category}
                 placeholder="Choose a Category">
-                    <option value='toys'>Toys</option>
+                    <option value='sweets'>Sweets</option>
                     <option value='books'>Books</option>
                     <option value='watches'>Watches</option>
                     <option value = 'ceramics'>Ceramics</option>
