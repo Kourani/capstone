@@ -32,7 +32,7 @@ function ShopProducts(){
         if (!ulRef.current.contains(e.target)) {
           setShowMenu(false);
         }
-      };
+    };
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
@@ -71,7 +71,7 @@ function ShopProducts(){
     function editImages(productId, productName){
         return (
             <OpenModalButton
-            buttonText="Edit Images"
+            buttonText="Edit/Add/Delete Images"
             onItemClick={closeMenu}
             modalComponent={<EditImages productId={productId}/>}
             />
@@ -90,10 +90,13 @@ function ShopProducts(){
 
     const foundShop = shopElements.find(element=>element.id === parseInt(shopId) && element.ownerId === userState?.user?.id)
 
+
+
     function findProducts(){
         if(foundShop){
             return productElements?.map(element=>{
                 if(element?.shopId === parseInt(shopId)){
+
                     return(
 
                         <div className="ownedProducts">
@@ -102,10 +105,10 @@ function ShopProducts(){
                             </div>
 
                             <div className="imageButtons">
-                                <div className="approxWidth">{imageState?.[element.id] ? (Object.values(imageState?.[element.id]).length - 2 ) : '0' }</div>
-                                <div className="approxWidth">{!imageState?.[element.id] || (imageState?.[element.id] && (Object.values(imageState?.[element.id]).length - 2)<5) ? addImages(element.id, element.name) : null }</div>
-                                <div className="approxWidth">{imageState?.[element.id] ? <button onClick={()=>{history.push(`/products/${element.id}`)}}> View Layout </button> : null}</div>
-                                <div className="approxWidth">{imageState?.[element.id] ? editImages(element.id, element.name): null}</div>
+                                <div className="approxWidth">{imageState?.[element.id]? (Object.values(imageState?.[element?.id]).length)-(((Object.values(imageState?.[element.id])).reduce((count, value) => value === '' ? count + 1 : count, 0)) + 2) : 0 }</div>
+                                <div className="approxWidth">{ !imageState?.[element?.id] || (imageState?.[element.id] && (Object.values(imageState?.[element?.id]).filter(ele => ele === '')).length >= 5) ? addImages(element.id, element.name) : null}</div>
+                                <div className="approxWidth">{imageState?.[element.id] && Object.values(imageState?.[element?.id]).filter(ele => ele === '').length < 5 ? <button onClick={()=>{history.push(`/products/${element.id}`)}}> View Layout </button> : null}</div>
+                                <div className="approxWidth">{imageState?.[element.id] && Object.values(imageState?.[element?.id]).filter(ele => ele === '').length < 5 ? editImages(element.id, element.name): null}</div>
                             </div>
 
                             <div className="approxWidth"> {element?.name} </div>

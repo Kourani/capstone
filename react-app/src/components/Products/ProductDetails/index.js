@@ -172,15 +172,10 @@ function ProductDetails(){
     //checks if the user has no comment for the product and returns post button
     function newComment(){
 
-        const foundUser = commentElements.find((element)=>element?.userId === userState?.user?.id)
+        const foundUser = commentElements.find((element)=>element?.userId === userState?.user?.id && element?.productId === parseInt(productId))
 
-        console.log(foundUser,'found')
-
-        console.log(userState?.user, 'POST')
-        console.log(foundUser, 'foundUsersssssssssss')
-        if (userState?.user?.id && foundUser)
+        if (userState?.user?.id && !foundUser)
         {
-            console.log('inside the ifffffffffff')
             return(
                 <OpenModalButton
                 buttonText="Post"

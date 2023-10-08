@@ -8,7 +8,8 @@
 .imageOneShop{
     width: 100%;
     object-fit: cover;
-    height:100px;
+    height:200px;
+    padding-top: 20px;
 
 }
 

@@ -20,11 +20,11 @@ export default function CreateImages(product){
 
     const {closeModal} = useModal()
 
-    const [image1, setImage1] = useState("")
-    const [image2, setImage2] = useState("")
-    const [image3, setImage3] = useState("")
-    const [image4, setImage4] = useState("")
-    const [image5, setImage5] = useState("")
+    const [image1, setImage1] = useState('')
+    const [image2, setImage2] = useState('')
+    const [image3, setImage3] = useState('')
+    const [image4, setImage4] = useState('')
+    const [image5, setImage5] = useState('')
     const [errors, setErrors] = useState({})
 
 
