@@ -35,7 +35,6 @@ export default function CreateCommment(productId){
 
         const data = await dispatch(commentActions.addComment(payload, productId.productId))
 
-        console.log(data, 'HEREEEEEEEEEEE')
         if( data && data.error){
             setErrors(data.error)
         }

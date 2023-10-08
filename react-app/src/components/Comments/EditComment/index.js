@@ -44,9 +44,10 @@ export default function EditComment(commentId){
     return(
 
         <>
-        <h1>Update Comment</h1>
-        <form onSubmit={handleSubmit}>
 
+        <form onSubmit={handleSubmit}>
+        <div className="modalsInside">
+        <h1 className="modalHeader">Update Comment</h1>
           <label>
             Comment
             <input
@@ -59,6 +60,7 @@ export default function EditComment(commentId){
 
 
           <button type="submit">Update</button>
+          </div>
         </form>
       </>
 
