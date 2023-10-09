@@ -23,8 +23,6 @@ function LoginFormModal() {
 
   const errorMap = Object.values(errors)
 
-  console.log(errors,'!!!!!!')
-  console.log(errorMap,'errorMap!')
 
   return (
     <>

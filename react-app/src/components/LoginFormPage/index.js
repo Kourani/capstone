@@ -25,11 +25,6 @@ function LoginFormPage() {
     <>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
         <label>
           Email
           <input
@@ -39,6 +34,9 @@ function LoginFormPage() {
             required
           />
         </label>
+
+        <div className="errors"> {errors.email ? errors.email : null}</div>
+
         <label>
           Password
           <input
@@ -48,6 +46,9 @@ function LoginFormPage() {
             required
           />
         </label>
+
+        <div className="errors">{errors.password ? errors.password : null}</div>
+        
         <button type="submit">Log In</button>
       </form>
     </>

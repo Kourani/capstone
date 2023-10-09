@@ -23,7 +23,7 @@ function SignupFormPage() {
           setErrors(data)
         }
     } else {
-        setErrors(['Confirm Password field must be the same as the Password field']);
+        setErrors({"password":"Confirm Password field must be the same as the Password field"});
     }
   };
 
@@ -31,7 +31,7 @@ function SignupFormPage() {
     <>
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
-    
+
         <label>
           Email
           <input
@@ -41,6 +41,9 @@ function SignupFormPage() {
             required
           />
         </label>
+
+        <div className="errors">{errors?.email ? errors?.email : null}</div>
+
         <label>
           Username
           <input
@@ -50,6 +53,9 @@ function SignupFormPage() {
             required
           />
         </label>
+
+        <div className="errors">{errors?.username ? errors?.username : null}</div>
+
         <label>
           Password
           <input
@@ -59,6 +65,7 @@ function SignupFormPage() {
             required
           />
         </label>
+
         <label>
           Confirm Password
           <input
@@ -68,6 +75,9 @@ function SignupFormPage() {
             required
           />
         </label>
+
+        <div className="errors">{errors?.password ? errors?.password : null}</div>
+
         <button type="submit">Sign Up</button>
       </form>
     </>
