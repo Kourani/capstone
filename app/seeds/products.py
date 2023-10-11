@@ -6,31 +6,31 @@ from sqlalchemy.sql import text
 def seed_products():
 
     product0 = Product(
-        shop_id=3, name='Ladyfingers', description='exquisite light and airy biscuits with a crispy crunch', category='sweets', price=29.99, image="https://images.pexels.com/photos/7803117/pexels-photo-7803117.jpeg"
+        shop_id=3, name='Ladyfingers', description='exquisite light and airy biscuits with a crispy crunch', category='sweets', price=29.99, image="https://images.pexels.com/photos/7803117/pexels-photo-7803117.jpeg", image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product1= Product(
-        shop_id=3, name='Baklava', description='sweet and syrupy with a soft crunch', category='sweets', price=50.12, image="https://images.pexels.com/photos/5323489/pexels-photo-5323489.jpeg"
+        shop_id=3, name='Baklava', description='sweet and syrupy with a soft crunch', category='sweets', price=50.12, image="https://images.pexels.com/photos/5323489/pexels-photo-5323489.jpeg", image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product2=Product(
-        shop_id=3, name='Baklava', description='Buttery flaky and stuffed with nuts. rich nutty flavor', category='sweets', price=5, image="https://images.pexels.com/photos/17255931/pexels-photo-17255931/free-photo-of-close-up-of-slices-of-baklava.jpeg"
+        shop_id=3, name='Baklava', description='Buttery flaky and stuffed with nuts. rich nutty flavor', category='sweets', price=5, image="https://images.pexels.com/photos/17255931/pexels-photo-17255931/free-photo-of-close-up-of-slices-of-baklava.jpeg",image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product3 = Product(
-        shop_id=3, name='Turkish Delight', description='Sweet and chewy confection. Very sweet and sugary with a soft and chewy texture', category='sweets', price=29.99, image="https://images.pexels.com/photos/6161509/pexels-photo-6161509.jpeg"
+        shop_id=3, name='Turkish Delight', description='Sweet and chewy confection. Very sweet and sugary with a soft and chewy texture', category='sweets', price=29.99, image="https://images.pexels.com/photos/6161509/pexels-photo-6161509.jpeg",image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product4 = Product(
-        shop_id=3, name='Baklava', description='Pistachio stuffed with hard outer shell. Super crunchy', category='sweets', price=29.99, image="https://images.pexels.com/photos/17255923/pexels-photo-17255923/free-photo-of-close-up-of-kadayif-baklava.jpeg"
+        shop_id=3, name='Baklava', description='Pistachio stuffed with hard outer shell. Super crunchy', category='sweets', price=29.99, image="https://images.pexels.com/photos/17255923/pexels-photo-17255923/free-photo-of-close-up-of-kadayif-baklava.jpeg", image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product5 = Product(
-        shop_id=3, name='Kunafa', description='Sweet and syrupy almost like a cheesecake but richer in flavor', category='sweets', price=29.99, image="https://images.pexels.com/photos/11833316/pexels-photo-11833316.jpeg"
+        shop_id=3, name='Kunafa', description='Sweet and syrupy almost like a cheesecake but richer in flavor', category='sweets', price=29.99, image="https://images.pexels.com/photos/11833316/pexels-photo-11833316.jpeg", image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product6 = Product(
-        shop_id=3, name='Pudding', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/3547176/pexels-photo-3547176.jpeg"
+        shop_id=3, name='Pudding', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/3547176/pexels-photo-3547176.jpeg", image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product7 = Product(
-        shop_id=3, name='Macron', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/7474290/pexels-photo-7474290.jpeg"
+        shop_id=3, name='Macron', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/7474290/pexels-photo-7474290.jpeg", image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product8 = Product(
-        shop_id=3, name='Berry Blast', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/2693447/pexels-photo-2693447.jpeg"
+        shop_id=3, name='Berry Blast', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/2693447/pexels-photo-2693447.jpeg", image1="https://images.pexels.com/photos/1496373/pexels-photo-1496373.jpeg", image2="https://images.pexels.com/photos/2591408/pexels-photo-2591408.jpeg", image3="https://images.pexels.com/photos/1496378/pexels-photo-1496378.jpeg", image4="https://images.pexels.com/photos/1083515/pexels-photo-1083515.jpeg", image5="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg"
     )
     product9 = Product(
         shop_id=3, name='Choclate Eclair', description='hand crafted', category='sweets', price=29.99, image="https://images.pexels.com/photos/5945568/pexels-photo-5945568.jpeg"

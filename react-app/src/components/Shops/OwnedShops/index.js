@@ -84,10 +84,13 @@ function OwnedShops(){
         })
     }
 
+    const shopChecker = ownedShops()
+
+    console.log(shopChecker,'HIIIIIIIII')
+
     return(
         <>
-
-        <div className="shopsOwned">{ownedShops()}</div>
+            <div className="shopsOwned">{ownedShops() && shopChecker.every(ele => ele===undefined) ?  <div className="ifNoShops"><p>Welcome, you do not own any shops yet. Would you like to?</p> <button className="userNavButton" onClick={()=>{history.push('/shops/new')}}>Launch a new shop </button></div> : ownedShops() } </div>
         </>
     )
 }

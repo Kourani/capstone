@@ -33,8 +33,6 @@ def new_shop():
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print(current_user,'!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-
     if form.validate_on_submit():
         shop = Shop(
             owner_id=current_user.id,
@@ -123,7 +121,12 @@ def new_product(id):
             name=form.data['name'],
             description=form.data['description'],
             category=form.data['category'],
-            image = form.data['image']
+            image = form.data['image'],
+            image1 = form.data['image1'],
+            image2 = form.data['image2'],
+            image3 = form.data['image3'],
+            image4 = form.data['image4'],
+            image5 = form.data['image5']
         )
         db.session.add(product)
         db.session.commit()
@@ -131,6 +134,3 @@ def new_product(id):
 
     print(form.data,'shop1')
     return {'errors': validation_errors_to_error_messages(form.errors)}, 400
-
-
-

@@ -48,8 +48,8 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button className='theBarSize' onClick={openMenu}>
+        <i className="fa-regular fa-circle-user" />
       </button>
       <div className={ulClassName} ref={ulRef}>
         {user ? (
@@ -61,6 +61,7 @@ function ProfileButton({ user }) {
             </div>
 
             <div className="userButtons">
+              <button className="userNavButton"> My Profile </button>
               <button className="userNavButton" onClick={()=>{history.push('/favorites'); closeMenu()}}> Favorites </button>
               <button className="userNavButton" onClick={()=>{history.push('/shops/new'); closeMenu()}}>Launch a new shop </button>
               <button className="userNavButton" onClick={()=>{history.push('/shops/edit'); closeMenu()}}>Manage owned shops</button>

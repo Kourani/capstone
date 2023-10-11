@@ -9,7 +9,6 @@ import OpenModalButton from '../../OpenModalButton'
 import EditComment from "../../Comments/EditComment"
 import DeleteComment from "../../Comments/DeleteComment"
 import CreateComment from "../../Comments/CreateComment"
-import * as imageActions from "../../../store/image"
 
 import * as additionalFunctions from "../../../context/additional"
 
@@ -41,18 +40,15 @@ function ProductDetails(){
         dispatch(shopActions.getShops())
         dispatch(commentActions.getComments())
         dispatch(userActions.getUsers())
-        dispatch(imageActions.getImages())
     }, [dispatch])
 
     const userState = useSelector(state=>state?.session)
     const productState = useSelector(state=>state?.product)
     const shopState = useSelector(state=>state?.shop)
     const commentState = useSelector(state=>state?.comment)
-    const imageState = useSelector(state=>state?.image)
 
     const productElements = Object.values(productState)
     const commentElements = Object.values(commentState)
-    const imageElements = Object.values(imageState)
 
     const [bee, setBee] = useState(productState?.[productId]?.image)
 
@@ -80,16 +76,14 @@ function ProductDetails(){
 
     //returns details of a product
     function productDetails(){
-        // const foundProduct = productState?.products?.find(element=>element.id === parseInt(productId))
-        const foundImage = imageElements?.find(element=>element.productId ===parseInt(productId))
-        console.log(foundImage,'foundIMage!')
+        const foundProduct = productElements?.find(element=>element.id === parseInt(productId))
 
         function iteration(){
             let array = []
             for(let i=1; i<6; i++){
                 console.log('inside the for ')
-                if(foundImage && foundImage[`image${i}`]) {
-                        array.push(<div onClick={()=>{setBee(foundImage[`image${i}`]) }}> {<img className='tinyImage' src={foundImage[`image${i}`]} alt="Image"/>}</div>)
+                if(foundProduct && foundProduct[`image${i}`]) {
+                        array.push(<div onClick={()=>{setBee(foundProduct[`image${i}`]) }}> {<img className='tinyImage' src={foundProduct[`image${i}`]} alt="Image"/>}</div>)
                 }
             }
             return array
@@ -131,7 +125,7 @@ function ProductDetails(){
                 count ++
                if(count<6){
                 return(
-                    <button className="product" onClick={()=>{history.push(`/shops/${element.shopId}`)}}>
+                    <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
                         <div>
                             <img className="productImage"
                                     src={element?.image ? element?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}

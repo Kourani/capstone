@@ -31,8 +31,12 @@ def upgrade():
     sa.Column('category', sa.String(), nullable=True),
     sa.Column('description', sa.String(), nullable=True),
     sa.Column('image', sa.String(), nullable=True),
+    sa.Column('image1', sa.String(), nullable=True),
+    sa.Column('image2', sa.String(), nullable=True),
+    sa.Column('image3', sa.String(), nullable=True),
+    sa.Column('image4', sa.String(), nullable=True),
+    sa.Column('image5', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['shop_id'], ['shops.id'], ),
-    sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
 

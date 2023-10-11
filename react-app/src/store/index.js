@@ -5,7 +5,6 @@ import session from './session'
 import product from './product'
 import shop from './shop'
 import comment from './comment'
-import image from './image'
 import favorite from './favorite'
 import cart from './cart'
 
@@ -14,7 +13,6 @@ const rootReducer = combineReducers({
   product,
   shop,
   comment,
-  image,
   favorite,
   cart
 });

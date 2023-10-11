@@ -12,10 +12,6 @@ import EditProduct from "../EditProduct"
 
 import * as shopActions from "../../../store/shop"
 import * as productActions from "../../../store/product";
-import * as imageActions from "../../../store/image"
-import EditImages from "../../Images/EditImages";
-import CreateImages from "../../Images/CreateImages";
-
 
 function ShopProducts(){
 
@@ -36,7 +32,6 @@ function ShopProducts(){
 
     useEffect(()=>{
         dispatch(productActions.getProducts())
-        dispatch(imageActions.getImages())
         dispatch(shopActions.getShops())
     },[dispatch])
 
@@ -47,8 +42,6 @@ function ShopProducts(){
     const shopState = useSelector(state=>state.shop)
 
     const shopElements = Object.values(shopState)
-
-    const imageState = useSelector(state=>state.image)
 
     function deleteProduct(productId){
         return(
@@ -68,25 +61,6 @@ function ShopProducts(){
         />)
     }
 
-    function editImages(productId, productName){
-        return (
-            <OpenModalButton
-            buttonText="Edit/Add/Delete Images"
-            onItemClick={closeMenu}
-            modalComponent={<EditImages productId={productId}/>}
-            />
-        )
-    }
-
-    function addImages(productId, productName){
-        return (
-            <OpenModalButton
-            buttonText="Add Images"
-            onItemClick={closeMenu}
-            modalComponent={<CreateImages productId={productId}/>}
-            />
-        )
-    }
 
     const foundShop = shopElements.find(element=>element.id === parseInt(shopId) && element.ownerId === userState?.user?.id)
 
@@ -104,12 +78,9 @@ function ShopProducts(){
                                 <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
                             </div>
 
-                            <div className="imageButtons">
-                                <div className="approxWidth">{imageState?.[element.id]? (Object.values(imageState?.[element?.id]).length)-(((Object.values(imageState?.[element.id])).reduce((count, value) => value === '' ? count + 1 : count, 0)) + 2) : 0 }</div>
-                                <div className="approxWidth">{ !imageState?.[element?.id] || (imageState?.[element.id] && (Object.values(imageState?.[element?.id]).filter(ele => ele === '')).length >= 5) ? addImages(element.id, element.name) : null}</div>
-                                <div className="approxWidth">{imageState?.[element.id] && Object.values(imageState?.[element?.id]).filter(ele => ele === '').length < 5 ? <button onClick={()=>{history.push(`/products/${element.id}`)}}> View Layout </button> : null}</div>
-                                <div className="approxWidth">{imageState?.[element.id] && Object.values(imageState?.[element?.id]).filter(ele => ele === '').length < 5 ? editImages(element.id, element.name): null}</div>
-                            </div>
+                            {/* <div className="imageButtons">
+                                <div className="approxWidth">{[element.image1]}</div>
+                            </div> */}
 
                             <div className="approxWidth"> {element?.name} </div>
                             <div className="approxWidth"> {element?.description} </div>

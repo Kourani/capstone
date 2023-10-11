@@ -46,6 +46,12 @@ def update_product(id):
         product.price = form.data['price']
         product.description = form.data['description']
         product.category = form.data['category']
+        product.image = form.data['image']
+        product.image1 = form.data['image1']
+        product.image2 = form.data['image2']
+        product.image3 = form.data['image3']
+        product.image4 = form.data['image4']
+        product.image5 = form.data['image5']
 
         db.session.commit()
 

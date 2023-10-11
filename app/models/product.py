@@ -13,14 +13,17 @@ class Product(db.Model):
 
     shop_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('shops.id')))
-    owner_id = db.Column(db.Integer, db.ForeignKey(
-        add_prefix_for_prod('users.id')))
 
     name = db.Column(db.String, nullable=False)
     category = db.Column(db.String)
     price = db.Column(db.Float, nullable=False)
     description = db.Column(db.String)
     image = db.Column(db.String)
+    image1 = db.Column(db.String)
+    image2 = db.Column(db.String)
+    image3 = db.Column(db.String)
+    image4 = db.Column(db.String)
+    image5 = db.Column(db.String)
 
     shops = db.relationship('Shop', back_populates='products')
     comments = db.relationship('Comment', back_populates='products')
@@ -29,11 +32,15 @@ class Product(db.Model):
     def to_dict(self):
         return {
             'id' : self.id,
-            'ownerId': self.owner_id,
             'shopId' : self.shop_id,
             'name' : self.name,
             'category' : self.category,
             'description' : self.description,
             'price' : self.price,
-            'image' : self.image
+            'image' : self.image,
+            'image1' : self.image1,
+            'image2' : self.image2,
+            'image3' : self.image3,
+            'image4' : self.image4,
+            'image5' : self.image5
         }
