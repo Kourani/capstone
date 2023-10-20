@@ -24,7 +24,9 @@ import AllFavorites from "./components/Favorites/allFavorites";
 
 import Cart from "./components/Cart"
 
+import Profile from "./components/Profile"
 
+import UsShops from "./components/Shops/UsShops"
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +54,14 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+
+          <Route path="/usshops">
+            <UsShops/>
+          </Route>
+
+          <ProtectedRoute path="/profile">
+            <Profile/>
+          </ProtectedRoute>
 
           <ProtectedRoute path="/shops/edit">
             <OwnedShops/>

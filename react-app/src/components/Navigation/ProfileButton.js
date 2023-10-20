@@ -61,7 +61,7 @@ function ProfileButton({ user }) {
             </div>
 
             <div className="userButtons">
-              <button className="userNavButton"> My Profile </button>
+              <button className="userNavButton" onClick={()=>{history.push('/profile'); closeMenu()}}> My Profile </button>
               <button className="userNavButton" onClick={()=>{history.push('/favorites'); closeMenu()}}> Favorites </button>
               <button className="userNavButton" onClick={()=>{history.push('/shops/new'); closeMenu()}}>Launch a new shop </button>
               <button className="userNavButton" onClick={()=>{history.push('/shops/edit'); closeMenu()}}>Manage owned shops</button>
