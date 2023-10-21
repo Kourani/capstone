@@ -1,7 +1,7 @@
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, SelectField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms.validators import DataRequired, ValidationError, Length
 from app.models import Product
 
 

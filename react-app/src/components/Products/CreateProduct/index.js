@@ -20,6 +20,11 @@ function CreateProduct(){
     const [description, setDescription] = useState("")
     const [category, setCategory] = useState('sweets')
     const [image, setImage] = useState("")
+    const [image1, setImage1] = useState("")
+    const [image2, setImage2] = useState("")
+    const [image3, setImage3] = useState("")
+    const [image4, setImage4] = useState("")
+    const [image5, setImage5] = useState("")
     const [errors, setErrors] = useState({})
 
     const payload = {
@@ -28,6 +33,11 @@ function CreateProduct(){
         description:description,
         category,
         image,
+        image1,
+        image2,
+        image3,
+        image4,
+        image5,
 
     }
 
@@ -113,6 +123,71 @@ function CreateProduct(){
             </label>
 
             <div className="errors"> {errors.image ? errors.image : null}</div>
+
+            <label className="labelName" >
+                Side Image #1
+                <input
+                    type='text'
+                    value={image1}
+                    placeholder="Enter Product Image"
+                    onChange={(e)=>setImage1(e.target.value)}
+                    required
+                    />
+            </label>
+
+            <div className="errors"> {errors.image1 ? errors.image1 : null}</div>
+
+            <label className="labelName" >
+                Side Image #2
+                <input
+                    type='text'
+                    value={image2}
+                    placeholder="Enter Product Image"
+                    onChange={(e)=>setImage2(e.target.value)}
+                    required
+                    />
+            </label>
+
+            <div className="errors"> {errors.image2 ? errors.image2 : null}</div>
+
+            <label className="labelName" >
+                Side Image #3
+                <input
+                    type='text'
+                    value={image3}
+                    placeholder="Enter Product Image"
+                    onChange={(e)=>setImage3(e.target.value)}
+                    required
+                    />
+            </label>
+
+            <div className="errors"> {errors.image3 ? errors.image3 : null}</div>
+
+            <label className="labelName" >
+                Side Image #4
+                <input
+                    type='text'
+                    value={image4}
+                    placeholder="Enter Product Image"
+                    onChange={(e)=>setImage4(e.target.value)}
+                    required
+                    />
+            </label>
+
+            <div className="errors"> {errors.image4 ? errors.image4 : null}</div>
+
+            <label className="labelName" >
+                Side Image #5
+                <input
+                    type='text'
+                    value={image5}
+                    placeholder="Enter Product Image"
+                    onChange={(e)=>setImage5(e.target.value)}
+                    required
+                    />
+            </label>
+
+            <div className="errors"> {errors.image5 ? errors.image5 : null}</div>
 
             <button type='submit'>Submit</button>
         </form>
