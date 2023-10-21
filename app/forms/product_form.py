@@ -60,7 +60,7 @@ def product_price(form, field):
 
 
 class ProductForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired()])
+    name = StringField('name', validators=[DataRequired(), Length(min=2, max=50)])
     price = FloatField('price', validators=[DataRequired('Price must be number')])
     description = StringField('description')
     category = SelectField('Category', choices=[('sweets','Sweets'), ('books','Books'), ('watches', 'Watches'), ('ceramics', 'Ceramics'), ('tools', 'Tools'), ('jewelry', 'Jewelry')])

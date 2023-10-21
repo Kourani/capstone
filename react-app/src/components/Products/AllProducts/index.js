@@ -141,7 +141,7 @@ export default function Products(){
             <div className="allProducts"> {allProducts()} </div>
 
         <div className='landingShops'>
-        <button className='headersProductDetailsLanding' >Discover shops in the US </button>
+        <button className='headersProductDetailsLanding' onClick={()=>{history.push('/usshops')}}>Discover shops in the US </button>
             {shops()}
         </div>
         </>

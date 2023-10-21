@@ -27,7 +27,7 @@ def upgrade():
     sa.Column('shop_id', sa.Integer(), nullable=True),
     sa.Column('owner_id', sa.Integer(), nullable=True),
     sa.Column('price', sa.Float(), nullable=False),
-    sa.Column('name', sa.String(), nullable=False),
+    sa.Column('name', sa.String(50), nullable=False),
     sa.Column('category', sa.String(), nullable=True),
     sa.Column('description', sa.String(), nullable=True),
     sa.Column('image', sa.String(), nullable=True),

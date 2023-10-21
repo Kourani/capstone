@@ -14,7 +14,7 @@ class Product(db.Model):
     shop_id = db.Column(db.Integer, db.ForeignKey(
         add_prefix_for_prod('shops.id')))
 
-    name = db.Column(db.String, nullable=False)
+    name = db.Column(db.String(50), nullable=False)
     category = db.Column(db.String)
     price = db.Column(db.Float, nullable=False)
     description = db.Column(db.String)
