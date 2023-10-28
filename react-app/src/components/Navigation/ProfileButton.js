@@ -9,6 +9,9 @@ import DemoLogin from "../DemoLogin"
 
 import {useModal} from "../../context/Modal"
 
+import * as cartActions from '../../store/cart'
+import * as favoriteActions from '../../store/favorite'
+
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory()
@@ -38,6 +41,7 @@ function ProfileButton({ user }) {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
+    dispatch({type:favoriteActions.DELETE_ALL})
 
     history.push('/')
     closeMenu()

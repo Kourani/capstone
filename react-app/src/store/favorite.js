@@ -4,6 +4,7 @@
 const GET_ALL = '/favorites/GET_ALL'
 const ADD_FAVORITE = '/favorites/ADD_FAVORITE'
 const DELETE_FAVORITE = '/favorites/DELETE_FAVORITE'
+export const DELETE_ALL = '/favorites/DELETE_ALL'
 
 //-------------------------ACTIONS----------------------------------
 
@@ -25,7 +26,7 @@ const deleteOne = (one) => ({
 //--------------------THUNKS---------------------------------
 
 export const getFavorites = () => async (dispatch) => {
-    const response = await fetch('/api/favorites')
+    const response = await fetch('/api/favorites/')
 
     if(response.ok){
         const allFavorites = await response.json()
@@ -82,7 +83,7 @@ export default function favoriteReducer(state={}, action){
     switch(action.type){
 
         case GET_ALL:
-            let newState = {...state}
+            let newState = {}
             action.payload.favorites.forEach(element=>{
                 newState[element.id] = element
             })
@@ -97,6 +98,9 @@ export default function favoriteReducer(state={}, action){
             let gone = {...state}
             delete gone[action.one]
             return gone
+
+        case DELETE_ALL:
+            return {}
 
         default:
             return state

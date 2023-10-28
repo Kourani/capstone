@@ -19,8 +19,9 @@ export default function Products(){
     useEffect(()=>{
         dispatch(productActions.getProducts())
         dispatch(shopActions.getShops())
-        dispatch(favoriteActions.getFavorites())
     },[dispatch])
+
+
 
     const productState = useSelector(state=>state.product)
     const shopState = useSelector(state=>state.shop)
@@ -32,6 +33,11 @@ export default function Products(){
     const favoriteElements = Object.values(favoriteState)
 
 
+    useEffect(()=>{
+        dispatch(favoriteActions.getFavorites())
+    },[dispatch, userState])
+
+    
     function allProducts(){
         let count = 0
         return productElements?.map(element=>{
@@ -84,7 +90,7 @@ export default function Products(){
                 count++
                 if(count<5){
 
-                    let found = favoriteElements?.find(one => one.category === 'Shop' && one.number === element.id)
+                    let found = favoriteElements?.find(one => one.category === 'Shop' && one.number === element.id && one.userId === userState?.user?.id)
 
                     return(
                         <div>
