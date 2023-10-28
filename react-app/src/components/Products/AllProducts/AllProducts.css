@@ -5,8 +5,20 @@
 }
 
 .heartStyle{
+    background-color: white;
+    border: none;
+    border-radius: 25px;
+    color:maroon;
     cursor: pointer;
 }
+
+.heartStyle:hover{
+    background-color: lightgray;
+    height:50px;
+    width:50px;
+    border-radius: 25px;
+}
+
 .allProducts{
     display: flex;
     flex-direction: row;
@@ -87,6 +99,10 @@
     height: 100px;
     border-radius: 50px;
     object-fit: cover;
+}
+
+.roundImages:hover{
+    border: 5px solid maroon;
 }
 
 .roundImagesButton{
