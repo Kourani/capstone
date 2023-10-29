@@ -103,6 +103,7 @@
 
 .roundImages:hover{
     border: 5px solid maroon;
+    border-radius: 60px;
 }
 
 .roundImagesButton{
