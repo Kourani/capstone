@@ -23,10 +23,10 @@ export default function Products(){
 
 
 
-    const productState = useSelector(state=>state.product)
-    const shopState = useSelector(state=>state.shop)
-    const favoriteState = useSelector(state=>state.favorite)
-    const userState = useSelector(state=>state.session)
+    const productState = useSelector(state=>state?.product)
+    const shopState = useSelector(state=>state?.shop)
+    const favoriteState = useSelector(state=>state?.favorite)
+    const userState = useSelector(state=>state?.session)
 
     const productElements = Object.values(productState)
     const shopElements = Object.values(shopState)
