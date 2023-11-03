@@ -37,7 +37,7 @@ export default function Products(){
         dispatch(favoriteActions.getFavorites())
     },[dispatch, userState])
 
-    
+
     function allProducts(){
         let count = 0
         return productElements?.map(element=>{
@@ -63,8 +63,6 @@ export default function Products(){
 
 
     function heartChange(theShopId, favoriteElement){
-
-
         if(!favoriteElement){
             const payload={
                 category:'Shop',
@@ -93,7 +91,7 @@ export default function Products(){
                     let found = favoriteElements?.find(one => one.category === 'Shop' && one.number === element.id && one.userId === userState?.user?.id)
 
                     return(
-                        <div>
+                        <div className="shopsIcon">
                             {userState?.user?.id ? <button className="heartStyle" onClick={()=>{heartChange(element.id, found)}}> { found ? additionalFunctions.heart() : additionalFunctions.plainHeart() } </button> : null }
                             <button className= "landingShopsButton" onClick={()=>{history.push(`/shops/${element.id}`)}}>
                                 <img className="landingShopsInside" src={element?.image} alt="Image"/>
@@ -113,32 +111,32 @@ export default function Products(){
         <p className='headersProductDetails' > Fresh finds fit for cozy season </p>
         <div className="roundImagesDiv">
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/sweets')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
                 <p>Sweets</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/books')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
                 <p>Books</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/watches')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
                 <p>Watches</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/ceramics')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/4207892/pexels-photo-4207892.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/4207892/pexels-photo-4207892.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
                 <p>Ceramics</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/tools')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/5691629/pexels-photo-5691629.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/5691629/pexels-photo-5691629.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
                 <p>Tools</p>
             </button>
 
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/jewelry')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/4595723/pexels-photo-4595723.jpeg" alt="Image"/>
+                <img className="roundImages" src="https://images.pexels.com/photos/4595723/pexels-photo-4595723.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
                 <p>Jewelry</p>
             </button>
         </div>

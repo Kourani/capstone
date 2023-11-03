@@ -131,7 +131,6 @@ function CreateProduct(){
                     value={image1}
                     placeholder="Enter Product Image"
                     onChange={(e)=>setImage1(e.target.value)}
-                    required
                     />
             </label>
 
@@ -144,7 +143,6 @@ function CreateProduct(){
                     value={image2}
                     placeholder="Enter Product Image"
                     onChange={(e)=>setImage2(e.target.value)}
-                    required
                     />
             </label>
 
@@ -157,7 +155,6 @@ function CreateProduct(){
                     value={image3}
                     placeholder="Enter Product Image"
                     onChange={(e)=>setImage3(e.target.value)}
-                    required
                     />
             </label>
 
@@ -170,7 +167,6 @@ function CreateProduct(){
                     value={image4}
                     placeholder="Enter Product Image"
                     onChange={(e)=>setImage4(e.target.value)}
-                    required
                     />
             </label>
 
@@ -183,7 +179,6 @@ function CreateProduct(){
                     value={image5}
                     placeholder="Enter Product Image"
                     onChange={(e)=>setImage5(e.target.value)}
-                    required
                     />
             </label>
 

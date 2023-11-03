@@ -1,6 +1,10 @@
 
 
 
+.hold{
+    display: flex;
+    gap:10px;
+}
 .imageCarousel{
     display: flex;
     flex-direction: column;
@@ -44,8 +48,8 @@
 }
 
 .productImageOnDetails{
-    height: 500px;
-    width:500px;
+    height: 519px;
+    width:519px;
 }
 
 .moreFromThisShopImages{

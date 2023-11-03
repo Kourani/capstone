@@ -92,12 +92,14 @@ function ProductDetails(){
         return(
             <div className="productDetails">
 
-                <div className="imageCarousel">{iteration()}</div>
+                <div className="hold">
+                    <div className="imageCarousel">{iteration()}</div>
 
-                <img className="productImageOnDetails"
-                                src={bee}
-                                alt="Image"
-                />
+                    <img className="productImageOnDetails"
+                                    src={bee}
+                                    alt="Image"
+                    />
+                </div>
 
                 <div className="productDetailsSideInformation">
                     <div className="justThePrice"> ${productState[productId]?.price}</div>
