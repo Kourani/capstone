@@ -32,6 +32,7 @@ export default function Products(){
     const shopElements = Object.values(shopState)
     const favoriteElements = Object.values(favoriteState)
 
+    console.log(userState, '!!')
 
     useEffect(()=>{
         dispatch(favoriteActions.getFavorites())
@@ -108,7 +109,7 @@ export default function Products(){
 
     return (
         <>
-        <p className='headersProductDetails' > Fresh finds fit for cozy season </p>
+        <p className='headersProductDetails' > {userState?.user !== null ? `Welcome back ${userState?.user?.firstName}` : `Checkout some of our latest products `} </p>
         <div className="roundImagesDiv">
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/sweets')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>

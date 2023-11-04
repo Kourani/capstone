@@ -85,15 +85,16 @@
 }
 
 .headersProductDetails{
-    background-image: url("https://images.pexels.com/photos/18229795/pexels-photo-18229795/free-photo-of-red-leaves-on-a-tree.jpeg");
-    background-size: cover;
+    /* background-image: url("https://images.pexels.com/photos/18229795/pexels-photo-18229795/free-photo-of-red-leaves-on-a-tree.jpeg");
+    background-size: cover; */
     font-size: 40px;
-    color: white;
+    font-weight: bold;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: 5px solid black;
+    /* border-bottom: 5px dashed maroon; */
 }
 
 .productDetailsFunction{
