@@ -7,6 +7,7 @@ Add select products or shops to their favorites for each of access
 
 # Interact Live Site
 
+* [Features](https://github.com/Kourani/capstone/wiki/Features)
 * [Click here to visit the live site]([https://github.com/Kourani/capstone/wiki/User-Stories](https://interact-rntr.onrender.com/))
 
 # Technologies Used for this project
