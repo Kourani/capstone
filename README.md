@@ -9,6 +9,8 @@ Add select products or shops to their favorites for each of access
 
 * [Click here for the site]([https://github.com/Kourani/capstone/wiki/Features](https://interact-rntr.onrender.com/))
 
+[Features](https://github.com/Kourani/capstone/wiki/Features)
+
 # Technologies Used for this project
 
 Python
