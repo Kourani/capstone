@@ -21,4 +21,8 @@ HTML
 
 #WIKI
 
+[Checkout the wiki for more information](https://github.com/Kourani/capstone/wiki)
+
+
+
 #ScreenShots 
