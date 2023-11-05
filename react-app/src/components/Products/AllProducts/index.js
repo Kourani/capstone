@@ -109,7 +109,10 @@ export default function Products(){
 
     return (
         <>
-        <p className='headersProductDetails' > {userState?.user !== null ? `Welcome back ${userState?.user?.firstName}` : `Checkout some of our latest products `} </p>
+        <p className='headersProductDetails' > {userState?.user !== null ? `Welcome back ${userState?.user?.firstName}` : null } </p>
+
+        <p className='headersProductDetails'> Shop our wide varitey of products by catgory ! </p>
+        <div className="hello">
         <div className="roundImagesDiv">
             <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/sweets')}}>
                 <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
@@ -141,6 +144,8 @@ export default function Products(){
                 <p>Jewelry</p>
             </button>
         </div>
+        </div>
+
         <p className='headersProductDetails'> Popular gifts right now </p>
 
             <div className="allProducts"> {allProducts()} </div>

@@ -103,11 +103,18 @@
     position: relative;
 }
 
+.hello{
+    border: 5px solid maroon;
+}
+
 .roundImages{
     width: 100px;
     height: 100px;
     border-radius: 50px;
     object-fit: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .roundImages:hover{
@@ -119,6 +126,7 @@
     border: none;
     background-color: white;
     cursor: pointer;
+    padding-top: 20px;
 }
 
 .roundImagesDiv{

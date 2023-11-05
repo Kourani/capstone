@@ -8,6 +8,8 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from 'react-router-dom'
 
+import "./UsShops.css"
+
 export default function UsShops(){
 
     const dispatch = useDispatch()
@@ -65,8 +67,8 @@ export default function UsShops(){
 
 
     return (
-        <div>
-            {shops()}
-        </div>
+            <div className="theShopsPage">
+                {shops()}
+            </div>
     )
 }
