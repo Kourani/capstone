@@ -11,13 +11,13 @@ Add select products or shops to their favorites for each of access
 
 # Technologies Used for this project
 
-Python
-React
-JavaScript
-Redux
-Flask
-CSS
-HTML
+* Python
+* React
+* JavaScript
+* Redux
+* Flask
+* CSS
+* HTML
 
 # WIKI
 
