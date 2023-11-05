@@ -5,11 +5,11 @@ Create and manage shops if they have products they would like to sell
 Buy products and Post their thoughts about the product
 Add select products or shops to their favorites for each of access
 
-#Interact Live Site
+# Interact Live Site
 
-[Click here to visit the live site]([https://github.com/Kourani/capstone/wiki/User-Stories](https://interact-rntr.onrender.com/))
+* [Click here to visit the live site]([https://github.com/Kourani/capstone/wiki/User-Stories](https://interact-rntr.onrender.com/))
 
-#Technologies Used for this project
+# Technologies Used for this project
 
 Python
 React
