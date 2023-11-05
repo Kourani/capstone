@@ -65,7 +65,9 @@ export default function AllFavorites(){
 
     return(
         <>
-        <div className="allProducts">{userFavorites()}</div>
+            <button> Products </button>
+            <button> Shops </button>
+            <div className="allProducts">{userFavorites()}</div>
         </>
     )
 }

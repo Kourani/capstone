@@ -102,22 +102,22 @@ def seed_products():
         shop_id=2, name='Rose Gold Diamond Earnings', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/10983783/pexels-photo-10983783.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
     product32 = Product(
-        shop_id=2, name='Sterling Sliver embedded diamonds ring', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
+        shop_id=2, name='Embedded Diamonds', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/265906/pexels-photo-265906.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
     product33 = Product(
-        shop_id=2, name='Feathery lightweight earings', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/1413420/pexels-photo-1413420.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
+        shop_id=2, name='Feathery Earings', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/1413420/pexels-photo-1413420.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
     product34 = Product(
-        shop_id=2, name='large centerpiece sterling silver ring', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/3266703/pexels-photo-3266703.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
+        shop_id=2, name='Sterling Silver Ring', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/3266703/pexels-photo-3266703.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
     product35 = Product(
-        shop_id=2, name='blue topaz gem sterling silver band', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/2697598/pexels-photo-2697598.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
+        shop_id=2, name='Blue Topaz Sliver', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/2697598/pexels-photo-2697598.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
     product36 = Product(
-        shop_id=2, name='cubed sterling silver necklace', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/2697616/pexels-photo-2697616.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
+        shop_id=2, name='Cubed Sterling Silver necklace', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/2697616/pexels-photo-2697616.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
     product37 = Product(
-        shop_id=2, name='Round diamond embeded necklace', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/4595719/pexels-photo-4595719.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
+        shop_id=2, name='Diamond Embeded necklace', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/4595719/pexels-photo-4595719.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
     product38 = Product(
         shop_id=2, name='Gold attached heart necklace', description='hand crafted', category='jewelry', price=29.99, image="https://images.pexels.com/photos/7250143/pexels-photo-7250143.png?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"

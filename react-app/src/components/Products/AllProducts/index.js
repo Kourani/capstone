@@ -44,7 +44,7 @@ export default function Products(){
         return productElements?.map(element=>{
             count ++
 
-                if(count<6){
+                if(count<15){
 
                 return (
                 <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
@@ -109,46 +109,45 @@ export default function Products(){
 
     return (
         <>
-        <p className='headersProductDetails' > {userState?.user !== null ? `Welcome back ${userState?.user?.firstName}` : null } </p>
+        {/* <p className='headersProductDetails' > {userState?.user !== null ? `Welcome back ${userState?.user?.firstName}` : null } </p> */}
 
-        <p className='headersProductDetails'> Shop our wide varitey of products by catgory ! </p>
-        <div className="hello">
-        <div className="roundImagesDiv">
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/sweets')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
-                <p>Sweets</p>
-            </button>
+        <div className="spacedDiv">
+            <div className="hello">
+                <div className="roundImagesDiv">
+                    <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/sweets')}}>
+                        <img className="roundImages" src="https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
+                        <p>Sweets</p>
+                    </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/books')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
-                <p>Books</p>
-            </button>
+                    <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/books')}}>
+                        <img className="roundImages" src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
+                        <p>Books</p>
+                    </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/watches')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
-                <p>Watches</p>
-            </button>
+                    <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/watches')}}>
+                        <img className="roundImages" src="https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
+                        <p>Watches</p>
+                    </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/ceramics')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/4207892/pexels-photo-4207892.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
-                <p>Ceramics</p>
-            </button>
+                    <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/ceramics')}}>
+                        <img className="roundImages" src="https://images.pexels.com/photos/4207892/pexels-photo-4207892.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
+                        <p>Ceramics</p>
+                    </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/tools')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/5691629/pexels-photo-5691629.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
-                <p>Tools</p>
-            </button>
+                    <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/tools')}}>
+                        <img className="roundImages" src="https://images.pexels.com/photos/5691629/pexels-photo-5691629.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
+                        <p>Tools</p>
+                    </button>
 
-            <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/jewelry')}}>
-                <img className="roundImages" src="https://images.pexels.com/photos/4595723/pexels-photo-4595723.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
-                <p>Jewelry</p>
-            </button>
+                    <button className="roundImagesButton" onClick={()=>{history.push('/products/categories/jewelry')}}>
+                        <img className="roundImages" src="https://images.pexels.com/photos/4595723/pexels-photo-4595723.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300" alt="Image"/>
+                        <p>Jewelry</p>
+                    </button>
+                </div>
+            </div>
         </div>
-        </div>
 
-        <p className='headersProductDetails'> Popular gifts right now </p>
-
-            <div className="allProducts"> {allProducts()} </div>
+        <div className="allProducts"> {allProducts()} </div>
 
         <div className='landingShops'>
         <button className='headersProductDetailsLanding' onClick={()=>{history.push('/usshops')}}>Discover shops in the US </button>
