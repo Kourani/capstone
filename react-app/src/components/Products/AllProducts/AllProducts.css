@@ -35,7 +35,7 @@
     gap: 2%;
     padding-bottom: 5%;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .product{
