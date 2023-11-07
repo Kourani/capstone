@@ -202,7 +202,7 @@ function ProductDetails(){
                                 alt='Image'
                             />
                             <div>{userState[element.userId]?.firstName} {userState[element.userId]?.lastName} {monthNames[month]} {day}, {year}</div>
-                            {commentButtons(element.userId, element.id)}
+                            <div className="commentButtonsTwo">{commentButtons(element.userId, element.id)}</div>
                         </div>
                     </div>
                 )

@@ -4,6 +4,11 @@
     padding-top: 30px;
 }
 
+.commentButtonsTwo{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 
 .hold{
     display: flex;
@@ -72,6 +77,7 @@
     display:flex;
     flex-direction: row;
     align-items: center;
+    gap: 10px;
 
 }
 
