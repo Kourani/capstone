@@ -17,45 +17,50 @@ export default function ProductFavorites(){
 
     useEffect(()=>{
         dispatch(favoriteActions.getFavorites())
-        dispatch(shopActions.getShops())
         dispatch(productActions.getProducts())
     },[dispatch])
 
     const favoriteState = useSelector(state=>state.favorite)
     const userState = useSelector(state=>state.session)
-    const shopState = useSelector(state=>state.shop)
     const productState = useSelector(state=>state.product)
     const favoriteElements = Object.values(favoriteState)
 
-    console.log(favoriteState,'favoriteState!!!!!!!1')
-
-    function userFavorites(){
+    function userProductFavorites(){
         return favoriteElements?.map(element =>{
 
-            if(element.userId === userState?.user?.id){
+            console.log(productState[element.number]?.image, 'hello')
+            console.log(productState[element.number], 'hello there')
 
-                if(element.category === 'Product'){
+            if(element.userId === userState?.user?.id){
+                console.log('inside if one')
+
+                if(element?.category === 'Product'){
+                    return(
                     <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
                         <div>
                             <img className="productImage"
-                                src={productState[element.number]?.image ? productState[element.number]?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
+                                src={productState[element?.number]?.image}
                                 alt="Image"
                             />
-                            <div className="productName"> {productState[element.number]?.name} </div>
-                            <div className="productPrice"> ${productState[element.number]?.price} </div>
+                            <div className="productName"> {productState[element?.number]?.name} </div>
+                            <div className="productPrice"> ${productState[element?.number]?.price} </div>
                         </div>
                     </button>
+                    )
                 }
 
             }
         })
     }
 
+    console.log(userProductFavorites(), 'userrrrrrr')
+
     return(
         <>
-           <button onClick={()=>{history.push('/favorites')}}> Shops </button>
+            <button onClick={()=>{history.push('/favorites')}}> Shops </button>
             <button onClick={() => {history.push('/favorites/products')} }> Products </button>
-            <div className="allProducts">{userFavorites()}</div>
+
+            <div className="allProducts">{ userProductFavorites() }</div>
         </>
     )
 }

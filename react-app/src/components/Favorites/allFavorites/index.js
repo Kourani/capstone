@@ -27,8 +27,6 @@ export default function AllFavorites(){
     const productState = useSelector(state=>state.product)
     const favoriteElements = Object.values(favoriteState)
 
-    console.log(favoriteState,'favoriteState!!!!!!!1')
-
     function userFavorites(){
         return favoriteElements?.map(element =>{
 

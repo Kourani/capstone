@@ -38,6 +38,22 @@ export default function Products(){
         dispatch(favoriteActions.getFavorites())
     },[dispatch, userState])
 
+    function heartChangeProduct(theProductId, favoriteElement){
+        if(!favoriteElement){
+            const payload={
+                category:'Product',
+                number:theProductId,
+                userId:userState?.user?.id
+            }
+            dispatch(favoriteActions.addFavorite(payload))
+        }
+
+        if(favoriteElement){
+            if(favoriteElement)
+            dispatch(favoriteActions.deleteFavorite(favoriteElement.id))
+        }
+
+    }
 
     function allProducts(){
         let count = 0
@@ -46,7 +62,11 @@ export default function Products(){
 
                 if(count<15){
 
+                    let found = favoriteElements?.find(one => one.category === 'Product' && one.number === element.id && one.userId === userState?.user?.id)
+
                 return (
+                <div>
+                {userState?.user?.id ? <button className="heartStyleProduct" onClick={()=>{heartChangeProduct(element.id, found)}}> { found ? additionalFunctions.heart() : additionalFunctions.plainHeart() } </button> : null }
                 <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
                     <div>
                         <img className="productImage"
@@ -57,6 +77,7 @@ export default function Products(){
                         <div className="productPrice"> ${element?.price} </div>
                     </div>
                 </button>
+                </div>
             )
             }
         })
