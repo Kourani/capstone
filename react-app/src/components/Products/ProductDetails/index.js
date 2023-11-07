@@ -226,16 +226,16 @@ function ProductDetails(){
         <>
             <div className="productDetailsFunction">{productDetails()}</div>
 
-            <p className="headersProductDetails">{commentCount()} Comments</p>
+            <p className="headersProductDetails">{commentCount() > 0 ?  `${commentCount()} Comments` : 'Be the First to Support Us, Share your Thoughts'  } </p>
 
             <div> {newComment()}</div>
 
-            <div>{commentCount() >0 ? productComments() : 'We would love to hear your feedback! Be the first to share your thoughts '}</div>
+            <div className="commentNothing">{commentCount() >0 ? productComments() : 'We would love to hear your feedback!'}</div>
 
             <p className="headersProductDetails">More from this Shop</p>
 
             <div>
-                <button onClick={()=>{history.push(`/shops/${productState[productId]?.shopId}`)}}>See All Items</button>
+                <button className='universalModalButtons' onClick={()=>{history.push(`/shops/${productState[productId]?.shopId}`)}}>See All Items</button>
                 <div className="shopDetailsOtherProducts">
                     {otherProducts()}
                 </div>
