@@ -30,6 +30,7 @@
     width:60px;
     border-radius: 100px;
     border: none;
+    cursor: pointer;
 }
 
 .heartStyle{
@@ -49,6 +50,7 @@
     width:60px;
     border-radius: 100px;
     border: none;
+    cursor: pointer;
 }
 
 .allProducts{
