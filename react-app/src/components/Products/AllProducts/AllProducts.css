@@ -108,8 +108,16 @@
     font-weight: bold;
 }
 
-.headersProductDetailsLanding{
+@keyframes changeBackground {
+    0% { background-color: silver; } /* Red */
+    25% { background-color: lightgray } /* Green */
+    50% { background-color:  maroon} /* Blue */
+    75% { background-color: moccasin } /* Yellow */
+    100% { background-color: crimson } /* Magenta */
+  }
 
+.headersProductDetailsLanding{
+    animation: changeBackground 10s infinite;
     /* background-image: url("https://images.pexels.com/photos/18229795/pexels-photo-18229795/free-photo-of-red-leaves-on-a-tree.jpeg");
     background-size: cover; */
     font-size: 40px;
@@ -118,7 +126,7 @@
     align-items: center;
     justify-content: center;
 
-    border: 5px solid black;
+    border: 5px solid maroon;
     margin-top: 10px;
     margin-right: 10px;
     height:500px;
