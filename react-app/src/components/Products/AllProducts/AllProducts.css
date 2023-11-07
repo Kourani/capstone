@@ -9,13 +9,27 @@
     color: maroon;
 }
 
+.newestProd{
+    padding-top: 2%;
+
+}
+
 .heartStyleProduct{
     background-color: white;
     border:none;
+    height: 60px;
+    width: 60px;
     position:absolute;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     border-radius: 100px;
+}
 
+.heartStyleProduct:hover{
+    background-color: lightgrey;
+    height:60px;
+    width:60px;
+    border-radius: 100px;
+    border: none;
 }
 
 .heartStyle{
@@ -30,7 +44,7 @@
 }
 
 .heartStyle:hover{
-    background-color: white;
+    background-color: lightgray;
     height:60px;
     width:60px;
     border-radius: 100px;

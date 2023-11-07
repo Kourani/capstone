@@ -65,7 +65,7 @@ export default function Products(){
                     let found = favoriteElements?.find(one => one.category === 'Product' && one.number === element.id && one.userId === userState?.user?.id)
 
                 return (
-                <div>
+                <div className="newestProd">
                 {userState?.user?.id ? <button className="heartStyleProduct" onClick={()=>{heartChangeProduct(element.id, found)}}> { found ? additionalFunctions.heart() : additionalFunctions.plainHeart() } </button> : null }
                 <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
                     <div>
