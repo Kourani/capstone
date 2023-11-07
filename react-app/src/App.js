@@ -21,6 +21,7 @@ import OwnedShops from "./components/Shops/OwnedShops"
 import CreateShop from "./components/Shops/CreateShop"
 
 import AllFavorites from "./components/Favorites/allFavorites";
+import ProductFavorites from "./components/Favorites/ProductFavorites";
 
 import Cart from "./components/Cart"
 
@@ -42,6 +43,10 @@ function App() {
 
       {isLoaded && (
         <Switch>
+
+          <Route path="/favorites/products">
+            <ProductFavorites/>
+          </Route>
 
           <Route path="/favorites">
               <AllFavorites/>

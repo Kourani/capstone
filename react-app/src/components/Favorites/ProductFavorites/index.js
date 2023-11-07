@@ -10,7 +10,7 @@ import * as shopActions from '../../../store/shop'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 
-export default function AllFavorites(){
+export default function ProductFavorites(){
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -34,27 +34,28 @@ export default function AllFavorites(){
 
             if(element.userId === userState?.user?.id){
 
-                if(element.category === 'Shop'){
-                    return (
-                        <button className="product" onClick={()=>{history.push(`/shops/${element.id}`)}}>
-                            <div>
-                                <img className="productImage" src={shopState[element.number]?.image} alt="Image" />
-                                <div className="productName">{shopState[element.number]?.name}</div>
-                            </div>
-                        </button>
-                    )
-
+                if(element.category === 'Product'){
+                    <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
+                        <div>
+                            <img className="productImage"
+                                src={productState[element.number]?.image ? productState[element.number]?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
+                                alt="Image"
+                            />
+                            <div className="productName"> {productState[element.number]?.name} </div>
+                            <div className="productPrice"> ${productState[element.number]?.price} </div>
+                        </div>
+                    </button>
                 }
+
             }
         })
     }
 
     return(
         <>
-            <button onClick={()=>{history.push('/favorites')}}> Shops </button>
+           <button onClick={()=>{history.push('/favorites')}}> Shops </button>
             <button onClick={() => {history.push('/favorites/products')} }> Products </button>
             <div className="allProducts">{userFavorites()}</div>
-
         </>
     )
 }
