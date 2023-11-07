@@ -49,8 +49,12 @@ export default function AllFavorites(){
 
     return(
         <>
-            <button onClick={()=>{history.push('/favorites')}}> Shops </button>
-            <button onClick={() => {history.push('/favorites/products')} }> Products </button>
+
+            <div className="favoritesPageButtons">
+                <button className='universalModalButtons' onClick={()=>{history.push('/favorites')}}> Shops </button>
+                <button className = 'universalModalButtons' onClick={() => {history.push('/favorites/products')} }> Products </button>
+            </div>
+            
             <div className="allProducts">{userFavorites()}</div>
 
         </>
