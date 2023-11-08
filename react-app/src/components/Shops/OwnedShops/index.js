@@ -72,10 +72,10 @@ function OwnedShops(){
                                 <div>Country: {element.country}</div>
                                 <div>Accepted Currency: {element.currency}</div>
                             </div>
-                            <div className="buttonsOwned">
+                            <div className="favoritesPageButtons">
                                 {editShop(element.id)}
                                 {deleteShop(element.id)}
-                                <button onClick={()=>{history.push(`/shops/${element.id}/products/manage`)}}> View/Manage Products </button>
+                                <button className= 'universalModalButtons' onClick={()=>{history.push(`/shops/${element.id}/products/manage`)}}> Manage Products </button>
                             </div>
                         </div>
                     </>
