@@ -8,6 +8,8 @@ import * as shopActions from "../../../store/shop"
 import * as productActions from "../../../store/product"
 import "./OneShop.css"
 
+import * as favoriteActions from "../../../store/favorite"
+import * as additionalFunctions from "../../../context/additional"
 
 
 export default function OneShop(){
@@ -23,14 +25,42 @@ export default function OneShop(){
 
     const shopState = useSelector(state=>state?.shop)
     const productState = useSelector(state=>state?.product)
+    const userState = useSelector(state=>state?.session)
+
     const productElements = Object.values(productState)
+
+    const favoriteState = useSelector(state=>state?.favorite)
+    const favoriteElements = Object.values(favoriteState)
+
+    useEffect(()=>{
+        dispatch(favoriteActions.getFavorites())
+    },[dispatch, userState])
+
+
+    function heartChangeProduct(theProductId, favoriteElement){
+        if(!favoriteElement){
+            const payload={
+                category:'Product',
+                number:theProductId,
+                userId:userState?.user?.id
+            }
+            dispatch(favoriteActions.addFavorite(payload))
+        }
+
+        if(favoriteElement){
+            if(favoriteElement)
+            dispatch(favoriteActions.deleteFavorite(favoriteElement.id))
+        }
+
+    }
 
     function shop(){
         return productElements?.map(element=>{
                 if (element.shopId === parseInt(shopId)){
-
+                    let found = favoriteElements?.find(one => one.category === 'Product' && one.number === element.id && one.userId === userState?.user?.id)
                     return(
-                        <>
+                        <div className="newestProd">
+                        {userState?.user?.id ? <button className="heartStyleProduct" onClick={()=>{heartChangeProduct(element.id, found)}}> { found ? additionalFunctions.heart() : additionalFunctions.plainHeart() } </button> : null }
                             <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
                                 <div>
                                     <img className="productImage" src={element?.image} alt="Image" />
@@ -38,7 +68,7 @@ export default function OneShop(){
                                     <div className="productPrice">${element?.price}</div>
                                 </div>
                             </button>
-                        </>
+                        </div>
                     )
                 }
         })

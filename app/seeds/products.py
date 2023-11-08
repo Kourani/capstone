@@ -219,7 +219,7 @@ def seed_products():
         shop_id=2, name='Lightweight with Style', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/125779/pexels-photo-125779.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
     product71 = Product(
-        shop_id=2, name='Refined sweet sliver blue backdrop', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/2799535/pexels-photo-2799535.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
+        shop_id=2, name='Sliver Blue Backdrop', description='hand crafted', category='watches', price=29.99, image="https://images.pexels.com/photos/2799535/pexels-photo-2799535.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
     )
 
     db.session.add(product0)
