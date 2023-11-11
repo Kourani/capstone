@@ -54,7 +54,6 @@ export const addFavorite = (payload) => async (dispatch) => {
 
     else {
         let res = await response.json()
-        console.log(res, 'inside favorite thunk')
         return await response.json()
     }
 

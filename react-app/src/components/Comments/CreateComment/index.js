@@ -16,8 +16,6 @@ export default function CreateCommment(productId){
 
     // const {productId} = useParams() WHY IS IT UNDEFINED !
 
-    console.log(productId.productId,'!!!!!!!!!!!!!!!!!!!!!!')
-
     const [comment, setComment] = useState("")
     const [errors, setErrors] = useState({})
     const [clicked, setClicked] = useState('False')

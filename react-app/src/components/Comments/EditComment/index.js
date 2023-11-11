@@ -21,8 +21,6 @@ export default function EditComment(commentId){
 
     const commentState = useSelector(state=>state.comment)
 
-    console.log(commentState,'!!!!')
-
     const [comment, setComment] = useState(commentState[commentId.commentId]?.comment)
     const [errors, setErrors] = useState({})
 

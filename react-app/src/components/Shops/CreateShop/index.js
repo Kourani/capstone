@@ -37,7 +37,7 @@ function CreateShop(){
         const data = await dispatch(shopActions.newShop(payload));
 
         if (data && data?.errors) {
-          console.log('inside the ifffffff')
+     
           setErrors(data?.errors);
         }
         else{
@@ -46,8 +46,7 @@ function CreateShop(){
 
       };
 
-      console.log(errors.image)
-      console.log(errors, 'Errors!!!!!!!!!')
+  
 
       return (
         <>

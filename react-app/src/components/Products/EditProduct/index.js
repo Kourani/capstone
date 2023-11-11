@@ -11,8 +11,6 @@ import { useModal } from "../../../context/Modal"
 
 function EditProduct(productId){
 
-    console.log(productId.productId)
-
     const dispatch = useDispatch()
     const {closeModal} = useModal()
     const [clicked, setClicked] = useState('False')
@@ -42,7 +40,7 @@ function EditProduct(productId){
     const handleSubmit = async (e) => {
         e.preventDefault()
         const data = await dispatch(productActions.editProduct(payload, productId.productId))
-        console.log(data,'data!')
+     
         if(data){
             setErrors(data.errors)
         }
@@ -53,9 +51,7 @@ function EditProduct(productId){
 
 
     }
-    console.log(errors,'errors')
-    console.log(errors.price,'dot price')
-    console.log(errors[price],'bracket price')
+
 
     return(
         <>

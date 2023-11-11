@@ -53,12 +53,10 @@ export const addComment = (payload, productId) => async (dispatch) => {
 
     if(response.ok){
         const newComment = await response.json()
-        console.log(newComment,'THUNK')
         dispatch (addOne(newComment))
     }
     else {
         const fava = await response.json()
-        console.log(fava, 'else thunk')
         return await response.json()
     }
 }
@@ -75,12 +73,10 @@ export const editComment = (payload, commentId) => async (dispatch) => {
 
     if(response.ok){
         const updatedComment = await response.json()
-        console.log(updatedComment,'updated!!!comments')
         dispatch(editOne(updatedComment))
     }
     else{
         let fave = await response.json()
-        console.log(fave,'!!')
         return await response.json()
     }
 }
@@ -94,7 +90,6 @@ export const deleteComment = (commentId) => async(dispatch) =>{
     })
 
     if(response.ok){
-        console.log(commentId, 'inside teh THunk')
         dispatch(deleteOne(commentId))
     }
 

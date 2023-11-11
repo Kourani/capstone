@@ -32,8 +32,6 @@ export default function Products(){
     const shopElements = Object.values(shopState)
     const favoriteElements = Object.values(favoriteState)
 
-    console.log(userState, '!!')
-
     useEffect(()=>{
         dispatch(favoriteActions.getFavorites())
     },[dispatch, userState])

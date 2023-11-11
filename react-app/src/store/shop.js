@@ -40,7 +40,6 @@ export const getShops = () => async (dispatch) => {
 
 	if (response.ok) {
 		const allShops = await response.json()
-		console.log(allShops);
 		dispatch(getAll(allShops));
 	}
 	else {
@@ -59,7 +58,6 @@ export const newShop = (payload) => async (dispatch) => {
 	})
 	if(response.ok){
 		const releasedShop= await response.json()
-		console.log(releasedShop, 'releasedShop')
 		dispatch(addOne(releasedShop))
 	}
 	else{
@@ -78,7 +76,6 @@ export const editShop = (payload, shopId) => async (dispatch) => {
 	})
 	if(response.ok){
 		const updatedShop= await response.json()
-		console.log(updatedShop, 'updatedShop')
 		dispatch(editOne(updatedShop))
 	}
 	else{
@@ -95,7 +92,6 @@ export const deleteShop = (shopId) => async (dispatch) =>{
 	})
 	if(response.ok){
 		const removedShop = await response.json()
-		console.log(removedShop,'removedShop')
 		dispatch(deleteOne(shopId))
 	}
 	else {

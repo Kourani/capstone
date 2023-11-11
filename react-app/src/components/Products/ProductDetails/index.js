@@ -86,7 +86,6 @@ function ProductDetails(){
         function iteration(){
             let array = []
             for(let i=1; i<6; i++){
-                console.log('inside the for ')
                 if(foundProduct && foundProduct[`image${i}`]) {
                         array.push(<div onClick={()=>{setBee(foundProduct[`image${i}`]) }}> {<img className='tinyImage' src={foundProduct[`image${i}`]} alt="Image"/>}</div>)
                 }

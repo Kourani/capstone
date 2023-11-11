@@ -43,8 +43,6 @@ export const getProducts = () => async (dispatch) => {
 };
 
 export const newProduct = (payload, shopId) => async(dispatch) => {
-
-	console.log('inside new product thunk')
 	const response = await fetch(`/api/shops/${shopId}/products`, {
 		method:'POST',
 		headers:{
@@ -57,7 +55,6 @@ export const newProduct = (payload, shopId) => async(dispatch) => {
 
 	if(response.ok){
 		const releasedProduct = await response.json()
-		console.log(releasedProduct, '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 		dispatch(addOne(releasedProduct))
 	}
 	else{
@@ -68,7 +65,6 @@ export const newProduct = (payload, shopId) => async(dispatch) => {
 }
 
 export const editProduct = (payload, productId) => async(dispatch) => {
-	console.log(productId)
 	const response = await fetch(`/api/products/${productId}/edit`, {
 		method:'PUT',
 		headers:{
@@ -79,7 +75,6 @@ export const editProduct = (payload, productId) => async(dispatch) => {
 
 	if(response.ok){
 		const updatedProduct = await response.json()
-		console.log(updatedProduct,'AAAAAAAAAAA')
 		dispatch(editOne(updatedProduct))
 	}
 	else{

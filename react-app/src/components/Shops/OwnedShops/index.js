@@ -34,10 +34,6 @@ function OwnedShops(){
     const shopState = useSelector(state=>state.shop)
     const userState = useSelector(state=>state.session)
 
-    console.log("user", userState?.user?.id);
-    console.log(shopState, 'statettttttt')
-
-
     function editShop(shopId){
         return(
         <OpenModalButton
@@ -86,7 +82,7 @@ function OwnedShops(){
 
     const shopChecker = ownedShops()
 
-    console.log(shopChecker,'HIIIIIIIII')
+ 
 
     return(
         <>

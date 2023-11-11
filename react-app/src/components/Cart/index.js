@@ -15,8 +15,6 @@ export default function Cart(){
 
     const cartElements = Object.values(cartState)
 
-    console.log(cartElements.length, 'i am here')
-
     function cartDisplay(){
         if(cartElements.length > 0){
             return cartElements.map(element=>{

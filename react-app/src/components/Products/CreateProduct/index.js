@@ -54,7 +54,6 @@ function CreateProduct(){
         }
     }
 
-    console.log(errors, 'ERRORS')
 
     return(
         <>

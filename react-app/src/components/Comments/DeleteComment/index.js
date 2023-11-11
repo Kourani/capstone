@@ -14,7 +14,6 @@ export default function DeleteComment(commentId){
 
 
     function toDelete(){
-        console.log(commentId.commentId, 'commentIddddddddddddddd')
         dispatch(commentActions.deleteComment(commentId.commentId))
         setClicked('True')
         closeModal()

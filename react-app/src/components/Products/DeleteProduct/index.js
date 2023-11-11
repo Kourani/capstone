@@ -18,7 +18,6 @@ export default function DeleteProduct(productId){
 
     function toDelete(){
         dispatch(productActions.deleteProduct(productId.productId))
-        console.log(productId,'aaaaaaaaaaaa')
         setClicked('True')
         closeModal()
         return

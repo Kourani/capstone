@@ -30,11 +30,7 @@ export default function ProductFavorites(){
     function userProductFavorites(){
         return favoriteElements?.map(element =>{
 
-            console.log(productState[element.number]?.image, 'hello')
-            console.log(productState[element.number], 'hello there')
-
             if(element.userId === userState?.user?.id){
-                console.log('inside if one')
 
                 if(element?.category === 'Product'){
                     return(
@@ -55,7 +51,6 @@ export default function ProductFavorites(){
         })
     }
 
-    console.log(userProductFavorites(), 'userrrrrrr')
 
     return(
         <>
