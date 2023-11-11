@@ -2,7 +2,8 @@
 
 export function shoppingCart(){
     return(
-         <i className="fas fa-shopping-cart fa-2x" ></i>
+        //  <i className="fas fa-shopping-cart fa-2x" ></i>
+        <i className="fa-solid fa-bag-shopping fa-2x"></i>
     )
 }
 

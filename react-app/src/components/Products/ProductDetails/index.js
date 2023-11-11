@@ -5,6 +5,8 @@ import * as productActions from "../../../store/product"
 import * as shopActions from "../../../store/shop"
 import * as commentActions from "../../../store/comment"
 import * as userActions from '../../../store/session'
+import * as cartActions from '../../../store/cart'
+
 import OpenModalButton from '../../OpenModalButton'
 import EditComment from "../../Comments/EditComment"
 import DeleteComment from "../../Comments/DeleteComment"
@@ -42,6 +44,8 @@ function ProductDetails(){
         dispatch(userActions.getUsers())
     }, [dispatch])
 
+
+
     const userState = useSelector(state=>state?.session)
     const productState = useSelector(state=>state?.product)
     const shopState = useSelector(state=>state?.shop)
@@ -51,10 +55,11 @@ function ProductDetails(){
     const commentElements = Object.values(commentState)
 
     const [bee, setBee] = useState(productState?.[productId]?.image)
+    const [eleId, setEleId] = useState()
 
     useEffect(()=>{
         setBee(productState?.[productId]?.image)
-    },[productState])
+    },[productState, eleId])
 
 
     const shopOwner = shopState[productState[productId]?.shopId]?.ownerId
@@ -108,7 +113,16 @@ function ProductDetails(){
 
                     <div className="productDetailsButtons">
                         <button className="buyItNowProductDetails" onClick={()=>{additionalFunctions.comingSoon()}}>Buy it Now </button>
-                        <button className="addToCartProductDetails" onClick={()=>{additionalFunctions.comingSoon()}}> Add to Cart </button>
+                        <button className="addToCartProductDetails" onClick={()=>{
+                                const payload = {
+                                    price:productState[productId]?.price,
+                                    image:productState[productId]?.image,
+                                    name:productState[productId]?.name,
+                                    id:productState[productId]?.id
+                                }
+                                dispatch(cartActions.addCart(payload))
+                            }}> Add to Cart 
+                        </button>
                     </div>
                     <p>Meet your Seller</p>
                     <div>{userState[shopOwner]?.firstName} {userState[shopOwner]?.lastName}</div>
@@ -127,7 +141,7 @@ function ProductDetails(){
                 count ++
                if(count<6){
                 return(
-                    <button className="product" onClick={()=>{history.push(`/products/${element.id}`)}}>
+                    <button className="product" onClick={()=>{setEleId(element.id); history.push(`/products/${element.id}`)}}>
                         <div>
                             <img className="productImage"
                                     src={element?.image ? element?.image : "https://images.pexels.com/photos/715134/pexels-photo-715134.jpeg"}
