@@ -106,9 +106,11 @@ function ProductDetails(){
                 </div>
 
                 <div className="productDetailsSideInformation">
+
+                    <div className="justTheName">{productState[productId]?.name}</div>
+                    <div className="justTheNameDes">{productState[productId]?.description}</div>
+                    <NavLink exact to={`/shops/${productState[productId]?.shopId}`}> Vist the {shopState[productState[productId]?.shopId]?.name} Store</NavLink>
                     <div className="justThePrice"> ${productState[productId]?.price}</div>
-                    <div className="justTheName">{productState[productId]?.description}</div>
-                    <NavLink exact to={`/shops/${productState[productId]?.shopId}`}>{shopState[productState[productId]?.shopId]?.name}</NavLink>
 
                     <div className="productDetailsButtons">
                         <button className="buyItNowProductDetails" onClick={()=>{additionalFunctions.comingSoon()}}>Buy it Now </button>

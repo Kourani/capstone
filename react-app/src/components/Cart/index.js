@@ -45,7 +45,7 @@ export default function Cart(){
             :
 
         <div className="cartPage">
-            Your cart is currently empty
+            Your shopping bag is currently empty
             <div className="cartNews">
             <button className="universalModalButtons" onClick={()=>{history.push('/')}}>Continue Shopping</button>
             <button className="universalModalButtons" onClick={()=>additionalFunctions.comingSoon()}>Checkout</button>

@@ -75,23 +75,29 @@ function ProfileButton({ user }) {
         ) : (
           <>
           <div className="notLoggedIn">
+            <div onClick={()=>{closeMenu()}}>
             <OpenModalButton
               buttonText="Log In Demo"
-              onItemClick={closeMenu}
+              onItemClick={closeModal}
               modalComponent={<DemoLogin/>}
             />
+            </div>
 
+            <div onClick={()=>{closeMenu()}}>
             <OpenModalButton
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
+            </div>
 
+            <div onClick={()=>{closeMenu()}}>
             <OpenModalButton
               buttonText="Sign Up"
-              onItemClick={closeMenu}
+              onItemClick={()=>{closeMenu()}}
               modalComponent={<SignupFormModal />}
             />
+            </div>
             </div>
 
           </>
