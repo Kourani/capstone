@@ -36,8 +36,8 @@
 }
 
 .tinyImage{
-    width:100px;
-    height: 100px;
+    width:136px;
+    height: 136px;
     object-fit: cover;
 }
 
@@ -60,15 +60,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:2%
+    gap:2%;
+    padding-left: 2%;
 }
 
 .justTheName{
-    font-size: x-large;
+    font-size: xx-large;
+    font-weight: bold;
+    padding-top: 5%;
 }
 
 .justTheNameDes{
-    font-size: larger;
+    font-size: large;
 }
 
 .justThePrice{
@@ -77,8 +80,8 @@
 }
 
 .productImageOnDetails{
-    height: 519px;
-    width:519px;
+    height: 700px;
+    width:600px;
 }
 
 .moreFromThisShopImages{
