@@ -132,7 +132,7 @@ function CreateShop(){
 
             <div className="errors">{errors?.image ? errors?.image : null}</div>
 
-            <button type="submit">Create</button>
+            <button className='uniButton' type="submit">Create</button>
           </form>
         </>
       );

@@ -127,7 +127,7 @@ function EditShop(shopId){
 
               <div className="errors">{errors?.image ? errors?.image : null}</div>
 
-              <button type="submit">Update</button>
+              <button className = 'uniButton' type="submit">Update</button>
             </div>
           </form>
         </>

@@ -1,4 +1,20 @@
 
+
+
+.uniButton{
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.uniOneButton{
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid black;
+    margin-top: 25px;
+}
+
+
 .commentNothing{
     padding-top: 30px;
 }

@@ -102,7 +102,7 @@ function ShopProducts(){
     return (
         <>
 
-            {foundShop ? <button onClick={()=>{history.push(`/shops/${shopId}/products/new`)}}> Add a New Product </button> : null}
+            {foundShop ? <button className='uniOneButton' onClick={()=>{history.push(`/shops/${shopId}/products/new`)}}> Add a New Product </button> : null}
 
            <div className="HeadingsForEdit">
                 <div className="approxWidth">Main Image</div>

@@ -183,7 +183,7 @@ function CreateProduct(){
 
             <div className="errors"> {errors.image5 ? errors.image5 : null}</div>
 
-            <button type='submit'>Submit</button>
+            <button className='uniButton' type='submit'>Submit</button>
         </form>
         </>
 
