@@ -75,13 +75,13 @@ function ProfileButton({ user }) {
         ) : (
           <>
           <div className="notLoggedIn">
-            <div onClick={()=>{closeMenu()}}>
+            {/* <div onClick={()=>{closeMenu()}}>
             <OpenModalButton
               buttonText="Log In Demo"
               onItemClick={closeModal}
               modalComponent={<DemoLogin/>}
             />
-            </div>
+            </div> */}
 
             <div onClick={()=>{closeMenu()}}>
             <OpenModalButton

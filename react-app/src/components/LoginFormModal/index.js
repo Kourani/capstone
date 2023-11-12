@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
+import {useHistory} from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -22,6 +25,16 @@ function LoginFormModal() {
   };
 
   const errorMap = Object.values(errors)
+
+  function demoUser(){
+    const email = 'demo@aa.io'
+    const password = 'password'
+
+    dispatch(login(email, password))
+    closeModal(false)
+    history.push('/')
+    return
+  }
 
   return (
     <>
@@ -54,9 +67,10 @@ function LoginFormModal() {
         <div className="errors">{errors.password ? errors.password : null}</div>
 
         <button className='uniButton' type="submit">Log In</button>
-
         </div>
       </form>
+
+      <button className='uniButton' onClick={()=>demoUser()}>Login as Demo User</button>
     </>
   );
 }
