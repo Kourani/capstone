@@ -10,10 +10,13 @@ def seed_users():
         profile_icon='https://images.pexels.com/photos/1460836/pexels-photo-1460836.jpeg', first_name ='Maria', last_name = 'Matter' , about = 'anything soft and fluffy I want it' , birthday = '02/02/02' , address = '123 House Mane' , city = 'Allen Park' , state = 'California' , country = 'United States' , username='maria', email='maria@aa.io', password='password')
     alex = User(
         profile_icon='https://images.pexels.com/photos/1460836/pexels-photo-1460836.jpeg', first_name = 'Alex' , last_name = 'Laruso' , about = 'Martial Arts' , birthday = '12/12/12' , address = '123 Home Town' , city = 'San Jose' , state = 'California' , country = 'United States' , username='alex', email='alex@aa.io', password='password')
+    rosaylia = User(
+        profile_icon='https://images.pexels.com/photos/1460836/pexels-photo-1460836.jpeg', first_name = 'Rosaylia' , last_name = 'Mikov' , about = 'Sweets' , birthday = '12/12/12' , address = '123 Home Town' , city = 'San Jose' , state = 'California' , country = 'United States' , username='rosaylia', email='rosyalia@aa.io', password='password')
 
     db.session.add(demo)
     db.session.add(maria)
     db.session.add(alex)
+    db.session.add(rosaylia)
     db.session.commit()
 
 
