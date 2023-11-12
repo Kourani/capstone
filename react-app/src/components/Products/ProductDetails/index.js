@@ -192,7 +192,8 @@ function ProductDetails(){
                 buttonText="Post"
                 onItemClick={closeMenu}
                 modalComponent={<CreateComment productId={productId}/>}
-                />)
+                />
+                )
 
         }
     }

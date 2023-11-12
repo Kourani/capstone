@@ -1,5 +1,4 @@
 
-
 .commentNothing{
     padding-top: 30px;
 }
@@ -109,7 +108,7 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border-bottom: 5px solid maroon;
+    /* border-bottom: 5px solid maroon; */
 }
 
 .productDetailsFunction{
