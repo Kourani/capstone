@@ -53,7 +53,7 @@ function LoginFormModal() {
 
         <div className="errors">{errors.password ? errors.password : null}</div>
 
-        <button type="submit">Log In</button>
+        <button className='uniButton' type="submit">Log In</button>
 
         </div>
       </form>

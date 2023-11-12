@@ -81,7 +81,7 @@ function SignupFormModal() {
 
 				<div className="errors">{errors?.password ? errors?.password : null}</div>
 
-				<button type="submit">Sign Up</button>
+				<button className='uniButton' type="submit">Sign Up</button>
 				</div>
 			</form>
 		</>

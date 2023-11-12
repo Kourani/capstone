@@ -21,7 +21,7 @@ function DemoLogin() {
 
       <form onSubmit={handleSubmit}>
         <div className="modalsInside">
-        <h1>Log in as a demo user</h1>
+        <h1>Log in as a Demo User</h1>
         <label>
           Email
           <input
@@ -38,7 +38,7 @@ function DemoLogin() {
             required
           />
         </label>
-        <button type="submit">Log In Demo</button>
+        <button className='uniButton' type="submit">Log In Demo</button>
         </div>
       </form>
     </>
