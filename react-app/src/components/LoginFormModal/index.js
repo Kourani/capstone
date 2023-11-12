@@ -23,7 +23,6 @@ function LoginFormModal() {
 
   const errorMap = Object.values(errors)
 
-
   return (
     <>
 
@@ -55,6 +54,7 @@ function LoginFormModal() {
         <div className="errors">{errors.password ? errors.password : null}</div>
 
         <button type="submit">Log In</button>
+
         </div>
       </form>
     </>
