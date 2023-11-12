@@ -73,7 +73,10 @@ function ShopProducts(){
 
                     return(
 
+
+
                         <div className="ownedProducts">
+                            
                             <div className="approxWidth">
                                 <img className='imageShopProducts' onClick={()=>{history.push(`/products/${element.id}`)}} src={element?.image} alt="Image"/>
                             </div>
@@ -82,6 +85,7 @@ function ShopProducts(){
                                 <div className="approxWidth">{[element.image1]}</div>
                             </div> */}
 
+                            <div className="approxWidth"> {element?.image5 ? '5 Images' : element?.image4 ? '4 Images' : element?.image3 ? '3 Images' : element?.image2 ? '2 Images' : element?.image1 ? '1 Image' : 'No sides images have been added. Edit product to upload more images.'} </div>
                             <div className="approxWidth"> {element?.name} </div>
                             <div className="approxWidth"> {element?.description} </div>
                             <div className="approxWidth" > {element?.category} </div>

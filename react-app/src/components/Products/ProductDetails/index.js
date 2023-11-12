@@ -242,11 +242,11 @@ function ProductDetails(){
         <>
             <div className="productDetailsFunction">{productDetails()}</div>
 
-            <p className="headersProductDetails">{commentCount() > 0 ?  `${commentCount()} Comments` : 'Be the First to Support Us, Share your Thoughts'  } </p>
+            <p className="headersProductDetails">{commentCount() > 1 ?  `${commentCount()} Comments` : commentCount() === 1 ? `${commentCount()} Comment` : 'Be the First to Support Us, Share your Thoughts'  } </p>
 
             <div> {newComment()}</div>
 
-            <div className="commentNothing">{commentCount() >0 ? productComments() : 'We would love to hear your feedback!'}</div>
+            <div className="commentNothing">{commentCount() >0 ? productComments() : 'We would love o hear your feedback!'}</div>
 
             <p className="headersProductDetails">More from this Shop</p>
 
