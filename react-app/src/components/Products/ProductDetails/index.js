@@ -109,7 +109,7 @@ function ProductDetails(){
 
                     <div className="justTheName">{productState[productId]?.name}</div>
                     <div className="justTheNameDes">{productState[productId]?.description}</div>
-                    <NavLink exact to={`/shops/${productState[productId]?.shopId}`}> Vist the {shopState[productState[productId]?.shopId]?.name} Store</NavLink>
+                    <NavLink className='sweetness' exact to={`/shops/${productState[productId]?.shopId}`}> Vist the {shopState[productState[productId]?.shopId]?.name} Store</NavLink>
                     <div className="justThePrice"> ${productState[productId]?.price}</div>
 
                     <div className="productDetailsButtons">
@@ -127,7 +127,7 @@ function ProductDetails(){
                     </div>
                     <p>Meet your Seller</p>
                     <div>{userState[shopOwner]?.firstName} {userState[shopOwner]?.lastName}</div>
-                    <div>Owner of <NavLink exact to={`/shops/${productState[productId]?.shopId}`}>{shopState[productState[productId]?.shopId]?.name}</NavLink></div>
+                    <div>Owner of <NavLink className='sweetness' exact to={`/shops/${productState[productId]?.shopId}`}>{shopState[productState[productId]?.shopId]?.name}</NavLink></div>
                     <button className="messageShopOwner" onClick={()=>{additionalFunctions.comingSoon()}}>Message {userState[shopOwner]?.firstName}</button>
                 </div>
             </div>
