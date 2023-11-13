@@ -9,6 +9,14 @@
     padding-bottom: 60%;
 }
 
+.ballCenter{
+  position:absolute;
+  top: 15%;
+  right: 25%;
+  font-weight: bold;
+  font-size: 500%;
+}
+
 @keyframes balloonAnimation {
     0% {
       top: 120%;
