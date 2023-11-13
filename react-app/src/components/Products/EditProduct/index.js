@@ -119,7 +119,7 @@ function EditProduct(productId){
 
             <div className="errors"> {errors.image ? errors.image : null}</div>
 
-            <button>Update</button>
+            <button className="uniButton">Update</button>
             </div>
         </form>
         </>

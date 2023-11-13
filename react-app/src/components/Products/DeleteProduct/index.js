@@ -26,8 +26,8 @@ export default function DeleteProduct(productId){
     return (
         <div className="modalsInside">
             <div>Are you sure you want to delete product?</div>
-            <button onClick={toDelete}> YES, DELETE </button>
-            <button onClick={()=>{closeModal()}}>No, Keep </button>
+            <button className='uniButton' onClick={toDelete}> YES, DELETE </button>
+            <button className='uniButton' onClick={()=>{closeModal()}}>No, Keep </button>
         </div>
     )
 

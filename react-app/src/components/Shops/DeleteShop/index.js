@@ -26,8 +26,8 @@ export default function DeleteShop(shopId){
     return(
         <div className="modalsInside">
             <p>Are you sure you want to delete this shop?</p>
-            <button onClick={toDelete}> YES, DELETE </button>
-            <button onClick={()=>{closeModal()}}> No, keep </button>
+            <button className='uniButton' onClick={toDelete}> YES, DELETE </button>
+            <button className='uniButton' onClick={()=>{closeModal()}}> No, keep </button>
         </div>
     )
 
