@@ -23,8 +23,10 @@ export default function DeleteComment(commentId){
     return (
         <div className="modalsInside">
             <div>Are you sure you want to delete comment?</div>
-            <button onClick={toDelete}> YES, DELETE </button>
-            <button onClick={()=>{closeModal()}}>No, Keep </button>
+            <div className="sleepButton">
+                <button className='uniButton' onClick={toDelete}> YES, DELETE </button>
+                <button className='uniButton' onClick={()=>{closeModal()}}>No, Keep </button>
+            </div>
         </div>
     )
 

@@ -57,7 +57,7 @@ export default function EditComment(commentId){
           </label>
 
 
-          <button type="submit">Update</button>
+          <button className='uniButton' type="submit">Update</button>
           </div>
         </form>
       </>

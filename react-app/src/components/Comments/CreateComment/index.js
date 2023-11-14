@@ -57,7 +57,7 @@ export default function CreateCommment(productId){
                 onChange={(e)=>setComment(e.target.value)}
                 />
             </label>
-            <button> Submit </button>
+            <button className="uniButton"> Submit </button>
             </div>
             </form>
         </>
