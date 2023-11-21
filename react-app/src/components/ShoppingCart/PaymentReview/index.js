@@ -30,13 +30,13 @@ export default function PaymentReview(){
 
     return(
         <>
-        <h1>Enter your Payment Information</h1>
-        <form onSubmit={handleSubmit}>
+        <h1 className="shipping">Enter your Payment Information</h1>
+        <form className='hiThere' onSubmit={handleSubmit}>
 
 
             <label>
-                Name on card
-                <input 
+                <div className="might"> Name on card <div className="red"> * </div></div>
+                <input className="toInput"
                     type="text"
                     value={name}
                     onChange={(e)=>setName(e.target.value)}
@@ -45,8 +45,8 @@ export default function PaymentReview(){
             </label>
 
             <label>
-                Card number
-                <input
+                <div className="might"> Card number <div className="red"> * </div></div>
+                <input className="toInput"
                     type="text"
                     value={number}
                     onChange={(e)=>setNumber(e.target.value)} 
@@ -55,8 +55,8 @@ export default function PaymentReview(){
             </label>
 
             <label>
-                Expiration date 
-                <input
+                <div className="might"> Expiration date <div className="red"> * </div></div>
+                <input className="toInput"
                     type="text"
                     value={expiration}
                     onChange={(e)=>setExpiration(e.target.value)} 
@@ -64,15 +64,15 @@ export default function PaymentReview(){
             </label>
 
             <label>
-                Security code
-                <input
+                <div className="might"> Security code <div className="red"> * </div></div>
+                <input className="toInput"
                 type="text"
                 value={security}
                 onChange={(e)=>setSecurity(e.target.value)}
                 />
             </label>
 
-            <button onClick={()=>{history.push('/cart/thankyou')}}>Review your order</button>
+            <button className='paymentButton' onClick={()=>{history.push('/cart/thankyou')}}>Review your order</button>
         </form>
         </>
     )

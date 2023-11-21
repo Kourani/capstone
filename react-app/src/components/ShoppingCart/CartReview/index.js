@@ -4,6 +4,7 @@ import "./CartReview.css"
 
 
 import { login } from "../../../store/session";
+import { countries } from "../../../context/additional";
 
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,49 +44,96 @@ export default function CartReview(){
 
     return(
         <>
-        <h1>Enter your Shipping Address</h1>
-        <form onSubmit={handleSubmit}>
-
+        <h1 className="shipping">Enter your Shipping Address</h1>
+        <form className='hiThere' onSubmit={handleSubmit}>
 
             <label>
-                Country 
-                <input 
+                <div className="might"> Name <div className="red"> * </div></div>
+                <input className="toInput"
+                    type='text'
+                    value={name}
+                    onChange={(e)=>setName(e.target.value)}
+                    required 
+                />
+            </label>
+
+            <label>
+                <div className="might"> Phone Number <div className="grey"> (optional) </div></div>
+                <input className="toInput"
+                    type='text'
+                    value={phoneNumber}
+                    onChange={(e)=>setPhoneNumber(e.target.value)}
+                    required 
+                />
+            </label>
+
+            {/* <label className="toShip">
+                <div className="might">Country <div className="red"> *</div></div>
+                <input  className="toInput"
                     type="text"
                     value={country}
                     onChange={(e)=>setCountry(e.target.value)}
                     required
                 />
-            </label>
+            </label> */}
 
-            <label>
-                State 
-                <input
+<label className="toShip">
+      <div className="might">Country <div className="red">*</div></div>
+      <select
+        className="toInput"
+        value={country}
+        onChange={(e) => setCountry(e.target.value)}
+        required
+      >
+        <option value="">Select a country</option>
+        {countries.map((countryName, index) => (
+          <option key={index} value={countryName}>{countryName}</option>
+        ))}
+      </select>
+    </label>
+
+            <label className="toShip">
+                <div className="might">  State <div className="red"> *</div></div>
+                <input className="toInput"
                     type="text"
                     value={state}
                     onChange={(e)=>setState(e.target.value)} 
+                    required
                 />
 
             </label>
 
-            <label>
-                City 
-                <input
+            <label className="toShip">
+                <div className="might"> City <div className="red"> *</div></div>
+                <input className="toInput"
                     type="text"
                     value={city}
                     onChange={(e)=>setCity(e.target.value)} 
+                    required
+                />
+            </label>
+
+            <label className="toShip">
+                <div className="might"> Street Address <div className="red"> *</div></div>
+                <input className="toInput"
+                type="text"
+                value={streetAddress}
+                onChange={(e)=>setStreetAddress(e.target.value)}
+                required
                 />
             </label>
 
             <label>
-                Street Address
-                <input
-                type="text"
-                value={streetAddress}
-                onChange={(e)=>setStreetAddress(e.target.value)}
+                <div className="might"> Apt/Suite/Other <div className="grey"> (optional) </div></div>
+                <input className="toInput"
+                    type='text'
+                    value={other}
+                    onChange={(e)=>setOther(e.target.value)}
+                    required 
                 />
             </label>
 
-            <button onClick={()=>{history.push('/cart/review/payment')}}>Continue to Payment</button>
+            <button className = 'paymentButton' onClick={()=>{history.push('/cart/review/payment')}}>Continue to Payment</button>
         </form>
         </>
     )
