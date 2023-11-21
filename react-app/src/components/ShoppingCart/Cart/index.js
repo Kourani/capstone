@@ -3,7 +3,7 @@ import {React} from "react"
 import { useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 
-import * as additionalFunctions from "../../context/additional"
+import * as additionalFunctions from "../../../context/additional"
 
 import "./Cart.css"
 
@@ -38,7 +38,7 @@ export default function Cart(){
         <>
         <div className="cartNews">
             <button className="universalModalButtons" onClick={()=>{history.push('/')}}>Continue Shopping</button>
-            <button className="universalModalButtons" onClick={()=>additionalFunctions.comingSoon()}>Checkout</button>
+            <button className="universalModalButtons" onClick={()=> {history.push('/cart/review/shipping')}}>Checkout</button>
         </div>
         <div className="allProducts"> {cartDisplay()}</div>
         </>
@@ -48,7 +48,7 @@ export default function Cart(){
             Your shopping bag is currently empty
             <div className="cartNews">
             <button className="universalModalButtons" onClick={()=>{history.push('/')}}>Continue Shopping</button>
-            <button className="universalModalButtons" onClick={()=>additionalFunctions.comingSoon()}>Checkout</button>
+            {/* <button className="universalModalButtons" onClick={()=>{history.push('/cart/review/shipping')}}>Checkout</button> */}
             </div>
         </div>
 

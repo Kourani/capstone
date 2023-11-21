@@ -19,15 +19,19 @@ import CircleProducts from "./components/Products/CircleProducts";
 import OneShops from "./components/Shops/OneShops"
 import OwnedShops from "./components/Shops/OwnedShops"
 import CreateShop from "./components/Shops/CreateShop"
+import UsShops from "./components/Shops/UsShops"
 
 import AllFavorites from "./components/Favorites/allFavorites";
 import ProductFavorites from "./components/Favorites/ProductFavorites";
 
-import Cart from "./components/Cart"
+import Cart from "./components/ShoppingCart/Cart"
+import CartReview from "./components/ShoppingCart/CartReview";
+import PaymentReview from "./components/ShoppingCart/PaymentReview";
 
 import Profile from "./components/Profile"
 
-import UsShops from "./components/Shops/UsShops"
+
+
 
 function App() {
   const dispatch = useDispatch();
@@ -75,6 +79,14 @@ function App() {
           <ProtectedRoute path="/shops/new">
             <CreateShop/>
           </ProtectedRoute>
+
+          <Route path="/cart/review/shipping">
+            <CartReview/>
+          </Route>
+
+          <Route path="/cart/review/payment">
+            <PaymentReview/>
+          </Route>
 
           <Route path="/cart">
             <Cart/>
