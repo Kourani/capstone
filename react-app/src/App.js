@@ -29,6 +29,7 @@ import CartReview from "./components/ShoppingCart/CartReview";
 import PaymentReview from "./components/ShoppingCart/PaymentReview";
 
 import Profile from "./components/Profile"
+import ThankYou from "./components/ShoppingCart/ThankYou";
 
 
 
@@ -48,13 +49,13 @@ function App() {
       {isLoaded && (
         <Switch>
 
-          <Route path="/favorites/products">
+          <ProtectedRoute path="/favorites/products">
             <ProductFavorites/>
-          </Route>
+          </ProtectedRoute>
 
-          <Route path="/favorites">
+          <ProtectedRoute path="/favorites">
               <AllFavorites/>
-          </Route>
+          </ProtectedRoute>
 
           <Route path="/login" >
             <LoginFormPage />
@@ -80,13 +81,17 @@ function App() {
             <CreateShop/>
           </ProtectedRoute>
 
-          <Route path="/cart/review/shipping">
+          <ProtectedRoute path="/cart/review/shipping">
             <CartReview/>
-          </Route>
+          </ProtectedRoute>
 
-          <Route path="/cart/review/payment">
+          <ProtectedRoute path="/cart/review/payment">
             <PaymentReview/>
-          </Route>
+          </ProtectedRoute>
+
+          <ProtectedRoute path="/cart/thankyou">
+            <ThankYou/>
+          </ProtectedRoute>
 
           <Route path="/cart">
             <Cart/>

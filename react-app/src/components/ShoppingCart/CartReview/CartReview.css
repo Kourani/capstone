@@ -1,6 +1,21 @@
 
+.specErrors{
+    display: flex;
+    flex-wrap: wrap;
+    color: red;
+    padding-right: 10px;
+}
 
+.errorss{
+    color: red;
+    padding-bottom: 35px;
+}
 
+.allThree{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
 .might{
     display: flex;
     flex-direction: row;

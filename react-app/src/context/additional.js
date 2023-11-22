@@ -7,6 +7,30 @@ export function shoppingCart(){
     )
 }
 
+export function visa(){
+    return(
+        <i className="fa-brands fa-cc-visa"></i>
+    )
+}
+
+export function mastercard(){
+    return(
+        <i className="fa-brands fa-cc-mastercard"></i>
+    )
+}
+
+export function discover(){
+    return(
+        <i className="fa-brands fa-cc-discover"></i>
+    )
+}
+
+export function amex(){
+    return(
+        <i className="fa-brands fa-cc-amex"></i>
+    )
+}
+
 export function heart(){
     return (
         <i className="fas fa-heart"></i>

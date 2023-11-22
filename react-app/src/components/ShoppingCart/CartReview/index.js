@@ -19,7 +19,7 @@ export default function CartReview(){
 
     const userState = useSelector(state=>state.session.user)
     
-    const [country, setCountry] = useState()
+    const [country, setCountry] = useState('Select a country')
     const [state, setState] = useState('')
     const [city, setCity] = useState('')
     const [streetAddress, setStreetAddress] = useState('')
@@ -47,37 +47,54 @@ export default function CartReview(){
             error['zipCode'] = 'Please enter a valid Zip Code'
         }
 
-        if(phoneNumber && typeof(phoneNumber) !== 'number' ){
-            error['phoneNumber'] = 'Phone number must consist entirely of numbers'
-        }
+        if(phoneNumber){
+            let num = parseInt(phoneNumber)
 
-        if(phoneNumber && typeof(phoneNumber) === 'number' && phoneNumber.length !== 10){
-            error['phoneNumber'] = 'Please enter a valid phone number'
+            if(isNaN(num)){
+                error['phoneNumber'] = 'Phone number must consist entirely of numbers'
+            }
+            else if(typeof(num) === 'number' && !isNaN(num)){
+                error['phoneNumber'] = 'Please enter a valid phone number'
+            }
+            
         }
         
-        if (name.length <2 ){
+        if (name.length <=2 ){
             error['name'] = 'Must be greater than 2 characters long'
         }
 
+        if(!city){
+            error['city'] = 'City is required'
+        }
+
+        if(city.length < 3){
+            error['city'] = 'Please enter the full city name no abbreviations'
+        }
+
         if(!state){
-            error['state'] = 'This field is required'
+            error['state'] = 'State is required'
+        }
+
+        if(state.length < 3){
+            error['state'] = 'Please enter the full state name no abbreviations'
         }
 
         if(country === 'Select a country'){
-            error['state'] = 'This field is required'
+            error['country'] = 'Country is required'
         }
 
         if(!streetAddress){
-            error['streetAddress'] = 'This field is required'
+            error['streetAddress'] = 'Street Address is required'
         }
 
         setErrors(error)
 
-        console.log(errors)
+        let ari = Object.keys(error)
 
-        if(Object.keys(errors).length === 0){
+        if(ari.length === 0){
             history.push('/cart/review/payment')
         }
+     
     }
 
 
@@ -93,11 +110,10 @@ export default function CartReview(){
                         type='text'
                         value={name}
                         onChange={(e)=>setName(e.target.value)}
-                        required 
                     />
                 </label>
 
-                <div className="errors"> {errors?.name ? errors.name : null}</div>
+                <div className="errorss"> {errors?.name ? errors.name : null}</div>
 
             
 
@@ -110,18 +126,7 @@ export default function CartReview(){
                     />
                 </label>
 
-                <div className="errors"> {errors?.phoneNumber ? errors.phoneNumber : null}</div>
-
-
-                {/* <label className="toShip">
-                    <div className="might">Country <div className="red"> *</div></div>
-                    <input  className="toInput"
-                        type="text"
-                        value={country}
-                        onChange={(e)=>setCountry(e.target.value)}
-                        required
-                    />
-                </label> */}
+                <div className="errorss"> {errors?.phoneNumber ? errors.phoneNumber : null}</div>
 
                 <label className="toShip">
                     <div className="might">Country <div className="red">*</div></div>
@@ -129,7 +134,6 @@ export default function CartReview(){
                         className="toInput"
                         value={country}
                         onChange={(e) => setCountry(e.target.value)}
-                        required
                     >
                         <option value="">Select a country</option>
                         {countries.map((countryName, index) => (
@@ -138,16 +142,21 @@ export default function CartReview(){
                     </select>
                 </label>
 
+                <div className="errorss"> {errors?.country ? errors.country : null}</div>
+                
+
+            <div className="allThree">
                 <label className="toShip">
                     <div className="might">  State <div className="red"> *</div></div>
                     <input className="toInput"
                         type="text"
                         value={state}
                         onChange={(e)=>setState(e.target.value)} 
-                        required
                     />
 
                 </label>
+
+                <div className="specErrors"> {errors?.state ? errors.state : null}</div>
 
                 <label className="toShip">
                     <div className="might"> City <div className="red"> *</div></div>
@@ -155,9 +164,27 @@ export default function CartReview(){
                         type="text"
                         value={city}
                         onChange={(e)=>setCity(e.target.value)} 
-                        required
                     />
                 </label>
+
+                
+                <div className="specErrors"> {errors?.city ? errors.city : null}</div>
+
+
+                
+                <label>
+                    <div className="might"> Zip Code <div className="grey"></div></div>
+                    <input className="toInput"
+                        type='text'
+                        value={zipCode}
+                        onChange={(e)=>setZipCode(e.target.value)}
+                    />
+                </label>
+
+                
+                <div className="specErrors"> {errors?.zipCode ? errors.zipCode : null}</div>
+
+            </div>
 
                 <label className="toShip">
                     <div className="might"> Street Address <div className="red"> *</div></div>
@@ -165,9 +192,10 @@ export default function CartReview(){
                     type="text"
                     value={streetAddress}
                     onChange={(e)=>setStreetAddress(e.target.value)}
-                    required
                     />
                 </label>
+
+                <div className="errorss"> {errors?.streetAddress ? errors.streetAddress : null}</div>
 
                 <label>
                     <div className="might"> Apt/Suite/Other <div className="grey"> (optional) </div></div>
@@ -177,6 +205,8 @@ export default function CartReview(){
                         onChange={(e)=>setOther(e.target.value)}
                     />
                 </label>
+
+                <div className="errorss"> {errors?.other ? errors.other : null}</div>
 
                 <button className = 'paymentButton'>Continue to Payment</button>
             </form>   

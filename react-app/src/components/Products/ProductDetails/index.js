@@ -113,8 +113,10 @@ function ProductDetails(){
                     <div className="justThePrice"> ${productState[productId]?.price}</div>
 
                     <div className="productDetailsButtons">
-                        <button className="buyItNowProductDetails" onClick={()=>{additionalFunctions.comingSoon()}}>Buy it Now </button>
-                        <button className="addToCartProductDetails" onClick={()=>{
+                        <button className="buyItNowProductDetails" onClick={()=>{history.push('/cart/review/shipping')}}>Buy it Now </button>
+
+                        <button className="addToCartProductDetails" 
+                        onClick={()=>{
                                 const payload = {
                                     price:productState[productId]?.price,
                                     image:productState[productId]?.image,
@@ -122,13 +124,14 @@ function ProductDetails(){
                                     id:productState[productId]?.id
                                 }
                                 dispatch(cartActions.addCart(payload))
+                                window.alert(`${productState[productId]?.name} has been added to your cart`)
                             }}> Add to Cart 
                         </button>
                     </div>
                     <p>Meet your Seller</p>
                     <div>{userState[shopOwner]?.firstName} {userState[shopOwner]?.lastName}</div>
                     <div>Owner of <NavLink className='sweetness' exact to={`/shops/${productState[productId]?.shopId}`}>{shopState[productState[productId]?.shopId]?.name}</NavLink></div>
-                    <button className="messageShopOwner" onClick={()=>{additionalFunctions.comingSoon()}}>Message {userState[shopOwner]?.firstName}</button>
+                    {/* <button className="messageShopOwner" onClick={()=>{additionalFunctions.comingSoon()}}>Message {userState[shopOwner]?.firstName}</button> */}
                 </div>
             </div>
         )
