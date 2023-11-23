@@ -34,7 +34,7 @@ export default function AllFavorites(){
 
                 if(element.category === 'Shop'){
                     return (
-                        <button className="product" onClick={()=>{history.push(`/shops/${element.id}`)}}>
+                        <button className="product" onClick={()=>{history.push(`/shops/${element.number}`)}}>
                             <div>
                                 <img className="productImage" src={shopState[element.number]?.image} alt="Image" />
                                 <div className="productName">{shopState[element.number]?.name}</div>
